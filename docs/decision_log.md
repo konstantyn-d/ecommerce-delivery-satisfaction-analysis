@@ -1,8 +1,9 @@
 # Decision log: data quality and cleaning
 
 Every data quality issue found in the raw Olist data, how many rows it touches, and what was decided.
-Row counts come from two generated reports: [`profiling_report.md`](profiling_report.md) (checks marked *P*)
-and [`data_quality_report.md`](data_quality_report.md) (checks marked with their id, for example *B11*).
+Row counts come from three generated reports: [`profiling_report.md`](profiling_report.md) (marked *P*),
+[`data_quality_report.md`](data_quality_report.md) (marked with the check id, for example *B11*) and
+[`model_validation_report.md`](model_validation_report.md) (marked *M*).
 
 Principles:
 
@@ -17,23 +18,24 @@ table is outside the scope of the business question).
 
 ## 1. Decisions that shape the results
 
-These four choices change headline numbers. They are judgement calls, not technical necessities.
+These five choices change headline numbers. They are judgement calls, not technical necessities.
 
 | # | Issue | Rows affected | Decision | Reason |
 |---|---|---|---|---|
 | 1 | Incomplete months at both ends of the period (2016-09 to 2016-12 and 2018-09 to 2018-10) | 349 of 99,441 orders (0.35%): 329 before 2017-01-01, 20 from 2018-09-01 (*A3, A4*) | **Exclude.** Analysis period = orders purchased 2017-01-01 to 2018-08-31: 99,092 orders (*A5*) | 2016 has 329 orders spread over three months with one month missing; the last two months hold 20 orders, none delivered. They would create false drops in every monthly trend and add nothing to the totals. |
-| 2 | Orders that were never delivered (shipped, canceled, unavailable, invoiced, processing, created, approved) | 2,963 of 99,441 orders (2.98%) (*A2*) | **Keep and flag** as delivery outcome `not_delivered`. Excluded only from delivery-time and on-time metrics, which need a delivery date. | They are 3% of orders but carry 2,221 of the 14,494 low-score reviews (15.3%) (*A8, A9*). Dropping them, as most analyses of this dataset do, would hide one of the main sources of bad reviews. |
+| 2 | Orders that were never delivered (shipped, canceled, unavailable, invoiced, processing, created, approved) | 2,963 of 99,441 orders (2.98%) (*A2*) | **Keep and flag** as delivery outcome `Not delivered`. Excluded only from delivery-time and on-time metrics, which need a delivery date. | They are 3% of orders but carry 2,221 of the 14,494 low-score reviews (15.3%) (*A8, A9*). Dropping them, as most analyses of this dataset do, would hide one of the main sources of bad reviews. |
 | 3 | Definition of "late": the promised date has no time of day (always 00:00) | 1,292 delivered orders arrived on the promised calendar day (*B11*). Late orders: 6,534 by calendar day vs 7,826 by timestamp (*B12, B13*) | **Fix.** Compare calendar dates: `delay_days = delivery date − estimated date`; late means `delay_days > 0`. Delivery on the promised day is on time. | The customer was promised a day, not an hour. A timestamp comparison would count every delivery made during the promised day as late and inflate the late count by 20%. |
 | 4 | Several reviews for the same order | 547 orders; in 202 of them the scores differ (*D3, D4*) | **Fix.** Keep one review per order: the most recently answered one. 551 review rows are dropped (*D5*). | Order-level metrics need exactly one score per order, otherwise these orders are counted twice. The latest answer is the customer's final opinion. |
+| 32 | Several orders placed by the same person on the same day | In the analysis period 2,975 people have more than one order, but only 2,129 ordered on more than one day (*M*) | **Fix by definition.** A repeat customer is a person with orders on more than one calendar day. | Orders placed together are one shopping occasion split into several orders (the same pattern as the shared reviews in #12). Counting them as repeat purchases would overstate loyalty by 40%. |
 
 ## 2. Orders and timestamps
 
 | # | Issue | Rows affected | Decision | Reason |
 |---|---|---|---|---|
 | 5 | Status `delivered` but no customer delivery date | 8 orders (*B1*) | **Keep and flag.** Counted as orders; delivery outcome is unknown, so they are left out of on-time and delay metrics. | Delay cannot be computed. Eight rows do not justify guessing a date. |
-| 6 | Status not `delivered` but a customer delivery date exists | 6 orders, all `canceled` (*B2, P*) | **Keep.** The status wins: treated as `not_delivered`; the date is ignored. | A canceled order is a failed order for the customer whatever the date says. |
+| 6 | Status not `delivered` but a customer delivery date exists | 6 orders, all `canceled` (*B2, P*) | **Keep.** The status wins: treated as `Not delivered`; the date is ignored. | A canceled order is a failed order for the customer whatever the date says. |
 | 7 | Delivered to the customer before handover to the carrier | 23 orders (*B4*) | **Keep.** The carrier date is not used for delivery time or delay. | The carrier timestamp is the unreliable one; purchase, delivery and estimate are consistent (*B3, B8* = 0). |
-| 8 | Handed to the carrier before purchase or before payment approval | 166 and 1,359 orders (*B5, B6*) | **Keep and flag.** If seller handling time is analysed, negative intervals are set to NULL. | Same cause as #7. Does not affect the core delivery metrics. |
+| 8 | Handed to the carrier before purchase or before payment approval | 166 and 1,359 orders (*B5, B6*) | **Fix.** `handling_days` and `transit_days` are set to NULL when the interval would be negative. | Same cause as #7. Does not affect the core delivery metrics. |
 | 9 | Delivered orders without payment approval date or carrier date | 14 and 1 orders (*B9, B10*) | **Keep.** | Neither column feeds a core metric. |
 | 10 | Very long deliveries and very long delays | 298 orders took more than 60 days; 345 were more than 30 days late; maximum 210 days (*B14, B15*) | **Keep.** Report medians and delay bands next to averages. | These are real service failures and exactly the subject of the analysis, not measurement errors. Averages alone would be dominated by them. |
 | 11 | Deliveries far ahead of the promised date | Median delay is −12 days; 1st percentile −36 days | **Keep.** | Not an error: the promised dates are conservative. Relevant finding for the analysis, noted for Phase 4. |
@@ -69,7 +71,7 @@ These four choices change headline numbers. They are judgement calls, not techni
 | 26 | `customer_id` is issued per order, not per person | 99,441 `customer_id` values for 96,096 people (*P*) | **Fix.** People are counted with `customer_unique_id`. | Otherwise every customer looks like a first-time buyer and the repeat purchase rate is zero. |
 | 27 | Same person, orders delivered to different states | 39 people (*E6*) | **Keep.** Geography is taken from the delivery address of each order, not from the person. | A delivery problem belongs to the place the parcel was sent to. |
 | 28 | Geolocation table: duplicates, points outside Brazil, missing zip prefixes | 261,831 duplicate rows; 42 rows outside Brazil; 278 customer rows and 7 sellers without a match (*P, E7, E8*) | **Not used.** Geography is analysed by state; distance is approximated by "seller and customer in the same state or not". | State is complete for every customer and seller (*E9, E10* = 0). Cleaning one million coordinate rows would not change the recommendation. To be revisited only if Phase 4 shows that the state-level view is not enough. |
-| 29 | Implausible `shipping_limit_date` | 4 item rows dated after 2018-12-31 (*P*) | **Not used.** | The column is not needed. |
+| 29 | Implausible `shipping_limit_date` | 4 item rows dated after 2018-12-31 (*P*) | **Keep.** The column is only used for the flag `is_seller_handover_late`. | A deadline in 2020 can never be missed, so these 4 rows count as handed over in time. Too few to matter. |
 | 30 | Product weight of zero, missing dimensions | 4 and 2 products (*P*) | **Not used.** | Weight and dimensions are outside the scope. |
 | 31 | Misspelled source columns (`product_name_lenght`, `product_description_lenght`) | 2 columns | **Fix** if the columns are used: renamed in the model. | Readability. |
 

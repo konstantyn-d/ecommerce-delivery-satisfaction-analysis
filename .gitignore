@@ -3,7 +3,10 @@
 data/raw/*
 !data/raw/.gitkeep
 
-# Local DuckDB database: rebuilt from the CSV files by run_sql.py
+# Build artefacts: the DuckDB database and the Parquet exports for Power BI.
+# Both are rebuilt from the raw CSV files by `python run_sql.py`.
+data/processed/*
+!data/processed/.gitkeep
 *.duckdb
 *.duckdb.wal
 

@@ -2,7 +2,7 @@
 
 Business analysis of customer dissatisfaction on the Olist Brazilian e-commerce marketplace.
 
-> **Status: work in progress.** Data understanding and data quality review are complete.
+> **Status: work in progress.** Data understanding, data quality review and the data model are complete.
 > Findings, dashboard and recommendations will be added as the analysis progresses: [TBD].
 
 ## Business question
@@ -15,7 +15,7 @@ Framed as a request from Olist's Head of Operations.
 
 ```
 data/raw/         raw CSV files (not committed, see "How to reproduce")
-data/processed/   DuckDB database and model exports (built by the scripts)
+data/processed/   DuckDB database and Parquet exports for Power BI (not committed, built by the scripts)
 sql/              load, model and KPI queries, numbered in run order
 notebooks/        exploration scripts, numbered
 review_coding/    codebook, sample and coded results of the qualitative review analysis
@@ -24,8 +24,29 @@ deck/             slide deck (PDF)
 docs/             data dictionary, profiling report, metric definitions, decision log
 ```
 
+## Data model
+
+A star schema in DuckDB: two fact tables at different grains sharing the date and geography dimensions.
+Field definitions and design reasons are in [docs/data_model.md](docs/data_model.md).
+
+```mermaid
+erDiagram
+    dim_date      ||--o{ fact_orders      : "purchase_date"
+    dim_geography ||--o{ fact_orders      : "customer_state"
+    dim_customer  ||--|{ fact_orders      : "customer_unique_id"
+    dim_date      ||--o{ fact_order_items : "purchase_date"
+    dim_geography ||--o{ fact_order_items : "customer_state"
+    dim_product   ||--o{ fact_order_items : "product_id"
+    dim_seller    ||--o{ fact_order_items : "seller_id"
+```
+
+- `fact_orders` (one row per order): delivery outcome, delay, order value, review score
+- `fact_order_items` (one row per unit sold): seller, product, price, freight
+
 ## Documentation
 
+- [Data model](docs/data_model.md): star schema, derived field definitions, Power BI relationships
+- [Model validation report](docs/model_validation_report.md): 36 tests reconciling the model with the raw data
 - [Data dictionary](docs/data_dictionary.md): tables, grain, relationships, columns and known issues
 - [Profiling report](docs/profiling_report.md): generated row counts, nulls, keys and relationship checks
 - [Decision log](docs/decision_log.md): every data quality issue, rows affected, decision and reason
@@ -42,11 +63,15 @@ docs/             data dictionary, profiling report, metric definitions, decisio
    .venv\Scripts\activate
    pip install -r requirements.txt
    ```
-3. Build the database and the generated reports:
+3. Build the database, the star schema and the Parquet exports (runs every file in `sql/` in order):
    ```
    python run_sql.py
+   ```
+4. Regenerate the reports in `docs/`:
+   ```
    python notebooks/00_data_profiling.py
    python notebooks/01_data_quality_checks.py
+   python notebooks/02_model_validation.py
    ```
 
 ## Data source and licence
