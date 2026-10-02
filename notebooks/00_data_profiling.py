@@ -12,9 +12,13 @@
 # This script only READS the data. It changes nothing.
 
 # %%
+import sys
 from pathlib import Path
 
 import duckdb
+
+# Windows consoles default to a legacy code page; force UTF-8 so Portuguese text prints safely.
+sys.stdout.reconfigure(encoding="utf-8")
 
 try:
     ROOT = Path(__file__).resolve().parents[1]
@@ -100,7 +104,9 @@ report += md_table(["table", "rows", "columns"], overview)
 # One query per table. For each column we compute:
 # - nulls    = total rows minus rows where the column is filled
 # - distinct = number of different values (a column with distinct = rows is a key candidate)
-# - example  = one real value, so the dictionary shows what the data looks like
+# - example  = the first filled value in file order, so the dictionary shows what the data looks like
+#              (arg_min over rowid instead of any_value: any_value can return a different row on
+#              every run, and a generated report must be identical when re-run)
 # - min/max  = only for numbers and dates (for text the alphabetical min/max is meaningless)
 
 # %%
@@ -114,7 +120,7 @@ for table in TABLES:
     for name, _ in columns:
         parts.append(
             f'count(*) - count("{name}"), count(DISTINCT "{name}"), '
-            f'any_value("{name}"), min("{name}"), max("{name}")'
+            f'arg_min("{name}", rowid) FILTER (WHERE "{name}" IS NOT NULL), min("{name}"), max("{name}")'
         )
     result = con.execute(f"SELECT {', '.join(parts)} FROM raw.{table}").fetchone()
 

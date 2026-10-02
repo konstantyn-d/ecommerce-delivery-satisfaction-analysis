@@ -2,7 +2,7 @@
 
 Business analysis of customer dissatisfaction on the Olist Brazilian e-commerce marketplace.
 
-> **Status: work in progress.** Phase 0 (setup and data understanding) is complete.
+> **Status: work in progress.** Data understanding and data quality review are complete.
 > Findings, dashboard and recommendations will be added as the analysis progresses: [TBD].
 
 ## Business question
@@ -28,6 +28,8 @@ docs/             data dictionary, profiling report, metric definitions, decisio
 
 - [Data dictionary](docs/data_dictionary.md): tables, grain, relationships, columns and known issues
 - [Profiling report](docs/profiling_report.md): generated row counts, nulls, keys and relationship checks
+- [Decision log](docs/decision_log.md): every data quality issue, rows affected, decision and reason
+- [Data quality report](docs/data_quality_report.md): the generated counts behind the decision log
 
 ## How to reproduce
 
@@ -40,10 +42,11 @@ docs/             data dictionary, profiling report, metric definitions, decisio
    .venv\Scripts\activate
    pip install -r requirements.txt
    ```
-3. Build the database and the profiling report:
+3. Build the database and the generated reports:
    ```
    python run_sql.py
    python notebooks/00_data_profiling.py
+   python notebooks/01_data_quality_checks.py
    ```
 
 ## Data source and licence
