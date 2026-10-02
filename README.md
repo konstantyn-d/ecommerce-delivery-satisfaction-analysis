@@ -3,7 +3,7 @@
 Business analysis of customer dissatisfaction on the Olist Brazilian e-commerce marketplace.
 
 > **Status: work in progress.** Data model, metric definitions and the hypothesis-driven analysis are complete.
-> Qualitative coding of 300 Portuguese reviews is done. Still to come: scenario, dashboard and deck. The final summary of findings is [TBD]
+> Analysis, review coding and the what-if scenario are done. Still to come: dashboard and deck. The final summary of findings is [TBD]
 > until those are done; the current findings are in [docs/analysis_findings.md](docs/analysis_findings.md).
 
 ## Business question
@@ -46,6 +46,7 @@ erDiagram
 
 ## Documentation
 
+- [Scenario](docs/scenario.md): what fixing late deliveries and incomplete orders could achieve, with assumptions and low / base / high ranges
 - [Review coding findings](review_coding/findings.md): what customers complain about in 300 coded reviews, with quotes
 - [Review coding files](review_coding/README.md): codebook, sampling method, coding and consistency check
 - [Analysis findings](docs/analysis_findings.md): issue tree, 12 hypotheses with test, result and conclusion, charts
@@ -83,9 +84,10 @@ erDiagram
    python notebooks/04_hypothesis_analysis.py
    python notebooks/05_review_sample.py
    ```
-5. Compute the review coding results from `review_coding/coding.csv`:
+5. Compute the review coding results from `review_coding/coding.csv`, then the scenario:
    ```
    python notebooks/06_review_coding_results.py
+   python notebooks/07_scenario.py
    ```
 
 ## Data source and licence
