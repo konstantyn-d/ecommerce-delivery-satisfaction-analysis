@@ -2,7 +2,7 @@
 
 Business analysis of customer dissatisfaction on the Olist Brazilian e-commerce marketplace.
 
-> **Status: work in progress.** Data understanding, data quality review and the data model are complete.
+> **Status: work in progress.** Data understanding, data quality review, data model and metric definitions are complete.
 > Findings, dashboard and recommendations will be added as the analysis progresses: [TBD].
 
 ## Business question
@@ -45,6 +45,8 @@ erDiagram
 
 ## Documentation
 
+- [Metric definitions](docs/metric_definitions.md): business definition, formula, grain, filters and caveats of every KPI
+- [KPI baseline](docs/kpi_baseline.md): generated reference values, total and by month
 - [Data model](docs/data_model.md): star schema, derived field definitions, Power BI relationships
 - [Model validation report](docs/model_validation_report.md): 36 tests reconciling the model with the raw data
 - [Data dictionary](docs/data_dictionary.md): tables, grain, relationships, columns and known issues
@@ -63,7 +65,7 @@ erDiagram
    .venv\Scripts\activate
    pip install -r requirements.txt
    ```
-3. Build the database, the star schema and the Parquet exports (runs every file in `sql/` in order):
+3. Build the database, the star schema, the KPI views and the Parquet exports (runs every file in `sql/` in order):
    ```
    python run_sql.py
    ```
@@ -72,6 +74,7 @@ erDiagram
    python notebooks/00_data_profiling.py
    python notebooks/01_data_quality_checks.py
    python notebooks/02_model_validation.py
+   python notebooks/03_kpi_baseline.py
    ```
 
 ## Data source and licence
