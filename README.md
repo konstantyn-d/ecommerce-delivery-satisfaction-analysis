@@ -2,8 +2,9 @@
 
 Business analysis of customer dissatisfaction on the Olist Brazilian e-commerce marketplace.
 
-> **Status: work in progress.** Data understanding, data quality review, data model and metric definitions are complete.
-> Findings, dashboard and recommendations will be added as the analysis progresses: [TBD].
+> **Status: work in progress.** Data model, metric definitions and the hypothesis-driven analysis are complete.
+> Still to come: qualitative review coding, scenario, dashboard and deck. The final summary of findings is [TBD]
+> until those are done; the current findings are in [docs/analysis_findings.md](docs/analysis_findings.md).
 
 ## Business question
 
@@ -21,7 +22,7 @@ notebooks/        exploration scripts, numbered
 review_coding/    codebook, sample and coded results of the qualitative review analysis
 dashboard/        Power BI file and screenshots
 deck/             slide deck (PDF)
-docs/             data dictionary, profiling report, metric definitions, decision log
+docs/             data dictionary, decision log, data model, metric definitions, findings, charts
 ```
 
 ## Data model
@@ -45,6 +46,8 @@ erDiagram
 
 ## Documentation
 
+- [Analysis findings](docs/analysis_findings.md): issue tree, 12 hypotheses with test, result and conclusion, charts
+- [Analysis results](docs/analysis_results.md): the generated tables behind the findings
 - [Metric definitions](docs/metric_definitions.md): business definition, formula, grain, filters and caveats of every KPI
 - [KPI baseline](docs/kpi_baseline.md): generated reference values, total and by month
 - [Data model](docs/data_model.md): star schema, derived field definitions, Power BI relationships
@@ -75,6 +78,7 @@ erDiagram
    python notebooks/01_data_quality_checks.py
    python notebooks/02_model_validation.py
    python notebooks/03_kpi_baseline.py
+   python notebooks/04_hypothesis_analysis.py
    ```
 
 ## Data source and licence
