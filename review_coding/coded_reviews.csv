@@ -1,0 +1,344 @@
+﻿sample_id,review_id,review_score,primary_category,secondary_category,notes,delivery_outcome,delivery_group,review_comment_message
+1,10652d90aed6e45f47a182b96c3d2e6f,1,Incomplete order,,,On time,"On time, several items",Recebido as películas mas não a capa
+2,b3990df973d58fe088fd3c24923263d8,2,Incomplete order,,,On time,"On time, several items",o trocador veio mas ficou faltando os dois mosquiteiros que era pra vir junto
+3,e531cf1aebca7e96e2e55a08b44c0e2d,2,Incomplete order,,tag: marked as delivered,On time,"On time, several items",Recebi somente 1 item.....faltam os 2 jogos de lençol e a compra está no site do baratheon como entrega efetuada. Peço para verificar o ocorrido e informar qusndobirei receber os itens faltantes.
+4,b04acacb45424b2ddee5e6911cc399fd,1,Other or unclear,,,On time,"On time, single item",nao
+5,b373101437627ce7029f814f490b8f5d,1,Wrong item,,wrong voltage variant,On time,"On time, single item","Prezados minha encomenda era do produto waterpik 110 v e foi entregue o produto em 220 v. Como procedo a troca ? 
+Atenciosamente
+Flavio"
+6,8a91e881eeb69a3025d865df90399420,1,Incomplete order,,,On time,"On time, single item",Veio faltando peça
+7,3d6af3d16d8ad6c987f43e9a10f9f46b,1,Damaged or defective,,,On time,"On time, single item","Aguardo a devolução do produto pois o mesmo veio sem caixa,e riscado."
+8,261ea274929dde34c70d4effc988d8dd,1,Not received,,tag: out of stock,Not delivered,Not delivered,"Precisa 30 dias pra fazer entrega do produto, quando encerra o prazo de entrega apenas constataram que não havia o produto em estoque. Que falta de consideração com seus clientes."
+9,8e47d81d9a2259f0ff7664c7b715f9da,2,Poor quality or not as described,,tag: not original,On time,"On time, single item","O PRODUTO CHEGOU NO PRAZO, POREM NÃO PARECE ORIGINAL, NÃO VEIO NEM NA CAIXA ORIGINAL DO PERFUME.
+SE O PRODUTO NÃO É ORIGINAL ACHO QUE DEVERIA SER AVISADO"
+10,45cf0253815947e90d358d41034f403e,1,Damaged or defective,,,On time,"On time, single item","recebi o produto antes mesmo do prazo, porem o mesmo não funciona."
+11,f893d195e262851a9fb5adbbdc0a6316,1,Not received,,,Late,Late,Não recomendo essa loja pra ninguém comprei o presente do meu filho no dia 23 de janeiro vai fazer um mês e nada ainda estão dizendo que o carteiro chamou e ninguém atendeu fiquei o dia inteiro emcasa
+12,373cbeecea8286a2b66c97b1b157ec46,1,Not received,,,Not delivered,Not delivered,Péssimo
+13,8d59da32551bf16e44d0094ea8eac746,1,Not received,Seller service and refunds,,Not delivered,Not delivered,A loja não entregou o produto e nem informou sobre o andamento. Esperei pelo prazo informado e solicitei cancelamento. Recebi um vale que serei obrigada a utilizar na loja. Faltou respeito.
+14,3ccaf62c97a552b72296f6c84d6ecf22,1,Not received,,,Not delivered,Not delivered,Até o presente momento o produto ainda não foi entregue
+15,c975f512be8c3fb8ecb66cb037b4dff2,1,Not received,,,Late,Late,"Não aguento mais esperar por meu produto, uma falta de comprometimento com o cliente."
+16,97e128c1f6c5237e418f577aea822340,2,Wrong item,Seller service and refunds,"wrong measure, read as wrong size variant",On time,"On time, several items","Produto chegou no prazo,porem, nao veio na medida correta.
+Tentei entrar em contato para troca ou devolucao e nao obtive nenhuma resposta."
+17,942197d1c84410c7970b68f3c5a608c5,1,Late delivery,Seller service and refunds,,Late,Late,Empresa não cumpriu com a data de entrega. Quero meu dinheiro dos tapetes de volta Péssima... nunca mais comprarei com essa empresa e vou reclamar no site ReclameAqui e outros de defesa ao consumidor.
+18,16728f3238713050226dbe9e2c72489d,1,Damaged or defective,,,On time,"On time, single item",Produto não funciona e sem manual de instrução.
+19,ad3b0667d47faf712a364894b7279e6e,1,Incomplete order,,,Late,Late,"Comprei 2 relógios e recebi somente 1. Assinei a entrega porque imaginei que viriam em duas entregas separadas, porém quando abri na nota fiscal estão os dois. Espero urgente uma posição."
+20,a4962841c3d8a78e7c249beabf822014,1,Not received,,,Late,Late,Não recebemos o produto.
+21,9ecb9b631ade18a0ff87f9a16e5bb395,1,Not received,,,Late,Late,Nao recebi o produto ainda...2 meses.
+22,d420f8d57b0972fec5a66d8104570e08,1,Incomplete order,,,On time,"On time, several items","Paguei por dois produtos..
+Só entregaram um
+Vou recorrer na justiça"
+23,c7ecd3d49473c11b9ba438f8937235b5,1,Poor quality or not as described,,tag: not original,On time,"On time, several items","SRS, O PRODUTO ENVIADO É FALSO, NÃO É ORIGINAL LG. TRATA-SE DE PRODUTO PIRATA / CHING LING. SOLICITO TROCA POR ORIGINAL."
+24,987016354841e54f7eb08a6cff44ad68,1,Wrong item,,,On time,"On time, single item","Comprei dois jogos de cama da mesma marca mas com cores diferentes, porém veio o mesmo produto"
+25,7dfd824594c59956d80b7dfca74a83a4,1,Seller service and refunds,,no product or delivery problem stated explicitly,Not delivered,Not delivered,"Não gostei da falta de comunicação, via email, da lannister, nem das informações nos rastreamento da transportadora, não batem... Já fiz meu pedido de ressarcimento por telefone. Esperando..."
+26,634421fc06a99aed1d28ee3bd8649c76,1,Not received,,,Late,Late,Não recebi meu produto.
+27,5aa54ee3384aac1952e312b2cc2b1dc6,1,Wrong item,,,On time,"On time, single item",Site ofereceu um produto e foi entregue outro.
+28,2f0e22a4e08a0e21c1612a2fc05e3db9,1,Poor quality or not as described,,,On time,"On time, single item","Bem pouquíssimo produto, e deixa a pele muito oleosa brilha muito por ser um preço salgado esperava mais do produto, ainda bem que comprei pra testar ."
+29,72912f4807c953e4f2571393928ec3ab,1,Seller service and refunds,,,Not delivered,Not delivered,"Tentativa de compra: 3x
+Cancelada por n motivos. Já reembolsada. Por favor, esqueça que eu existo? Não quero mais receber e-mails ou ligações a respeito!"
+30,96ab47052a57bbfbba3b48d4203cf1f3,1,Incomplete order,,,On time,"On time, several items","RECEBI METADE DO PEDIDO E NA NOT FISCAL CONSTA TODA MERCADORIA, FALTA DE RESPEITO, ESTOU AGUARDANDO RETORNO DO MEU OUTRO KIT CAPA E PELICULA POIS RECEBI SOMENTE 1 KIT."
+31,7c5b4989db1d976c7c04dca544630bf6,1,Incomplete order,,,On time,"On time, several items","Em um primeiro instante fiquei satisfeita, pois o pedido chegou antes do prazo, mais quando abri a caixa o pedido estava incompleto. Pedi dois jogos e só veio um. Gostaria de uma resposta do site."
+32,1e3be85cf0acd08b1b837ba5d1a4d01a,1,Seller service and refunds,,,Not delivered,Not delivered,Nao me deram satisfação nenhuma
+33,c16e56b93a73482b1961e460b1a9fcd6,2,Incomplete order,,,On time,"On time, several items",dos produtos acima citados so recebi o champoo a touca termica ate hoje estou aguardando...
+34,719496e676d1a114fad922fa1568d773,1,Not received,,,Not delivered,Not delivered,"Fiz meu pedido em fevereiro em fevereiro e até agr nada, irei correr a traz do meu prejuízo"
+35,129e42c8d3e47ea566f6d23b38c90880,1,Wrong item,Damaged or defective,,On time,"On time, single item","Relógio bonito, mas não é o mesmo da foto. o da foto tinha calendário o que me foi entregue não tinha e veio com o ponteiro quebrado!"
+36,c3fd248a8aa8e05c56a5e0402113bb5c,1,Poor quality or not as described,,,On time,"On time, single item",O produto é totalmente diferente do que está sendo mostrado no site. Muito inferior.
+37,b434b9258ba57e52ed3586a0dd0d397e,1,Not received,,,Late,Late,Produto nao chegou
+38,82c681eb01c49386d88ed59b30adfbc9,1,Other or unclear,,,On time,"On time, single item",Péssima compra!
+39,94665539f5507a993b0ff44a7d13dd98,1,Not received,,,Late,Late,"Já faz 1 mês que fiz a compra e ainda não chegou, não consigo nem rastrear. 
+Espero que resolvam meu problema."
+40,4c5cafe56f365c7554aa09abb3c929c7,1,Not received,Seller service and refunds,,Late,Late,Não recebi o produto ainda. Não obtive satisfaça sobre o ocorrido
+41,cd5456007623da2dd224661d1e058130,1,Not received,,,Late,Late,AINDA NÃO RECEBI O PRODUTO
+42,5a86eb2cc89faaed64c716ca5fed0b99,2,Incomplete order,Late delivery,,On time,"On time, several items","Estava desistindo da compra por terem alterado a previsão de entrega após o fechamento do pedido, porém me ligaram dizendo que já estava a caminho. Recebi 1 peça do produto, sendo que comprei 2."
+43,7b9038e4600476ca898b1814cf9f9d37,1,Wrong item,,,On time,"On time, single item",nao recebi o que eu comprei. recebi uma camera bem baratinha. quero o stand alond. preciso com urgencia. comprei na lannister por confiar na loja e na rapidez de entrega.
+44,9d4411bdd3c04d8b4670693160608ca4,1,Seller service and refunds,,,Not delivered,Not delivered,eu pedi o cancelamento na mesma hora e mesmo a assim mandaram para o correio só quero estorno o brigador
+45,0a6843048d2229baf1201b4783d38df3,1,Not received,,tag: pickup at post office; parcel returned to sender,Not delivered,Not delivered,"O serviço de entrega é feita através dos correios e este apesar de ter sido pega taxa entrega , não entrega na residência.Qdo puder ir fazer a retirada na ag. central o produto já havia sido devolvido"
+46,af537f56e6c0e24e60d00e05b85297e8,1,Other or unclear,,,Late,Late,Não comprem nesse site
+47,ba5af31750f48e4275c108037d09f902,1,Wrong item,,,On time,"On time, single item",Eu comprei um produto e me mandaram outro produto com especificações diferentes.
+48,259a68a347afffb39e61dd3665220dd5,1,Not received,Seller service and refunds,,Not delivered,Not delivered,"não recomendo porque até o momento não recebi meu produto,nem tive nenhuma informação da empresa responsavél"
+49,854ce3274684322d2ad677b5246530c0,1,Incomplete order,,one of two parcels returned; also complains about paying freight twice,Late,Late,"Comprei dois produtos iguais, tive que pagar frete separado. E pra piorar umas das encomendas retornaou e eu não sei como vou fazer para receber minha encomenda. Não recomendo esta empresa."
+50,df270a5151e2a36ec2898bd54513bd3e,1,Damaged or defective,,,On time,"On time, single item","Já solicitei devolução do produto. Veio amassado, parece que houve uma queda"
+51,c614b7811fd180dc4ba3c3e3cb804c45,1,Damaged or defective,Seller service and refunds,,On time,"On time, single item","produto nao funciona,, nao consegui entrar conta por telefone da empresa que me vendeu, fala telefone nao existente. estragou minha impressora o produto q foi me vendido."
+52,a2a57bf2fc42d185910f9881502faa18,2,Incomplete order,Seller service and refunds,,On time,"On time, single item",Recebi apenas um dos produtos e a empresa não entrou em contato comigo .
+53,859dbc352e22543b0367027577dae598,1,Poor quality or not as described,Seller service and refunds,tag: not original,On time,"On time, single item","A propaganda desse produto é falsa! A chapinha não é a original, é uma réplica. Estou aguardando a resposta para obter meu dinheiro de volta."
+54,8af510702b70e7f87055b09d33e9b197,1,Not received,,,Not delivered,Not delivered,Insatisfação total com essa loja vende um produto é não entrega tremenda falta de respeito
+55,4f77df2dcafcab527209eaba883acda6,1,Late delivery,,,On time,"On time, single item",Entrga depois do prazo
+56,c7a8f93e1c9d31800961433ceb659337,1,Incomplete order,Seller service and refunds,,On time,"On time, several items",Comprei 2 e paguei duas e recebi uma. Já avri Reclamação e nada
+57,e51f7033d396aeea9374fd60ca39a2d0,1,Not received,,"present tense (still late), read as not yet arrived",Not delivered,Not delivered,Meu produto está em atraso era pra ter sido entregue no dia 10/03
+58,e39806f8cf60e78471d43c5a2a944c5b,1,Poor quality or not as described,,tag: not original,On time,"On time, single item","Na foto do site das lannister é exibida uma foto do cartucho Canon Original, porém o produto recebido não é Canon, trata-se de uma cartucho genérico de reposição."
+59,47a4f48be34dd4a1c24b24a173ed1f6d,1,Wrong item,,own parcel delivered to another person,On time,"On time, single item","Minha compra foi entregue para outra pessoa.
+Recebi uma peça que não comprei"
+60,5922d73c4cc61e2d5357a8a0332986c5,2,Wrong item,,,On time,"On time, single item","Boa noite 
+
+ao invés do meu quadro eu recebi um jogo de poker! Peço que resolvam o problema o qto antes."
+61,8c411799802145765084ae272c6977e4,1,Incomplete order,,,On time,"On time, several items",veio somente uma pastilha de 06 e nao recebi o cloro ainda !!!
+62,e712c1926494c9c15bc92dc00d942e7a,1,Not received,,,Not delivered,Not delivered,comprei dois produtos há mais de um mês e não recebi nenhum
+63,4468ac1449f217cfb02de99d68752ae8,1,Wrong item,,,On time,"On time, single item","Recebi a capa errada, maior que o celular. Vou ter que devolver. E cancelar a pagamento."
+64,c1b4a0188f42cb250bf5549c9501eb20,1,Wrong item,,,On time,"On time, single item",não veio o produto que eu comprei.
+65,0e0d3d334fdeb3c472bd0ac5898121d8,1,Wrong item,,,On time,"On time, single item",paguei mais caro para receber o produto na cor do anuncio que é vermelho e recebi roxo
+66,c99922b1457d540799643a492e44b89c,2,Late delivery,,,Late,Late,Paguei pelo produto e não chegou na data prevista
+67,1a7154b5812fe074449cb5ffb03d862d,1,Damaged or defective,Seller service and refunds,,On time,"On time, single item",Não recebi a nota fiscal e o toner que recebi está com defeito
+68,85f5e7fd31952fe2733c02f90ff88d38,1,Wrong item,,"wants an exchange, read as wrong product received",On time,"On time, single item","Não recebi o produto que comprei, quero ver agora como vai ser pra trocar!!!"
+69,51df8a28fbbd51be23f247130f4ed1a5,1,Other or unclear,,tag: pickup at post office,On time,"On time, single item","Perguntei se era entregue pelos correios ou transportadora, disseram que era transportadora por isso comprei. Porém não foi, tive que ir buscar em um correio super longe da minha residência."
+70,6084f1c166ab05e79c72e5bc7e1baa6a,1,Incomplete order,Wrong item,,On time,"On time, several items",Comprei 2 espadas do minicraft 60 cm brilhante azul. Recebi apenas 1 (uma) e de 45cm. Quero receber as duas espadas adquiridas e no tamanho que foram vendidas e pagas.
+71,992119ef0f9cf599af33796269feb344,2,Damaged or defective,,,On time,"On time, single item","A caixa veio bem amassada parecia um produto usado um dos dvds chegou com a caixa quebrada, (a borda), os outros vieram lacrados, mas tinha um brinde."
+72,3de3ea1f194e5c1fcf9a6451d3d1a956,1,Not received,Seller service and refunds,,Not delivered,Not delivered,"Até a presente data não recebi o produto mas já informei por e-mail o sac de vcs, estou aguardando uma posição."
+73,8a850152ac220811336e45ee139e51f3,2,Poor quality or not as described,Seller service and refunds,,On time,"On time, single item","No anúncio não diz o tipo de gás para utilização, e infelizmente o que chegou não é o que eu preciso. Como a compra é por empresa parceira, tu não tem contato com eles. Tenho que devolver."
+74,f32b9ee59995b2c9037d12c35b0420ee,1,Not received,,,Late,Late,"Não compre com esta empresa targaryen que faz a entrega. Eles enviam pelo correio e como o correio está uma merda, o produto não chega nunca."
+75,ac539a0c2872d72debbd2cd0cfc909db,1,Late delivery,,,Not delivered,Not delivered,Não recebi o produto na data prometida
+76,e6efc6e5b9e1e334a1eb4b2ed30b7d50,1,Not received,,,On time,"On time, single item",Estou no aguardo da entrega.
+77,fd1799ec3102ccc8a85761733fd1bfb3,1,Not received,,,On time,"On time, single item",Minha mercadoria nao chegou ainda
+78,ea26fabc9c138718949ed5138c76d625,1,Incomplete order,Seller service and refunds,,On time,"On time, several items",Não recebi um dos produtos..atendimento pelo sac é péssimo pessoas mal treinadas.sempre compro pelo site lannister nunca tive problemas mas dessa vez horrível..sem explicações atendentes péssimos
+79,8a39390b2fad16ab8f9412ae21e657d7,2,Damaged or defective,Late delivery,also an unanswered return request,Late,Late,"O produto foi entregue um dia depois do prazo e chegou com defeito, estou até hoje aguardando email da targaryen para devolver e obter o que realmente comprei. Não indico a ninguém a compra pelo stark"
+80,04c17aaad5d50a6ea5e86ac461df0278,2,Poor quality or not as described,,,On time,"On time, single item","Não fica bom se instalado em azulejos, pois marca muito nos rejuntes, ficando com muitas bolhas..por isso não indico o produto, a loja entregou super rápido."
+81,a0c54db12ad83286199e33beea35dcaf,2,Other or unclear,,positive text with a low score,On time,"On time, single item",Serviço muito bom
+82,5016f2fae10182cbff189ed4da31d9ac,1,Not received,,,Late,Late,"ATÉ HOJE MAIS DE 1 MÊS E NÃO RECEBI O PRODUTO.
+VOU TER DE ENTRAR COM AÇÃO NO JUIZADO PARA RECEBER DE VOLTA? -E MEUS PREJUIZOS?
+
+SOU CLIENTE DA lannister E JÁ COMREI DIVERSAS VEZES, ATÉ UMA TV DE 4"
+83,756535cde17cec0de605f613331bb90a,1,Poor quality or not as described,,,On time,"On time, single item",A capa mais parece um grande saco de lixo do que uma capa para carros! Horrível e péssima qualidade! Não recomendo!
+84,5148ad2bdca65375e9504355d79c6ad4,1,Incomplete order,Seller service and refunds,,On time,"On time, several items",Realizei um pedido com dois itens e apenas 1 deles foi entregue. Fiz algumas reclamações e até agora ninguém entrou em contato comigo pra entregar o outro produto ou para devolver o dinheiro.
+85,6d33a7b70521b7fb2194138533ebd2f9,2,Poor quality or not as described,,,On time,"On time, single item","É muito transparente, costura soltando e não veste como na foto, tenho outra capa, e essa sim é perfeita, sendo assim, não recomendo ninguém a comprar."
+86,ef2d8e648278d34146630b211e48c18c,1,Wrong item,Late delivery,,On time,"On time, single item",Além de demorar muito recebi o produto errado.
+87,3f4c980191b310bd55bfaa63c02ad996,1,Wrong item,,,On time,"On time, single item",Foi entregue uma capa com zíper e eu comprei uma capa envelope como consta na listagem dos meus pedidos. Gostaria de saber como será resolvido este problema.
+88,534935b9395a0751ecfece59dafe804a,2,Late delivery,,,Late,Late,O prazo não foi cumprido
+89,eb0d162696d811ceb00a6aab83b0d75a,1,Seller service and refunds,,,Not delivered,Not delivered,"Não mandam outro nem cancelam a compra anterior, ou seja, descaso."
+90,99143104b35eebdc731fbef8e6e4e384,1,Poor quality or not as described,,,On time,"On time, several items","No anuncio diz ser 3 cores, mas veio com varias cores"
+91,3aa32255056ca0199b65d745d3b33f6c,2,Seller service and refunds,,underlying problem not stated,On time,"On time, single item","Entrei em contato com o Vendedor ((RPGrupo) que prometeu a substituição. Como o prazo para avaliação pelas lannister termina amanhã, estou registrando o problema ocorrido e a pendência de solução."
+92,d52fef187cce8d55918722e4f605bb85,1,Incomplete order,,,On time,"On time, several items",Comprei 2 relogios Yo-kai de natal pros meus filhos e veio apenas 1
+93,60300aefbcc5d28a27e22de8cbec36da,1,Damaged or defective,,,On time,"On time, single item",RECEBI O PRODUTO MAS. NÃO ESTA FUNCIONANDO. DEIXEI VARIAS HORAS CARREGANDO E NÃO ACENDE NENHUMA LUZ.
+94,b96ee93f2579b70a82790d162ceb0ff9,1,Not received,,,On time,"On time, single item","Não sei o que ouve o produto não chegou, foi extraviado nunca tinha comprado, mais por conta disso não comparei mais."
+95,a3c9752b221c4ae7d350d2ec3a4ce1ea,2,Incomplete order,,,On time,"On time, single item",Os pneus que eu comprei só veio dois dos quatro que eu comprei
+96,eeec16a7667595b6bdd2e6b4c6d47216,2,Wrong item,,,On time,"On time, several items",Comprei um produto e foi entregue outro
+97,2fb3b29dfeb69d80249fcefb5af0b278,1,Damaged or defective,Seller service and refunds,,On time,"On time, single item","Comprei um Troninho Musical, p/ a minha surpresa veio quebrado. Estou aguardando o retorno da loja para efetuar a troca. Infelizmente, existe muita dificuldade para entrar em contato com as lojas."
+98,0084ee902f9a4e006a281b644b78cf29,1,Not received,Seller service and refunds,,Late,Late,Ate agora comprei o transformador de voltagem 9000 btu nao recebi liguei pra americana a atendente me falou q ia liga pra transportadora e mr retorno em dois dias ja se passaram o prazo .
+99,3efecc463794bb49916b070295f9821c,1,Incomplete order,,,On time,"On time, several items","Foram pedidos 2 suportes, porém só 1 foi entregue até o momento."
+100,882d91056bff9d73ba77d2a6d3f3da4d,1,Not received,Seller service and refunds,,Late,Late,A loja não fez nenhuma rastreabilidade do produto. Fiz a reclamacao que não recebi e até agora nenhum retorno. Total descaso.
+101,7a3bf448e5d7a369ff150252ccecc0bc,1,Not received,,,Late,Late,"Até o momento não recebi a encomenda, iria dá de presente e o aniversário foi ontem. Muito chateada."
+102,df3619b5ba66c4bfbc8ab2f5b516ca02,1,Incomplete order,,,On time,"On time, several items",O produto veio faltando.. Comprei 2 unidade veio só uma e agora?
+103,0da086dc29d549e5f1d0f6e9f6ef2465,2,Poor quality or not as described,,vague,On time,"On time, single item","Simplesmente, não serve pra nada."
+104,7e7ed0511eb8f4e34a2fc9b147a814bd,1,Not received,,,On time,"On time, single item",Ainda não recebi o produto!
+105,5b17866fb05fded9fb274ab5ad526aca,2,Poor quality or not as described,,,On time,"On time, single item","Um relogio Bonito, más sò pode ser usado o mínimo possível pois lavei as mãos e ele encheu de água."
+106,113143ccd8f5c41007d7955a5179fad0,1,Other or unclear,,unspecified problem with the carrier,Late,Late,"Sempre comprei pela lannister.com e nunca tive problemas. Desta vez, acredito que a transportadora deixou a desejar, mas quem deve resolver o meu problema é a lannister.com."
+107,c74c1d06e1b71653d982c7dc1008ccba,1,Poor quality or not as described,,,On time,"On time, single item","Produto não respondeu às minhas expectativas ,Bem diferente do site"
+108,37abb7320ea362be913e49050e2c624a,1,Seller service and refunds,,,On time,"On time, single item",Quero reembolso
+109,48524042d3c07435c8af70c7f4cb483f,1,Wrong item,,,On time,"On time, single item",Recebi um produto diferente do que foi requisitado. A imagem do anúncio não condiz com o produto recebido.
+110,da642960eb2217a2589a0dd555401da4,1,Not received,,,On time,"On time, single item",Já é a segunda compra que não recebo.
+111,0159077dd9d4cb22186f4a0c65ac61da,1,Not received,Seller service and refunds,,Not delivered,Not delivered,"Estou preocupado, pois até agora não recebi o produto, e nem fui comunicado o porque está atrasado."
+112,29c74474643d8ac2169a770377c41230,1,Not received,,,Late,Late,Meu produto não chegou
+113,2206e7f00eb9baa83ad9b46131fe1f3d,1,Wrong item,Poor quality or not as described,,On time,"On time, single item","Comprei um carregador para Iphone preto, e veio o carregador na cor branca, diferente do que pedi, e demora muito para carregar o celular."
+114,c063bb8a1ca2a095836252b013f48617,1,Incomplete order,,,On time,"On time, several items",Solicitei e JÁ PAGUEI por 02 (DOIS) mochos e recebi apenas 01 (UM)!!!... Aonde eu reclamo???
+115,cfd5aeb84f416ffcade596a3eeef4c1d,1,Not received,,,Late,Late,Ate agora aguardando a entrega..Nâo cumprio o prazo
+116,d5e9b17535d5826b29ed4473ac875e35,1,Poor quality or not as described,,specification differs from the listing; tag: pickup at post office,Late,Late,"Fui até os Correios do outro lado da cidade buscar a encomenda, a caixa veio com as especificações corretas do produto mas ele não possui HD de 1.5 tb veio hd de 290 GB. Temos que resolver"
+117,3018f2e285d7aaea4a6fd2140cad830a,1,Damaged or defective,,,On time,"On time, single item","as duas embalagens vieram muito amassadas, quase devolvi o pedido. Não compro mais desta loja."
+118,a9eded9a5edbc7c84b3ab48629372ee6,2,Late delivery,,tag: out of stock,On time,"On time, single item","Não faz sentido demorar 1 semana para postar, não tinham a mercadoria, então como pode vender uma mercadoria que não tem em estoque."
+119,4221f3f3b5ffcf57d8eb3497d3332479,1,Other or unclear,,no message text,Not delivered,Not delivered,
+120,e3e17e95ddfc3efd351ce78e328877d4,1,Not received,,,Late,Late,Gostaria de saber quando vou receber meu relogio
+121,97e60b155b921d80a70650674b8ad2e5,1,Not received,,,Late,Late,"A COMPRA FOI REALIZADA EM JANEIRO DE 2017,COM PAGAMENTO POR BOLETO EM 24-01-2017, O PRODUTO DEVERIA SER ENTREGUE ATÉ 28-02-2017, E ATÉ APENAS EMITIDO A NOTA FISCAL SEM DADOS DE TRANSPORTE E ENTREGA."
+122,98aca11bf4ba0be467e67999fe8de72a,1,Other or unclear,,tag: pickup at post office,On time,"On time, single item",Não recomendo essa transportadora targaryen eles falaram que vieram entregar aqui em casa um dia após eu ter feito a compra e não vinheram eu mesma tive que retirar no correio no fim do mundo AFF
+123,949eca021ed60d00a2d2bda3cc686d4d,1,Other or unclear,,,On time,"On time, single item",muitos desencontros nas entregas de produtos
+124,a2a00053290f7a7d56961b255670edee,1,Incomplete order,,,On time,"On time, single item","Recebi só o carrinho e o bebê conforto não veio.
+
+Quero meu produto completo!!!!!"
+125,bb4ec1526be7317dc8b03b4e229f285b,1,Not received,,,Not delivered,Not delivered,meu produto não chego ainda y já paso o praso de entrega
+126,86c917ec7c07573968fb6a568647b8e2,1,Not received,,,On time,"On time, single item",Eu quero o meu produto. Eu paguei. E nao recebi.
+127,05d3874965dd1ba4330bab86c5fff9aa,1,Incomplete order,,,On time,"On time, several items","Fiz o pedido de dois kits de progressiva e só me foi entregue um 
+O que eu faço agora para pegar o produto faltante ?"
+128,60d93f43741dceb0e645a3838d1907d4,1,Not received,,,Late,Late,"Já faz algum tempo que a compra ocorreu e ainda não recebi a mercadoria, trata-se de um descaso com o cliente, já havia realizado outras compras pela stark, mas essa atitude inviabiliza novas aqui"
+129,2719467a4206f0cf7507a62c9e7d6b2d,1,Not received,Seller service and refunds,parcel returned to sender,Late,Late,"O pedido chegou em recife, voltou pra são paulo e até agora não conseguimos passar os dados bancários para a devolução do valor pago. pois não ligam para o meu número de contato, só ligam para o outro"
+130,3f60d31939a235db7ae9bbdb4252f9ad,1,Not received,,,Late,Late,Não recebi e é outro produto das minhas compras que não me entregam ! Estou começando a ficar irritada e estressada pelo atraso absurdo !! Deveriam chegar no prazo se os correios não dão conta troquem
+131,0ced564c8f5508cad95c0056e4fead6e,1,Poor quality or not as described,,tag: not original,On time,"On time, single item","Não recomendo este produto. Aparentemente falsificado, o som é de péssima qualidade, nada parecido com o original que eu tenho."
+132,c6bc0d825db651577ecea65781dd179e,2,Other or unclear,,,On time,"On time, single item",nbpm
+133,65e5e0396daf89b147152d2e1b23b958,1,Poor quality or not as described,,,On time,"On time, single item","Apesar do produto ter chegado no prazo, as medidas não se adequaram ao que foi informado no site em ""Dados Técnicos"". O que era para decorar, simplesmente deixou o móvel ridículo. Vou devolver!"
+134,23b26df6a6e269e698c680406434f5a2,1,Not received,,,Late,Late,eu estou mais de um mes esperando o produto e ate agora nada eu fiz outras compras no mesmo dia e ja chegou menos esse da targaryen
+135,a42830cfaa99e52ca583f21d91b81dcf,1,Not received,,,Not delivered,Not delivered,não recebi o produto até agora
+136,c89e318fa70de6cfca1f4c76e463c10d,2,Other or unclear,,,Late,Late,Não recomendo a referida loja
+137,5273d6c3f203e0ae165c8da5d75b066b,1,Incomplete order,,,On time,"On time, several items",Recebi somente 1 unidade fiz a compra de duas. Cade a outra unidade
+138,98dd484f4f1642a5357ade4b2a427eff,1,Seller service and refunds,Not received,tag: marked as delivered,On time,"On time, single item","Cancelei a compra um dia depois, no site aparece como produto entregue, sendo que não recebi nada e mesmo assim foi cobrado em meu cartão. Quero o cancelamento imediatamente."
+139,4426f6762730a873057bacbfd116c778,1,Wrong item,,,On time,"On time, single item",Meu pedido foi cactinea 500mg original e não foi o que recebi...
+140,0403a3294dd0019d80644def7cdfd603,1,Wrong item,,,Late,Late,"Comprei o produto na cor laranja, foi enviado na cor vermelha, ate desanimei de devolver, o processo de troca sei que ia demorar, esse parceiro targaryen deveria ter avisado que a cor estava em falta"
+141,a8058eabf445fdfff341f1e68a301949,1,Not received,,,Late,Late,O produto ainda não foi entregue e extrapolou todas datas previstas de atendimento.
+142,34f9ede6051c344eb9bddcc732d4a6b2,1,Seller service and refunds,,,On time,"On time, single item","Oi, boa noite!
+Eu quero cancelar minha compra, devolver o produto e ter meu dinheiro reembolsado. Você pode me ajudar? Muito obrigado."
+143,50a97079bab9b08502ac7ad2d962ae78,2,Damaged or defective,,,On time,"On time, single item",Produto com defeito...
+144,298fc152f32d70a600b22cf6c88140f8,1,Not received,,,Not delivered,Not delivered,Comprei uma escova tem mais de mês.Nunca Postaram.
+145,833bec51393d3b3ddedb33378ef5828b,1,Incomplete order,,,On time,"On time, several items","Comprei duas unidades do produto, mas no pacote só veio uma."
+146,4509268e73002d14328d37b8f43ab3c4,2,Incomplete order,,tag: marked as delivered,On time,"On time, several items","Dos dois produtos listados como entregue , o único que veio foi a necessarie. O colar não chegou até o presente momento ."
+147,459b25423619e268d0c62ff397fa5e14,1,Not received,,,Not delivered,Not delivered,"Infelizmente aconteceu... em nenhuma outra compra de várias que já fiz na lannister.com, deixei de receber o produto, mas dessa vez, não recebi.... uma pena...."
+148,b5972ea8668b8f578a351add9b8fea39,2,Not received,,,On time,"On time, several items","Não recebi, então não posso opinar"
+149,7721320dd3ae9377f6c7ec091d5df78b,1,Wrong item,,,On time,"On time, single item",Comprei um recibie outro
+150,93fd9c6fa65efb09369e376a50671957,1,Poor quality or not as described,,,On time,"On time, single item",Produto péssimo. Vieram 4 suportes plásticos prendendo o brinquedo à embalagem. Não tinha instrução de como retirar os suportes. Por pura sorte consegui descobrir um parafuso embutido no centro de cad
+151,48a1b2742fd417ea6873014e8050d2c6,1,Not received,,,Late,Late,"ATÉ AGORA NÃO CHEGOU, MUITO RUIM ESTA LOJA. NÃO COMPRO MAIS. PÉSSIMO."
+152,a7ff73bc13eef2736b95d913a11b6f48,1,Incomplete order,Seller service and refunds,,On time,"On time, several items",Meu produto veio faltando com 5 quantidades e apenas recebi 4 e ninguém me atende no sac ou me da alguma satisfação
+153,ec853cb1fae287e4d1d2c1bfc02a0b2c,1,Other or unclear,,,Late,Late,Um vergonha...sempre fui cliente mas de hoje em diante não compro MAIS
+154,fa51c9ea7e0e2be422b179b185bd206a,1,Other or unclear,,about the app,On time,"On time, single item",Depois q o app foi atualizado fikou 1 porcaria!!!!!!!!!!!!!!
+155,f1d72c86d8801bdf634f944b525ee5e3,1,Late delivery,,,On time,"On time, single item","muita demora para entregar, um produto tão pequeno."
+156,32ab61ca5b879b324deb8327c2797629,1,Incomplete order,,,On time,"On time, several items","Comprei DOIS porta talheres e recebi apenas UM até o momento, juntamente com uma NF onde constam dois produtos."
+157,7502094ae84c21031642c25e78d72599,1,Poor quality or not as described,,,Late,Late,"produto diferente da foto anunciada e entrega feita de maneira ridícula, sem proteção o produto ficava solto dentro da caixa. Parece que nem trabalham no ramo kkkk amadores."
+158,5beb9901b34aedf9d008f16f3e10ecd5,1,Incomplete order,Seller service and refunds,,On time,"On time, several items",Recebi apenas metade dos produtos e não consigo contato com vocês!!!
+159,c7dce52ea0e2b966e8911feef6c3c8d2,1,Incomplete order,Seller service and refunds,,On time,"On time, several items","o produto chegou incompleto! 
+Não consigo contato nem com a lojas lannister nem com o telefone que veio na nota.
+Gostaria de resolver isso o mais rápido possível!"
+160,70be3f25177bd0d08ab572e9c6a2281a,1,Damaged or defective,,,On time,"On time, single item",Recebi o produto dentro do prazo porém o mesmo estava quebrado
+161,e68e4fbcd347a99a569021e37f5c26f4,2,Poor quality or not as described,,,On time,"On time, single item","A qualidade não é muito boa, mas o produto chegou antes do prazo apesar de não postarem no sistema o andamento do pedido."
+162,04cdd68ff0e8b61bbb3a2e4d189c470a,1,Not received,,,Late,Late,"Até agora estou aguardando a entrega da mercadoria, empresa não cumpriu com a data."
+163,25b502beeef8b3aff87449ccdc001f53,1,Incomplete order,Seller service and refunds,,On time,"On time, several items","Recebi apenas 1 unidade solicitada, deveriam ser 2, inclusive foi cobrado e consta na nota fiscal. Estou tentando contato com a loja a 4 dias. Informam que vão me mandar por email o contato do fornece"
+164,36807cdb2c3d4cffd2828d26b97497da,1,Incomplete order,,,On time,"On time, several items",Comprei 2 e veio ao um
+165,1e521b900babad98764b25b81781ee7d,1,Wrong item,Poor quality or not as described,,On time,"On time, single item","Cor divergente: pedi azul turquesa e veio verde.
+Produto mal feito. Rústico demais."
+166,f774cb6dcf0a189de2c8935a9999e86f,1,Not received,Seller service and refunds,,Late,Late,Comprei há maia de 20 dias e não recebi produto e tão pouco me deram alguma satisfação. Já reclamei com as lojas lannister mas até agora ninguém me deu uma posição. UM ABSURDOOO!!!
+167,b54d93335f6d35fd40f41494ca9bf0fa,1,Poor quality or not as described,,tag: not original,On time,"On time, single item","Na página do produto a foto mostra um produto original, com a maçã da apple. O produto chegou e não é um produto original."
+168,621b85de5e636f8c135f1a4e45973858,1,Other or unclear,,,Not delivered,Not delivered,"Acredito que o erro foi do vendedor, não do stark."
+169,6b31864d3682f17272275220b58938f0,1,Incomplete order,,,On time,"On time, several items",Vieram faltando 4 frascos!
+170,a9e43c08d57ccef13fd3274a8a81f190,1,Damaged or defective,,,On time,"On time, single item",Relógio com ferrugem na caixa
+171,801fb7f38a93205e682ef363234bd7dd,1,Damaged or defective,Late delivery,,Late,Late,a entrega demorou e o produto chegou com defeito
+172,199a383dc661c235635c3ed7b26f0f0f,1,Not received,,,Late,Late,"não recebi o produto, mais de 1 mês de espera."
+173,0a391c3bd57ee83164eedf7118cfa646,1,Incomplete order,Seller service and refunds,,On time,"On time, several items","De 3 pendente faltou 2 recebi apenas 1, e não tenho telefone para ligar e reclamar tenho que ir no procon."
+174,2c7cfb153d948dddac20e4d0548298bc,1,Poor quality or not as described,,,On time,"On time, single item","este produto que eu comprei, é uma propaganda enganoza, pois o suporte não suporta o peso do cellular.
+fica caindo no chão do carro.
+gostaria de saber como fico com está situação.
+Antonio"
+175,940a1be180baadf96c837f778145d4fe,2,Incomplete order,Poor quality or not as described,,On time,"On time, several items","Não gostei desta loja, a kit colcha não veio o Coração de almofada e ainda de cor diferente da foto, veio beje ao inves de branca. Péssima qualidade tb, é um lençol com babado!!! E a cadeira balança!!"
+176,941944c073a413274b2d2d07be01378c,1,Not received,Seller service and refunds,,Not delivered,Not delivered,"Estou aguardando posição sobre meu pedido, que além de não poder presentear minha filha em seu aniversário, também não tive sequer resposta."
+177,3d782ff801c3fee36d7127cac4e8729f,1,Incomplete order,Poor quality or not as described,,On time,"On time, several items",Faltou um produto. Não recebi o jogo de chaves. E o alicate é pequeno.
+178,df7a6abd75766f9250b6ab55c8c9b24d,1,Poor quality or not as described,Seller service and refunds,tag: not original,On time,"On time, single item","Não consigo falar com ninguém nas lojas lannister, comprei uma placa original e mandaram uma placa compatível...Paralela e não consigo falar com ninguém...apenas um email sem resposta até agora"
+179,f29e6d77fec6ddf0f64438efe2ceda49,1,Not received,,,Not delivered,Not delivered,Produto não chegou em minha residência
+180,9784540fc8cb2ca0cb17bccc8f2faf6f,1,Not received,,,Late,Late,"Eu comprei um celular smartphone , não chegou não recomendo comprar nesta loja targaryen e lannister porque não chegou meu produto. Eu comprei está data,07/06/2017. Era pra chegar no dia .05/07/2017."
+181,46667e6f5c3949f1854dc00d1edbc969,1,Other or unclear,,problem not stated,Late,Late,GOSTARIA DE SABER O QUE HOUVE. COMPRO HA ANOS NA lannister E É A 1ª VEZ QUE ISSO OCORRE. ESTOU NO AGUARDO.
+182,e295fc88e9fe55d571d5de94efc2331e,1,Incomplete order,,,On time,"On time, several items","Adquiri 2 Suportes e apenas recebi 1 e foi faturado os dois, porem chegou apenas o Transbike para bicicletas Aro 29. O Suporte De Parede Para Sua Bicicleta Atrio não chegou."
+183,8b592f04ffb1115da4b08205a4f0f3b1,1,Late delivery,,,Late,Late,prazo longo de entrega e não chegou no prazo
+184,e8d1bc0188ba7974e847024cab472cdb,1,Not received,,,Late,Late,Não foi entregue o produto .
+185,221dd8583f1485b0bfa58753e9dbae47,2,Incomplete order,Seller service and refunds,,On time,"On time, several items",Recebido apenas 1 unidade do produto. Sendo que comprei 2 (duas). Não consigo entrar em contato com a central para verificação.
+186,74dc937a1b3b36a94e2a0702dee61844,2,Poor quality or not as described,Seller service and refunds,,On time,"On time, single item",O produto que recebi ñ foi igual ao anunciado. Já mandei email e já fiz reclamação no site. Estou aguardando resposta!
+187,3acd029958d6acc525a6d0b3888e9ec7,2,Poor quality or not as described,,,On time,"On time, single item","Produto deixa muito a desejar!
+ Um relógio digital sem luz isso é impossível ao meu ver pelo menos para mim!"
+188,e2a590e79c4ccb0023a5ee90f58d977f,1,Wrong item,,,On time,"On time, single item","NÃO FOI O PRODUTO QUE ESCOLHI.
+EU PEDI, FUI MUITO CLARO, BARALHO KEM COM NAIPES GRANDES E VEIRO COM NAIPES PEQUENOS. COMO FAÇO PARA DEVOLVER? OU O NÚMERO DO TELEFONE DO OUVIDOR?"
+189,85f9a04db605bd716375229d4c928e6c,1,Wrong item,,,On time,"On time, single item",Não veio o produto correto que solicitei
+190,d4168d3ccf913f60aa193315885e6b54,1,Poor quality or not as described,,,On time,"On time, single item",Material frágil. Não fiquei satisfeita !!! Achei q fosse melhor.
+191,40b7bda5e4f7d0f416484f62935c5960,2,Other or unclear,,return intention without a reason,On time,"On time, single item",Eu vou devolver o produto
+192,127fbfd58116551687cec80bcabbbbab,1,Poor quality or not as described,,,On time,"On time, single item","Produto fragil, estrutura toda de plastico ressecado, desconfortavel.
+
+Não recomendo o produto.
+
+Mas vale ressaltar o ótimo atendimento da lannister e rapidez na entrega."
+193,2bf2913f793ffd3739c41cccfc43c8c5,1,Poor quality or not as described,,unclear product information,On time,"On time, single item",Produto não tem clareza na informação.
+194,8970134d361e25daa1eddb853406d865,1,Incomplete order,Damaged or defective,,On time,"On time, several items","Comprei dois fones de de ouvido e só recebi um, ainda sem funcionar, estarei devolvendo na próxima segunda feira."
+195,c0dca06bf9b6996ad67f30c74b1e58b1,1,Not received,,,Late,Late,Preciso saber onde encontra-se meu produto. O qual já ultrapassou o prazo de entrega.
+196,f323e495e4373d58d0a920e8e29451d1,1,Incomplete order,,,On time,"On time, several items",Meu produto foi entregue incompleto. eu comprei dois shampoos e só recebi um.
+197,d8f88b11c8281fe5e1ef6fcf8cd2b17f,1,Late delivery,,,Late,Late,"Já comprei vários produtos pelo site lannister.com e sempre recebi bem antes do previsto, este é o segundo tapete que compro, e assim como o outro chegou atrasado. No site não obtém o rastreamento."
+198,7852b164f1c19b9a4ed1e070a3b70789,1,Other or unclear,,,On time,"On time, single item",Muito ruim
+199,77993d6e04c0cae199a6b183ec708625,1,Incomplete order,,,On time,"On time, several items","Comprei três produtos, mas so foi entregue um"
+200,60ee9f17042b0d52dbfa562765257b24,1,Damaged or defective,Seller service and refunds,"opened packaging, used product",On time,"On time, single item","Produto chegou com embalagem violada, rasgada e o produto era usado, com marcas de instalação. Mais de 20 dias e não trocaram. Fazendo devolução do produto. Sem comprometimento com o cliente."
+201,3e1d4e7f3a4e13e93f0c0ab416a25ab5,1,Other or unclear,,not a complaint,Not delivered,Not delivered,"O produto novo foi entregue,e recebi um vale no valor e efetuei compra de outros produtos do baratheon."
+202,4a77d135f5c9a49417c4934132a0f0a2,1,Wrong item,,,On time,"On time, single item","Comprei 2 itens, um rosa e outro preto mas recebi os 2 pretos."
+203,717066632a093d79b59f4650fdb19242,1,Wrong item,Seller service and refunds,,On time,"On time, single item","Não recebi o produto corretamente, foi enviado outro modelo. Não consigo contato com o baratheon e somente contato por e-mail com o parceiro baratheon. Estou no aguardo da resposta."
+204,27b1458e1bf0a9478d9e04f899769844,1,Not received,Seller service and refunds,stolen during delivery,Not delivered,Not delivered,"Péssimo compromisso com o cliente, meu produto foi roubado na entrega e me disseram que entregariam um novo produto, mas depois me negaram o mesmo."
+205,dc68944736ee18129b154291134e4a75,2,Poor quality or not as described,,,On time,"On time, single item","NAO QUERO FICAR COM O PRODUTO, QUERO DEVOLVER, NAO ABRIR . ACHEI QUE ERA PANELAS GRANDE MAIS E PEQUENA PARECEM DE BRINQUEDO PELO TAMANHO DA CAIXA.
+PRECISO ENVIAR PELO CORREIO, MIM PASSA OS PASSO"
+206,ffad2d6fdb394ea1330c3aeb36528d59,1,Not received,,,Late,Late,"Produto pago, mas não houve entrega até agora."
+207,6497e16f1195e76f14d9e9f6a4c031a6,1,Not received,Seller service and refunds,,Not delivered,Not delivered,Até agora não recebi o produto e não fui informada sobre a chegada dele.
+208,537feb6003aacd1558f6902b37e6bf92,1,Not received,,,Late,Late,Ainda não recebi meu produto
+209,4502349115c52d0cbe66fe8badd126fc,1,Not received,,,Late,Late,Gostaria de saber alguma posição da empresa porque não chegou ainda a trena.
+210,eb3d47ba2fd5229bb111f45979646ca6,1,Not received,Seller service and refunds,,Late,Late,ainda não recebi o meu produto quando vão me entregar ? ou meu dinheiro de volta
+211,8f5bb9a937d01f4caca03a4569f4d052,1,Wrong item,,,On time,"On time, single item","COMPREI UM MODELO, MANDARAM O ANTIGO, QUERO A TROCA"
+212,07d712d104a35ced0befc3114d8c0e7c,1,Incomplete order,,also says it was not what the customer wanted,On time,"On time, single item",Veio faltando não era o que eu queria quero devolver
+213,fd0e733913f6d55abc8baeea30a5c4de,1,Wrong item,,,On time,"On time, single item",Comprei um produto e recebi outro
+214,f6bc2b7fb670edc173862b9d84fd12c5,2,Damaged or defective,,,On time,"On time, single item",Produto chegou com um pequeno defeito.
+215,3a9895057cba104e3fa196a04177a2a2,1,Wrong item,Damaged or defective,,On time,"On time, single item","Produto entregue mas não o que de fato comprei, destarte considero não entregue. Funko errado, coleção errada e caixa parecendo bagaço de cana de tão surrada. Informo ainda que há solicitação aberta."
+216,e9490806713d432d9a9294eac2bf8f50,1,Not received,,"present tense (still late), read as not yet arrived",Late,Late,ja esta em atraso de 4 dias
+217,ab227566e562bbad783be39fff2ecf1b,1,Damaged or defective,Seller service and refunds,,On time,"On time, single item","Recebi o produto no prazo, porém esta quebrado, já mandei um e-mail e é a segunda avaliação que eu preencho informando o ocorrido. Estou aguardando uma resposta."
+218,7c7b4242a6578c4ee68fae9219d2f0f8,2,Poor quality or not as described,,,On time,"On time, several items",O produto parece ser outro pela foto
+219,4b95f7b1edc232d18c325eb91c643f11,1,Not received,,,Late,Late,"Até agora não recebi o material, isso suja o nome do stark, que sempre entregou tudo certo."
+220,ef0e80d66fdc79ebf04c086fe293b320,1,Not received,,,Late,Late,"Ainda estou aguardando a entrega do meu produto, mais de trinta dias de espera e nada de chegar."
+221,f013172ceafae8286ca0394708dbc6e3,1,Late delivery,Seller service and refunds,,Late,Late,"Bom dia! Quero meu dinheiro de volta. Não vou mais querer o produto. Além de atrasado, já havia pedido o cancelamento do pedido e a americana está ignorando o mesmo. Agradeço providências."
+222,d41662fda6431d8f545cf554c286ffb4,2,Poor quality or not as described,,,On time,"On time, single item","Pensei que o defletor era uma grande placa, porém são 3 pequenas peças, que se encaixam uma na outra. sinceramente não gostei pois no mercado há opção de peça única, mais bonita e com melhor design."
+223,99e44e41e2a7ba7ffe9bf13f64e2bbac,1,Damaged or defective,,,On time,"On time, single item",Eu comprei e nao funcionou
+224,96f13e1be252ee2805e023fb10483657,1,Not received,,,Late,Late,meu produto ainda não chegou e estou chateado pela demora!
+225,a30bfc3a9fb4ea43dc2ad7c62e3336f4,1,Not received,,,Late,Late,"Estou muito chateado, pois comprei um tapete e nao recebi, estou tentando resolver a questão de forma"
+226,1d7f9b59af0aeb2c8d63b9a75422257d,1,Not received,Seller service and refunds,,Late,Late,"Não recebi meu pedido, já tendo passado varias dias do prazo máximo estipulado, sem contar que a lannister nunca respondia minhas mensagens, então considero a empresa péssima."
+227,e96fc274949171b17a9e498d8d03c4e6,2,Damaged or defective,,,On time,"On time, several items",O relógio com pingente de coruja veio com defeito
+228,a05423fd04e749bb00dd7b6ab14176ec,1,Late delivery,,,Late,Late,Levou quase um mês para chegar um cartucho de tinta que é de uso contínuo
+229,a68df871b3ca65507355d602e0b5ddd9,1,Wrong item,,,On time,"On time, single item","Pedi uma coisa e recebi outra!!!
+Um absurdo!!! Compro várias vezes na lannister e nunca aconteceu isso!!"
+230,f87e60d60e2e4f3e9e761a395a73fc56,1,Incomplete order,,contained a phone number (masked),On time,"On time, single item","Faltou item descrito
+Me ligue [number removed]"
+231,ccf9089f5a12c8eb41dc9390caa7f28a,1,Other or unclear,,,Late,Late,Merda
+232,e46afc82a37b94c6f8a7cede77401f6a,1,Not received,,,Late,Late,Ainda estou a espera do meu produto
+233,0eace66bc1af8dd8b6edd0e6438ca8f7,1,Not received,,,Not delivered,Not delivered,"Terceirizar foi a pior coisa que a lannister fez. Sempre amei comprar no site, mas agora está ruim. Este produto até agora não foi entregue e quem vai me reembolsar se não chegar? Qual o prazo máximo"
+234,15deb462a740bedc2a8e9faf6f359f65,1,Not received,,,Not delivered,Not delivered,EU NAO RECEBI O PRODUTO AINDA NAO
+235,446e0af1cbd73d5e619953e84d679238,2,Wrong item,,,On time,"On time, single item","Não achei legal a loja, pois eu pedi um produto e eles me entregaram outro. Então não indico essa loja targaryen"
+236,1e6dcf3e365bc12afe596b9666a5b711,2,Late delivery,,,On time,"On time, single item",Paguei e demorour para receber
+237,8406fa0ead1cf1d19718c4eab131e2c9,1,Incomplete order,Seller service and refunds,,On time,"On time, several items",Comprei 03 unidades de cortina rolo e foi entregue apena 02 unidades. Já entrei em contato com a loja e ainda não obtive resposta
+238,99614ec8951ae98da22a3d88274b42a0,1,Incomplete order,,,On time,"On time, several items",Comprei dois telescópios e só foi entregue 1.
+239,cdd317e80e238b4baf864a45c172ced7,1,Incomplete order,,,On time,"On time, single item",Nao recebi a base do bebe conforto por que? Eu preciso comprei completo e para presente de cha de bebe. Aguardo retorno urgente.
+240,58fd2ea2addff1f30c107260ab321749,1,Poor quality or not as described,,tag: not original,On time,"On time, several items",Comprei um controle duosat trent e veio um paralelo
+241,f31f7df1eee767691a02c580df9fe069,1,Not received,,,Not delivered,Not delivered,Nao recebi a encomenda.
+242,f4ab9877c0e6af41f011fbc0a8bae4a4,1,Not received,,,Late,Late,Meu Produto Ainda Não Foi Entregue.
+243,0b6a4ccb6d49fb1f00aacb64bf3f338e,1,Damaged or defective,,,On time,"On time, single item","Não embalaram bem, como veio de muito longe acho por isso veio com aranhões , por ser preta mostra bem"
+244,d6776f71d9212e99df00d8e7f3da86ce,2,Other or unclear,,,On time,"On time, several items",5
+245,ac7b9f11bf1ab639bcb98fe0d03295f0,2,Seller service and refunds,,,On time,"On time, single item","Boa tarde,
+
+Enviaram uma chave de NF-e inválida, estou solicitando a dias e não me enviaram, o produto chegou precisamos fazer a baixa financeira e fiscal e não podemos, pois não temos a nota fiscal"
+246,815018ecb191fd9d1cadd856c1447762,1,Not received,,,Not delivered,Not delivered,Não recebi o produto que esta sendo cobrado no meu cartão de credito.
+247,80e9808a0d63ca08c3ff6809e338a11e,1,Damaged or defective,Seller service and refunds,,On time,"On time, single item","Além de não ter notícias sobre a entrega e não poder acompanhar o status do pedido, o produto chegou quebrado e não tive nenhuma resposta por parte do vender após tentar obter reembolso da compra."
+248,9f7a70ef3c21dcd0ff89a213dc39227f,2,Not received,,,On time,"On time, single item",Não posso optar pois não recebi o produto.
+249,7d3225a861626266061ccf271a55c403,1,Incomplete order,Seller service and refunds,,On time,"On time, several items",Comprei 2 puffs e um chromebook. A entrega foi incompleta. Os puffs nao foram entregues. Tento telefonar para reclamar e nenhum dos telefones consigo falar com um atendente. Lastimável.
+250,fb438ee1afd42dc7a34710a4d343917b,1,Incomplete order,,may refer to two separate orders,Late,Late,"Comprei dois produtos no mesmo dia, sexta-feira de black friday, no início de dezembro. O jogo de panelas tramontina chegou dentro do prazo, que era até o dia 11-12, mas a pipoqueira ainda não chegou."
+251,6e6145b73a1e01b3affa3f058018a267,1,Not received,,,On time,"On time, several items",Espero solução porque não recebi os 2 lençóis de Percal200 fios
+252,8e0c1523095cba7fb0ecf560bc9637a3,1,Not received,Seller service and refunds,,Late,Late,Até agora n recebi meu produto tô esperando e vcs n me dero nem uma satisfação
+253,b4c6af5bce6dc2f4010f934bad9102fd,1,Wrong item,,,On time,"On time, single item",Me enviaram o produto errado.diferente do anuncio.quero a troca do produto.aguardo resposta.
+254,2104f309cc01b4e6b1b2858cf3fc3586,1,Not received,,,Late,Late,"Comprei o telefone com o prazo de entrega para três dias úteis, que daria dia 09/08, e até agora nem sinal do produto. stark precisa repensar esses parceiros com quem anda trabalhando."
+255,0d93b9ba4b60496470ae0f79c1bd4c0b,2,Incomplete order,,,On time,"On time, several items",Aguardando o recebimento do produto. Foi entregue parcialmente restando alguns itens.
+256,26f03d4ca24ccd433a137abbde2a20f5,1,Not received,,,On time,"On time, single item",Meu produto ainda não chegou
+257,1bbe11a3e0d55332a77847b8d717b62b,1,Damaged or defective,,,On time,"On time, single item",A solda de uma das hastes metálicas se desfez enquanto eu desembalava o produto. Estou aguardando orientação para devolução.
+258,1ae0d358efd3907c0d22db7f7d145af0,2,Poor quality or not as described,,,On time,"On time, single item","Produto veio recem pintado com verniz com um cheiro muito forte impossível de usar para a função , coar café ."
+259,d209b09f0dd43724c3ef350a83c85ef5,2,Late delivery,,,Not delivered,Not delivered,"Empresa que não entrega o produto no prazo, precisa ser avaliada - são exatamente 30 dias da compra, inclusive com o pagamento já efetuado."
+260,3ba4306480ae86226634b10b023a1250,1,Other or unclear,,tag: pickup at post office,On time,"On time, single item","Nao foi entregue na minha casa , por isso nao gostei , nao tenho tempo de esta indo nos correios.."
+261,1f3ea7696ab23b0f7decfc29ffab4f7d,1,Damaged or defective,,,On time,"On time, single item","o cartao do memoria nao funciona corretamente, perdi os arquivos que coloquei no mesmo... preciso fazer a devolucao"
+262,81f96f2486e7f0cc44ccb5b5d95bb139,2,Damaged or defective,Seller service and refunds,,Not delivered,Not delivered,"Produto c defeito, tentei por várias vezes, mas foi muitas, devolver o produto abrindo chamado na lannister e não consegui."
+263,235caada97e835c59d07e71bfa7fac30,1,Incomplete order,,,On time,"On time, single item","O produto tinha nota fiscal de todos os itens, mas há partes faltando."
+264,a9286a6fab1e8612ed33a1cb5c54dc74,1,Other or unclear,,,On time,"On time, single item",Pela segunda vesz que eu compro um produto e voces não cumprem como esta no site.
+265,be8fdfb6db68c5719625577046961de4,1,Incomplete order,Seller service and refunds,,On time,"On time, single item",Comprei kit com 2 produtos e só foi enviado 1 produto! Não obtive retorno para solução do problema.
+266,7d9d1002f0a121217c8ba9a34062fb44,1,Incomplete order,,,On time,"On time, several items","Comprei 2 colcha chenille jolitex casal uma azul de 89,90 a outra marrom de 74,90 retirei o pacote no correio e quando abrir em casa só veio 1 a marrom e foi finalizado 2 o valor de 187,67 com frete"
+267,aed28228cab25f2cbc325e1d755155a3,1,Not received,Seller service and refunds,,Late,Late,"Muito atraso na entrega, sem Feedback com cliente. Espero nunca mais precisar comprar algo nesta loja. Não recomendaria nunca está loja! Estou até com medo de não receber o produto !
+Indignado!!!"
+268,9e87bf60a30a58286a0260e271f4d789,1,Not received,,,Late,Late,"Comprei pra uma criança de seis anos para o Natal e até hoje não chegou, disseram pra esperar até dia 29/12, hoje é 31 , o que comprei junto chegou 2 dias depois da compra, esse produto não, estou ma."
+269,47f095d5f91cb5fd71499316b7e98da4,1,Damaged or defective,Late delivery,,On time,"On time, single item",Duas caixas vieram um pouco deformadas (uma caixa dentro da outra) não encaixando as tampas..como houve demora na entrega optei por não efetuar a troca pelo transtorno do processo e mais demora.
+270,7d81592881b86d6ba09e4e5ae954a59d,1,Incomplete order,Late delivery,,On time,"On time, several items","Chegou o produto atrasado, faltando outro. Falta chegar os demais. O cliente está zangado."
+271,1e3d2a60a2b5c77e60112200a1df4b4d,1,Poor quality or not as described,Seller service and refunds,tag: not original,On time,"On time, single item",Comprei uma coisa e recebi uma falsificação. Cancelei o pedido e msm assim foi entregue como se não ouvesse o cancelamento.
+272,c598947b5a794839306c37a2b67e40b6,2,Not received,,,Late,Late,"Fiz a compra dia 06/08 /2018 não no dia 16/08, era pra ter cido do entregue dia 15/08 . Estou apressada pelo produto pois já estou prestes a dar a luz. Estou na espera."
+273,673c0f70f65a2758382210d0c374de31,1,Incomplete order,Wrong item,,On time,"On time, several items",Fiz o pedido de duas unidades do produto. Recebi somente uma unidade de um produto diferente!
+274,f588cda1416895d04f9960ba794df07b,1,Not received,Seller service and refunds,tag: out of stock,Not delivered,Not delivered,"Comprei o produto fiz o pagamento na semana que estava pra chegar recebi um e-mail que meu produto não seria entregue, pois não tinha em estoque.
+Quero o reembolso."
+275,d74123c6417f6beae37d131554532633,1,Not received,Seller service and refunds,tag: marked as delivered,On time,"On time, single item","Não estou satisfeito com o atendimento da targaryen,
+Não recebi a mia encomenda, É está marcado como entregue."
+276,f7c0d3bdf02dc38b059df935e7659c12,2,Not received,,,Not delivered,Not delivered,"Não recebi o produto ainda, peço ajuda."
+277,eed6ca142f3dbc79829eb3f84e932ce8,1,Not received,,,Not delivered,Not delivered,Comprei e até na data de hoje não foi entregue! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+278,08bf1042f44f3a8fd86391ccdaf2c3ae,2,Late delivery,,also complains about the freight cost,Late,Late,"Diante da taxa alta do frente (em torno de 30% do valor do produto) e um período de entrega grande(estimado em 26 dias úteis), a empresa conseguiu não firma o prazo de entrega. Lamentável."
+279,8ab1cbaa45ab4ca97d24f5e5884c0c39,2,Damaged or defective,,,On time,"On time, single item","O produto chegou no tempo determinado, porém com uma rachadura enorme na tampa e tudo lambuzado,acho que deveriam rever como embalam, principalmente o que vem pra longe!"
+280,34b03eefcf3bef5dfe75b1b70fad79f2,1,Not received,,,Late,Late,"Houve agilidade na postagem do produto, porém os CORREIOS ainda não me entregaram a encomenda. Estou aguardando. Não posso fazer uma melhor avaliação."
+281,ac7ad6b003286e950ab7463a6c93469b,1,Wrong item,,wrong size variant,Late,Late,"capa protetora de celular igual a descrição, porém, o tamanho da capa e da pelicula de vidro veio maior doque o modelo descrito. super chateada por não receber o que era esperado."
+282,054489c42e7a42ac12e216c7e5d63877,1,Not received,Seller service and refunds,,Not delivered,Not delivered,"ja estou esperando a um mês e não recebi o produto, e estou precisando pois meu controle queimou, não chegou o produto nem me deram satisfação de nada..."
+283,593ba0be9678356cbedc7662c3887815,1,Not received,,,Late,Late,Ainda nao recebi o produto
+284,3450ec3bbabeb09a08b00fc72da87a30,1,Incomplete order,,,On time,"On time, single item","Boa tarde. 
+Não recebo todos os produtos falta o bebe conforto e a base dele.
+
+Aguardo posicionamento
+
+Grato"
+285,017f0e1ea6386de662cbeba299c59ad1,1,Not received,Seller service and refunds,,Late,Late,ja reclamei varias vezes e ate hoje não sei onde foi parar o produto que comprei. quero cancelar esta compra e quero meu dinheiro de volta.
+286,6cc5c8294f7e480b62d534e52f74b22f,1,Not received,Seller service and refunds,tag: out of stock,Not delivered,Not delivered,"Não recebi o produto, pois não havia mais deste no estoque. Assim, espero re-embolso na próxima tarifa do cartão de crédito."
+287,985c22a982d129b4b337a59f2d8f73a3,2,Poor quality or not as described,,,On time,"On time, single item",Produto é muito ruim
+288,fb70582c60c5fb50a15acb514bc2876c,1,Other or unclear,,,Late,Late,Chateado
+289,da39db70ec77b385de38b976356c7a70,1,Incomplete order,Seller service and refunds,tag: marked as delivered,On time,"On time, several items","Só recebi um item e já está marcado como recebido no site das lannister e nos correios, além de a loja não responder o contato."
+290,e9096d0d59b5855d14ff336482e5d25b,2,Other or unclear,,,On time,"On time, single item",Não gostei
+291,c3084e1f8472a19337c2b8e32998df6c,1,Not received,,,Not delivered,Not delivered,Nao entrega
+292,fc3e35dad52cfd73d253b71b87bf17c6,1,Not received,Seller service and refunds,,Late,Late,"Nao recebi a compra acreditando que seja por motivo TALVEZ da greve dos caminhoneiros, porem niguem entrou em contato para esclarecimento. Me gerando Dúvida realmente o que esteja se passando!."
+293,77f1a44e41c48bf4bd68309abc654526,1,Not received,,,Not delivered,Not delivered,"Apesar de saber da seriedade da loja, me supreendi negativamente pois meus produtos não foram entregues."
+294,833d741a69224faa77ce2414bdcef78c,1,Wrong item,,,On time,"On time, single item","Escolhi o controle remoto baseado na figura mostrada. Enviaram-me um outro, com as mesmas funções, é verdade, mas diferente do escolhido.O vendedor também não foi o mencionado na compra."
+295,1575e2b3d67c21efdc0124eab12fd3d7,2,Other or unclear,,,Not delivered,Not delivered,Empresa está deixando a desejar
+296,9d1a163d060812d013765627ef96c50b,1,Other or unclear,,,Late,Late,Loja sem credibilidade.
+297,5687027a7cd09ca1c2c4444e054d86b6,1,Other or unclear,,tag: pickup at post office,On time,"On time, single item","A única coisa q eu não venho gostando em comprar no site de vcs é que algumas das mercadorias q comprei, tive q ir buscar no correio, não chegou até a minha casa, sendo que pago frete."
+298,fd75914eb23604a51c598d82571e832d,2,Wrong item,,,On time,"On time, single item","Já enviei o aviso para cancelar o pedido, porque como da vez anterior, entregaram o modelo Carway F30 no lugar de Carvun F30, pois faço questão que tenha teleobjetivo num dos lentes"
+299,9c25bc809497cf83de501d3237297153,1,Seller service and refunds,,,On time,"On time, single item",Meu produto Está sem no fiscal vou atrás dos meus direitos
+300,9045ede04a5d9c5aa16afdf074e59411,1,Other or unclear,,,Late,Late,Eu não recomendo esta empresa para ninguém pos ela não cumpri com sua obrigação estou muito chateado com ela

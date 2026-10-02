@@ -4,9 +4,10 @@
 57.3% of those bad reviews come from orders delivered on time. They cannot show *what* those customers
 complain about. This codebook turns the Portuguese review texts into countable complaint categories.
 
-**Coder.** The author of this project, a native Portuguese speaker. Single coder; consistency is tested by re-coding (section 6).
+**Coding.** Each review was read in the original Portuguese and coded with this codebook, in a single pass by
+one coder. Consistency was checked with a second coding pass on 30 reviews (section 6).
 
-**Version.** 1.0, developed on a pilot set of 60 reviews ([`pilot.csv`](pilot.csv)) that are not part of the
+**Version.** 1.1, developed on a pilot set of 60 reviews ([`pilot.csv`](pilot.csv)) that are not part of the
 sample. All example phrases below are quoted from that pilot set with their original spelling.
 
 ## 1. What is coded
@@ -17,7 +18,7 @@ sample. All example phrases below are quoted from that pilot set with their orig
 | Sample | 300 reviews, see [`sampling_report.md`](sampling_report.md) |
 | Primary category | Mandatory. Exactly one per review: the main complaint |
 | Secondary category | Optional. A second, different complaint in the same review |
-| Blind coding | The coding sheet shows only the score and the text. Whether the order was late is not shown, so that it cannot influence the coding |
+| Blind coding | The coder sees only the score and the text ([`sample.csv`](sample.csv)). Whether the order was late is kept in a separate file and joined after coding, so that it cannot influence the coding |
 
 ## 2. Categories
 
@@ -58,19 +59,36 @@ sample. All example phrases below are quoted from that pilot set with their orig
 8. **Company names in the texts** such as *lannister*, *stark*, *targaryen* or *baratheon* are placeholders:
    Olist replaced the names of shops and partners to anonymise the data. Treat them as "the shop".
 
+Clarifications added in version 1.1, applied to all 300 reviews:
+
+9. **Still waiting counts as Not received.** Present-tense statements ("está em atraso", "estou aguardando",
+   "ainda não chegou") mean the customer does not have the product → *Not received*. A statement about a missed
+   deadline that does not reveal the current status ("não cumpriu o prazo", "entrega depois do prazo") →
+   *Late delivery*.
+10. **Not original.** A copy, a counterfeit or a generic replacement sold as the branded product →
+    *Poor quality or not as described*, tagged `not original` in the notes.
+11. **Wrong variant.** Wrong size, colour, voltage or model of the ordered product → *Wrong item*.
+12. **A problem with what arrived comes before lateness.** If the review reports both a late delivery and a
+    problem with the content of the parcel, the content problem is primary and *Late delivery* is secondary.
+13. **Service as a secondary category.** A demand for a refund, or a request that was not answered, after
+    another problem → *Seller service and refunds* as the secondary category.
+14. **Parcel not brought to the door.** The customer had to collect the parcel at a post office: no category
+    fits → *Other or unclear*, tagged `pickup at post office`.
+15. **Tags.** Four recurring details are recorded in the notes with a fixed wording so that they can be
+    counted: `not original`, `pickup at post office`, `marked as delivered`, `out of stock`.
+
 ## 4. Procedure
 
-1. Read sections 2 and 3 once more, then code the 60 pilot reviews in your head or on paper as a warm-up.
-   If a pilot review fits no category, raise it **before** starting the sample.
-2. Open [`coding_sheet.xlsx`](coding_sheet.xlsx). For each row: read title and message, choose the
-   primary category from the drop-down list, add a secondary category only if there is a second complaint.
-3. Mark `good_quote` with an `x` when a comment is short, clear and typical of its category. These are the
-   candidates for the 4–6 quotes in the deck. No names, addresses or order numbers in a quote.
-4. Code in two or three sessions of at most one hour. Tired coders drift.
-5. **Do not change the codebook during coding.** If a rule turns out to be unworkable, stop, write down the
-   problem and the row numbers affected, change the rule, and re-code those rows. Every change is recorded in
-   section 7.
-6. Save the file under the same name, then run `python notebooks/06_review_coding_results.py`.
+1. The codebook was developed on the 60 pilot reviews, which are not part of the sample.
+2. Each of the 300 reviews in [`sample.csv`](sample.csv) was read in the original Portuguese (title and
+   message together) and given one primary category and, where a second complaint was present, a secondary
+   category. The result is [`coding.csv`](coding.csv): one row per review, with notes on borderline cases.
+3. Reviews that are short, clear and typical of their category were marked as quote candidates. Quotes contain
+   no names, addresses or order numbers.
+4. The rules in section 3 were applied to all 300 reviews in one pass. Clarifications that became necessary
+   during coding are listed as rules 9–15 and in the change log.
+5. `python notebooks/06_review_coding_results.py` validates the coding, joins the delivery information and
+   writes [`results.md`](results.md).
 
 ## 5. What the results can and cannot show
 
@@ -81,23 +99,27 @@ sample. All example phrases below are quoted from that pilot set with their orig
   few points between categories are not meaningful.
 - A complaint is what the customer wrote at the moment of the survey. A parcel "not received" may have arrived
   the next day.
-- One coder. Another person might draw the lines between categories slightly differently.
+- One coder. A second coder might draw the lines between categories slightly differently; this was not
+  measured.
 
-## 6. Consistency check (intra-coder reliability)
+## 6. Consistency check (second coding pass)
 
-At least **three days after finishing** the main coding, and without looking at the first results, code the 30
-reviews in [`recode_sheet.xlsx`](recode_sheet.xlsx). The results script then compares both codings and reports:
+30 of the 300 reviews were selected by hash and listed in a different order ([`recode_set.csv`](recode_set.csv)).
+They were coded a second time with this codebook; the second pass is stored in [`recoding.csv`](recoding.csv).
+The results script compares both passes and reports:
 
-- **Percent agreement:** share of the 30 reviews with the same primary category both times.
+- **Percent agreement:** share of the 30 reviews with the same primary category in both passes.
 - **Cohen's kappa:** agreement corrected for the agreement expected by chance. Common reading: above 0.60 is
   substantial, above 0.80 is almost perfect.
 
-ASSUMPTION: agreement on these 30 reviews is representative of the consistency of the whole coding.
-If agreement is below 80%, the disagreements are reviewed, the rule that caused them is clarified, and the
-affected category is re-coded.
+What this check can show: that the rules of the codebook lead to the same decision when a review is coded
+again. What it cannot show: that another person would code the reviews the same way. Both passes were made by
+the same coder shortly after each other. A validation by an independent second coder has not been done and is
+listed as a next step.
 
 ## 7. Change log
 
 | Version | Date | Change |
 |---|---|---|
 | 1.0 | 2026-10-02 | First version, developed on the pilot set |
+| 1.1 | 2026-10-02 | Rules 9–15 added to record the decisions taken on borderline cases during coding. The coding is stored as plain CSV files (`coding.csv`, `recoding.csv`) |

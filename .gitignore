@@ -23,6 +23,9 @@ __pycache__/
 Thumbs.db
 desktop.ini
 
+# Blank coding sheet from an earlier version of the workflow (replaced by review_coding/coding.csv)
+review_coding/coding_sheet.xlsx
+
 # Power BI temporary files
 *.pbix.tmp
 ~$*

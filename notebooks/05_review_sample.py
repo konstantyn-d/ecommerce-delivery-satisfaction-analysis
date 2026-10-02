@@ -2,29 +2,26 @@
 # # 05 - Review sample for qualitative coding (Phase 5)
 #
 # Goal: draw a reproducible random sample of 300 bad reviews (1-2 stars, with a written comment)
-# and prepare the files for manual coding.
+# and prepare the files for coding.
 #
 # Input : data/processed/olist.duckdb, review_coding/categories.csv
-# Output: review_coding/sample.csv            the 300 reviews to code (no delivery information: blind coding)
-#         review_coding/sample_key.csv        delivery information per review, joined AFTER coding
-#         review_coding/pilot.csv             60 other reviews, used only to develop the codebook
-#         review_coding/coding_sheet.xlsx     Excel sheet with drop-down lists for the coding
-#         review_coding/recode_sheet.xlsx     30 of the 300 reviews, to be coded a second time later
-#         review_coding/sampling_report.md    how the sample was drawn (generated)
+# Output: review_coding/sample.csv             the 300 reviews to code (no delivery information: blind coding)
+#         review_coding/sample_key.csv         delivery information per review, joined AFTER coding
+#         review_coding/pilot.csv              60 other reviews, used only to develop the codebook
+#         review_coding/recode_set.csv         30 of the 300 reviews, coded a second time as a consistency check
+#         review_coding/sampling_report.md     how the sample was drawn (generated)
 #
-# The two Excel sheets are only created if they do not exist yet, so that re-running this script
-# can never overwrite coding work that has already been done.
+# This script only writes the texts to code. The coding itself lives in review_coding/coding.csv and
+# review_coding/recoding.csv, which this script never touches.
 
 # %%
 import csv
 import math
+import re
 import sys
 from pathlib import Path
 
 import duckdb
-from openpyxl import Workbook
-from openpyxl.styles import Alignment, Font, PatternFill
-from openpyxl.worksheet.datavalidation import DataValidation
 
 # Windows consoles default to a legacy code page; force UTF-8 so Portuguese text prints safely.
 sys.stdout.reconfigure(encoding="utf-8")
@@ -136,13 +133,34 @@ con.execute(
 # ## 4. Write the files
 
 # %%
+# Privacy: a few customers typed a phone number into their review. Runs of 9 or more digits are
+# replaced before any text is written to a file of this repository. Dates and prices are shorter.
+PHONE = re.compile(r"(?:\d[\s.\-]?){9,}")
+
+
+TEXT_COLUMNS = {"review_comment_title", "review_comment_message"}   # only free text is masked, never ids
+
+
+def mask(value):
+    """Replace phone-number-like digit runs in a review text."""
+    return PHONE.sub("[number removed] ", value).strip() if isinstance(value, str) else value
+
+
+def fetch(sql: str) -> tuple:
+    """Run a query; return (column names, rows) with personal numbers masked in the text columns."""
+    cursor = con.execute(sql)
+    names = [col[0] for col in cursor.description]
+    data = [[mask(v) if name in TEXT_COLUMNS else v for name, v in zip(names, row)] for row in cursor.fetchall()]
+    return names, data
+
+
 def write_csv(path: Path, sql: str) -> None:
     """Write a query result as CSV. utf-8-sig lets Excel show Portuguese accents correctly."""
-    cursor = con.execute(sql)
+    names, data = fetch(sql)
     with open(path, "w", newline="", encoding="utf-8-sig") as handle:
         writer = csv.writer(handle)
-        writer.writerow([col[0] for col in cursor.description])
-        writer.writerows(cursor.fetchall())
+        writer.writerow(names)
+        writer.writerows(data)
     print(f"written: {path.relative_to(ROOT)}")
 
 
@@ -162,73 +180,9 @@ write_csv(
        FROM pilot ORDER BY delivery_group, position""",
 )
 
-# %%
-with open(OUT / "categories.csv", encoding="utf-8") as handle:
-    categories = list(csv.DictReader(handle))
-
-HEADER_FILL = PatternFill("solid", fgColor="DDDDDD")
-WRAP = Alignment(wrap_text=True, vertical="top")
-
-
-def build_sheet(path: Path, id_column: str, sql: str, with_extras: bool) -> None:
-    """Create an Excel coding sheet: one review per row, drop-down lists for the categories."""
-    if path.exists():
-        print(f"kept (already exists, not overwritten): {path.relative_to(ROOT)}")
-        return
-
-    book = Workbook()
-    sheet = book.active
-    sheet.title = "coding"
-    headers = [id_column, "review_score", "comment_title", "comment_message", "primary_category"]
-    if with_extras:
-        headers += ["secondary_category", "good_quote", "notes"]
-    sheet.append(headers)
-    for row in con.execute(sql).fetchall():
-        sheet.append(list(row))
-
-    # second tab: the category list (source of the drop-downs and a quick reference while coding)
-    reference = book.create_sheet("categories")
-    reference.append(["category", "short_definition"])
-    for item in categories:
-        reference.append([item["category"], item["short_definition"]])
-    reference.column_dimensions["A"].width = 34
-    reference.column_dimensions["B"].width = 120
-
-    last_row = sheet.max_row
-    dropdown = DataValidation(type="list", formula1=f"=categories!$A$2:$A${len(categories) + 1}", allow_blank=True)
-    dropdown.error = "Choose a category from the list."
-    dropdown.showErrorMessage = True
-    sheet.add_data_validation(dropdown)
-    dropdown.add(f"E2:E{last_row}")
-    if with_extras:
-        dropdown.add(f"F2:F{last_row}")
-
-    widths = {"A": 10, "B": 8, "C": 24, "D": 95, "E": 30, "F": 30, "G": 11, "H": 40}
-    for column, width in widths.items():
-        sheet.column_dimensions[column].width = width
-    for cell in sheet[1]:
-        cell.font = Font(bold=True)
-        cell.fill = HEADER_FILL
-    for row in sheet.iter_rows(min_row=2):
-        for cell in row:
-            cell.alignment = WRAP
-        text_length = len(str(row[3].value or ""))
-        sheet.row_dimensions[row[0].row].height = 16 * max(1, math.ceil(text_length / 95))
-    sheet.freeze_panes = "A2"
-
-    book.save(path)
-    print(f"written: {path.relative_to(ROOT)}")
-
-
-build_sheet(
-    OUT / "coding_sheet.xlsx", "sample_id",
-    "SELECT sample_id, review_score, review_comment_title, review_comment_message FROM sample ORDER BY sample_id",
-    with_extras=True,
-)
-build_sheet(
-    OUT / "recode_sheet.xlsx", "sample_id",
+write_csv(
+    OUT / "recode_set.csv",
     "SELECT sample_id, review_score, review_comment_title, review_comment_message FROM recode ORDER BY recode_id",
-    with_extras=False,
 )
 
 # %%
@@ -251,12 +205,14 @@ report = [
     "Because each group has the same share in the sample as in the frame, the overall results need no weighting.",
     f"- **Randomisation:** reviews are sorted by `md5(review_id || '{SEED}')` inside each group and the first "
     "*n* are taken. The sample is therefore identical on every run and on every machine.",
-    "- **Blind coding:** the coding sheet contains only the score and the text. The delivery group is kept in "
+    "- **Blind coding:** `sample.csv` contains only the score and the text. The delivery group is kept in "
     "`sample_key.csv` and joined after coding.",
     f"- **Pilot set:** the next {PILOT_PER_GROUP} reviews of each group ({PILOT_PER_GROUP * len(groups)} in total), "
     "used to develop the codebook. None of them is in the sample.",
-    f"- **Re-coding set:** {RECODE_SIZE} of the {SAMPLE_SIZE} sampled reviews, selected by hash, to measure "
-    "whether the coder is consistent with himself.",
+    f"- **Re-coding set:** {RECODE_SIZE} of the {SAMPLE_SIZE} sampled reviews, selected by hash and listed in a "
+    "different order (`recode_set.csv`), coded a second time to check that the codebook is applied consistently.",
+    "- **Privacy:** phone-number-like digit sequences in the review texts are replaced by `[number removed]` "
+    "before the texts are written to this repository.",
     "",
     "## Allocation",
     "",

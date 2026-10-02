@@ -144,8 +144,11 @@ is not where most of the volume is.
 This pattern was not in the original hypotheses. It holds for on-time orders, so late delivery does not
 explain it, and it is strongest when the items come from different sellers. One possible explanation is that
 the order is recorded as delivered when the first parcel arrives while other parcels are still on the way.
-This is a HYPOTHESIS, not a finding: the data has one delivery date per order and cannot confirm it. The
-review coding will check whether these customers complain about missing items.
+This is a HYPOTHESIS, not a finding: the data has one delivery date per order and cannot confirm it.
+
+**Update after the review coding (Phase 5):** in a sample of 54 bad reviews of on-time orders with several
+items, 81% (95% CI 69–90%) complain that part of the order is missing. See
+[`review_coding/findings.md`](../review_coding/findings.md).
 
 ### 4.6 Categories
 

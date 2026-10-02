@@ -1,7 +1,6 @@
 ﻿delivery_group,review_id,review_score,review_comment_title,review_comment_message
 Late,56dee63e139bf591811ef761b9c539ff,1,,"Tudo certo com a loja, mas 1 mês esperando os COrreios entregarem."
-Late,b5a3419cc784fa4fcfa65d7cc44145ac,2,,"O produto tinha previsão de entrega para o dia 27/12/2016 e até a presente data não recebi.
-"
+Late,b5a3419cc784fa4fcfa65d7cc44145ac,2,,O produto tinha previsão de entrega para o dia 27/12/2016 e até a presente data não recebi.
 Late,5d9909ea17576b8c3c6b0b42261474be,1,,"Fiz a compra de 2 cartuchos de impressora, que estou precisando muito, e até agora não recebi."
 Late,a896f40474c99895c9815538f53d8d9d,1,,Não recebi o produto
 Late,d5c5e1e70f31a5a321ab3acc92306f80,1,NÃO RECOMENDADO,DESCUMPRIMENTO DE PRAZO PROMETIDO QUE VENCEU HÁ UMA SEMANA. PRODUTO NÃO ENTREGUE.
@@ -36,8 +35,7 @@ Not delivered,aaf60a40cb48222c6bfa7f352c4911d5,1,,Conprei para dar de Natal para
 "On time, several items",17916be51b600798515db9d132b461de,2,,COMPREI 2 OBJETOS COM O PARCEIRO.PORÉM SÓ RECEBI 1 OBJETO.
 "On time, several items",22596996f7a815c6fe656e6dfed65863,1,,recebi apenas uma unidade e compramos duas
 "On time, several items",dba5197f90198999eebfa0aef3112681,1,,"meu pedido veio faltando um produto, preciso resolver"
-"On time, several items",8e970dc9edca8ae010ee08eed6185831,1,,"Comprei e pageui por duas unidades do kit de fazer pastel, porém so recebi um, enviei reclamação para a loja e não obtive resposta, e agora? Fiquei no prejuizo?
-"
+"On time, several items",8e970dc9edca8ae010ee08eed6185831,1,,"Comprei e pageui por duas unidades do kit de fazer pastel, porém so recebi um, enviei reclamação para a loja e não obtive resposta, e agora? Fiquei no prejuizo?"
 "On time, several items",cbdaf2df4312017a074a6da6495f3973,1,Não recomendo,"Eu não recebi o xale do sofá, porém ao ligar, consta que já recebi."
 "On time, several items",f26239109975e8edec133d68880776e5,2,,"Eu não recebi o produto ""Adaptador Otg USB Tipo C Type C Moto Z Oneplus 3 Zenfone 3"""
 "On time, several items",cd5eb3f8c8faeb7a89b1e8b3120fe206,1,,Faltou um pedido na entrega e quando pede para cancelar um produto não te atendem
@@ -49,16 +47,14 @@ Aguardo retorn"
 Tentei contato 7 vezes com lannister por telefone e é impossível falar com algum"
 "On time, several items",b8e7c9c38c0c7e12c667d338ed030647,1,Entrega não realizada,Comprei três unidades do extensor VGA e só me foi entregue uma. Não recebo resposta dos meus questionamentos e não recebi a nota fiscal
 "On time, several items",0cfbae37fe8a71519696f3589a4050bb,1,,"Recebi apenas 1 detector de metal e a compra foram de 2 unidades. Como podemos resolver isso?
-Aguardo orientações.
-"
+Aguardo orientações."
 "On time, several items",1046ca5f5f68c5a3ab1c7291720cfe24,1,,A compra foram dois controles e chegou um. Cadê o outro?
 "On time, several items",787eba66ca8c15dcd7706f2e596e9ee4,1,Quantidade e filtro errad,Não recebi o produto correto. Comprei 02 filtros e só recebi apenas 01 filtro que não tem nada a ver com o produto que comprei no site das lannister. Já fiz a reclamação no site porém sem resposta.
 "On time, single item",54a5449369849241d21f2c30bfe33fd1,1,,"O produto foi entregue na casa de um vizinho que eu não tenho contato, como entregam um produto para uma pessoa de outra casa?"
 "On time, single item",4bab591ef7c7eb3a3a5bc866f214237f,1,,o produto não foi entregue
 "On time, single item",1932e1cf263b14e7741fc98c24ee91c6,1,,"Na hora da compra não encontrei especificações do material, e agora que chegou achei muito fraco."
 "On time, single item",65082ae4066f3c86efb919b4969c7dad,1,Toalhas de banho,"Nao gostei do produto. As toalhas sao muito finas, nao enxugam!!! Infelizmente vou pensar se vale a pena comprar pela internet sem manusear o produto, principalmente toalhas de banho."
-"On time, single item",3ae3033b9e3bc60dbcdd4a06dfe9781d,1,,"Comprei um produto e recebi outro. Já solicitei a devolução e estorno do pagamento, porém ainda não tive resposta. 
-"
+"On time, single item",3ae3033b9e3bc60dbcdd4a06dfe9781d,1,,"Comprei um produto e recebi outro. Já solicitei a devolução e estorno do pagamento, porém ainda não tive resposta."
 "On time, single item",574578f8fd0d240b84b8965a5f425edb,1,,"Qualidade do produto deixa muuuuito a desejar. O baratheon foi perfeito, mas o produto é muito ruim, não recomendo sua compra a ninguém."
 "On time, single item",30aa72099c89d5e62c3e2fa35d0ab4b0,1,,Encomenda errada
 "On time, single item",d76ebc430f1f20e5d6d9860feb105552,2,,"Não funciona a tecla do Netflix, não recomendo"
@@ -67,7 +63,7 @@ Recebi ontem o produto que, infelizmente, não funciona (não carrega a bateria 
 Tentei acessar o canal de reclamações de lannister.com, mas não consegui. Fiz mau negóci"
 "On time, single item",bf240ba5e4891f67010805f0b9ffd9b5,1,produto errado,"venho outro modelo de relógio casio, diferente do relógio que comprei."
 "On time, single item",c79a894a56970fc15f614d8ee7c30c33,1,,"Todos os tapetes estavam com as medidas errada.Comprei passadeiras com a medida 2.00 × 0.80,mas veio 1.90 × 0.76. Todos com as medidas erradas. Que lástima."
-"On time, single item",b3b5de8de0875c0892dac314f06748de,1,Péssima ,Não comprem desta loja! Tentei fazer o cancelamento da compra por 5 vezes e só fui atende depois de ter recusado a entrega do Correio.
+"On time, single item",b3b5de8de0875c0892dac314f06748de,1,Péssima,Não comprem desta loja! Tentei fazer o cancelamento da compra por 5 vezes e só fui atende depois de ter recusado a entrega do Correio.
 "On time, single item",2c5d7f9d3ebb311f84368aca454e270a,1,,"nao recebi o produto suporte de cone, recebi um totalmente errado todo quebrado . quero a devolucao do meu dinheiro"
 "On time, single item",a7b4067ed7462202a0e0d2cc71b6d1ab,1,,Produto de pessima qualidade e ainda por cima a cor da foto nao é exatamente a cor da colcha.
 "On time, single item",7d41f8269eb532a7f86290e33669b667,1,,faltando peça!
