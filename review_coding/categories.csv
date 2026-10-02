@@ -1,0 +1,9 @@
+category,short_definition
+Not received,The customer says the order (or all of it) has not arrived
+Late delivery,The complaint is about a missed deadline or a long wait; the text does not say the order is still missing
+Incomplete order,Only part of the order arrived: fewer units than bought or a missing item or part
+Wrong item,A different product / model / colour / size than the one ordered was delivered
+Damaged or defective,The right product arrived but is broken or damaged or does not work
+Poor quality or not as described,The right product arrived and works but quality or look or specifications are below what the listing promised
+Seller service and refunds,The complaint is about contact or cancellation or return or refund or invoice - with no product or delivery problem stated as the cause
+Other or unclear,Too vague to classify or about something else or not a complaint

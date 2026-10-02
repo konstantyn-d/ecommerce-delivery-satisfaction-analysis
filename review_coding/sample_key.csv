@@ -1,0 +1,301 @@
+﻿sample_id,review_id,order_id,delivery_group,delivery_outcome,delay_band,delay_days,item_count,seller_count,review_before_delivery,customer_state
+1,10652d90aed6e45f47a182b96c3d2e6f,a8fee5f264541f904519912b305d0bf6,"On time, several items",On time,On time,-20,3,2,False,SP
+2,b3990df973d58fe088fd3c24923263d8,b886293e979c828299f8fbae51cd8a51,"On time, several items",On time,On time,-15,3,2,False,PR
+3,e531cf1aebca7e96e2e55a08b44c0e2d,a908872306574c9405b29a838aee5521,"On time, several items",On time,On time,-13,3,2,False,SP
+4,b04acacb45424b2ddee5e6911cc399fd,f442020e13b718d40746ce039d97b4c2,"On time, single item",On time,On time,-22,1,1,False,SP
+5,b373101437627ce7029f814f490b8f5d,4a15babdb3e9f7216ea0fa4ab6b5ba8e,"On time, single item",On time,On time,-8,1,1,False,SP
+6,8a91e881eeb69a3025d865df90399420,65a8188ac159451144d490db3a0909c9,"On time, single item",On time,On time,-1,1,1,False,BA
+7,3d6af3d16d8ad6c987f43e9a10f9f46b,61d5f1dcdf9b023ea7622b65d2362e4f,"On time, single item",On time,On time,-7,1,1,False,SP
+8,261ea274929dde34c70d4effc988d8dd,4f21594649a0235ad65ded11ba7c8ea7,Not delivered,Not delivered,Not delivered,,1,1,,RS
+9,8e47d81d9a2259f0ff7664c7b715f9da,a17a3fb93e43abd822552a9f93b02c1e,"On time, single item",On time,On time,-6,1,1,False,SP
+10,45cf0253815947e90d358d41034f403e,962b2008b2f1e396e0d30b76caa96832,"On time, single item",On time,On time,-10,1,1,False,SP
+11,f893d195e262851a9fb5adbbdc0a6316,03d0e68d9f396f3c4e69dbbb0abc3564,Late,Late,Late 4-7 days,7,1,1,True,RJ
+12,373cbeecea8286a2b66c97b1b157ec46,583174fbe37d3d5f0d6661be3aad1786,Not delivered,Not delivered,Not delivered,,1,1,,SP
+13,8d59da32551bf16e44d0094ea8eac746,dc5287133fa7ba014e8083e381bf8270,Not delivered,Not delivered,Not delivered,,,,,SP
+14,3ccaf62c97a552b72296f6c84d6ecf22,4c70befde2c6046dcf77a680ae1f356f,Not delivered,Not delivered,Not delivered,,1,1,,RJ
+15,c975f512be8c3fb8ecb66cb037b4dff2,bcaa9390e85fe694eefdf1e33f77b3b5,Late,Late,Late 15+ days,37,1,1,True,RJ
+16,97e128c1f6c5237e418f577aea822340,dcb4a1d21593a108db61f12a4b3d61db,"On time, several items",On time,On time,-24,2,1,False,RJ
+17,942197d1c84410c7970b68f3c5a608c5,9f0663bf008ccdbfbd96ac9a31ba7442,Late,Late,Late 1-3 days,3,2,2,False,RJ
+18,16728f3238713050226dbe9e2c72489d,db2b52fdedf34f34c6569ed5cd692c81,"On time, single item",On time,On time,-12,1,1,False,SP
+19,ad3b0667d47faf712a364894b7279e6e,dd9ab4c3632ba0320014ad633ea52470,Late,Late,Late 4-7 days,4,2,1,True,SP
+20,a4962841c3d8a78e7c249beabf822014,fe89c2d7806e114f3c487deb11030b20,Late,Late,Late 8-14 days,8,1,1,True,MG
+21,9ecb9b631ade18a0ff87f9a16e5bb395,d2553946a905ea785bc3d4910cb10c4e,Late,Late,Late 15+ days,17,1,1,True,RS
+22,d420f8d57b0972fec5a66d8104570e08,9115302ab0ba4c1f3499709b47bd00a1,"On time, several items",On time,On time,-8,2,1,False,ES
+23,c7ecd3d49473c11b9ba438f8937235b5,cfd2f4ec78bb56b1fa91abad6d3ee54e,"On time, several items",On time,On time,-16,3,1,False,SP
+24,987016354841e54f7eb08a6cff44ad68,fc85b94eb688b0abb29954cf6354c1bc,"On time, single item",On time,On time,-13,1,1,False,GO
+25,7dfd824594c59956d80b7dfca74a83a4,82833fb7278ad2602271d0c880c028d6,Not delivered,Not delivered,Not delivered,,1,1,,BA
+26,634421fc06a99aed1d28ee3bd8649c76,180c04aeebcb390784f7d9c08dbd159d,Late,Late,Late 1-3 days,3,1,1,True,DF
+27,5aa54ee3384aac1952e312b2cc2b1dc6,27b6bbf4efdd3d4aa75ead8d62a9088c,"On time, single item",On time,On time,-12,1,1,False,SP
+28,2f0e22a4e08a0e21c1612a2fc05e3db9,869fcf8057010b24148fcd1e2834537d,"On time, single item",On time,On time,-10,1,1,False,SP
+29,72912f4807c953e4f2571393928ec3ab,7cb4dff15cb0bfae18db9857cf0455f4,Not delivered,Not delivered,Not delivered,,1,1,,PA
+30,96ab47052a57bbfbba3b48d4203cf1f3,1b038ed4462a55b31db5679b9597f045,"On time, several items",On time,On time,-14,2,1,False,RS
+31,7c5b4989db1d976c7c04dca544630bf6,35b0513eaf7a477cdb93469b7b4a3d6c,"On time, several items",On time,On time,-11,2,1,False,PI
+32,1e3be85cf0acd08b1b837ba5d1a4d01a,05da04fd9f94dfb49fd643216d2cbe1f,Not delivered,Not delivered,Not delivered,,,,,BA
+33,c16e56b93a73482b1961e460b1a9fcd6,d5558a097766363b8e76b38c43332e8a,"On time, several items",On time,On time,-19,2,2,False,SP
+34,719496e676d1a114fad922fa1568d773,749d73f14d7f582a7c7b12894d552da2,Not delivered,Not delivered,Not delivered,,1,1,,RJ
+35,129e42c8d3e47ea566f6d23b38c90880,d579ab4fe27352cb09cfa39a9e4f25f4,"On time, single item",On time,On time,-1,1,1,False,SP
+36,c3fd248a8aa8e05c56a5e0402113bb5c,c2b0a01a95828a432d2f335db23e23b6,"On time, single item",On time,On time,-30,1,1,False,ES
+37,b434b9258ba57e52ed3586a0dd0d397e,b77fbccc98c4158a1c4e36c61597f015,Late,Late,Late 8-14 days,10,1,1,True,PR
+38,82c681eb01c49386d88ed59b30adfbc9,8d877170b83d13fb1a69834a815d0974,"On time, single item",On time,On time,-27,1,1,False,CE
+39,94665539f5507a993b0ff44a7d13dd98,ffd4172b5df0c16bbd973c196b09bcd9,Late,Late,Late 15+ days,22,1,1,True,MA
+40,4c5cafe56f365c7554aa09abb3c929c7,c271d6d965ce901e7efaae6879247e43,Late,Late,Late 8-14 days,9,2,1,True,BA
+41,cd5456007623da2dd224661d1e058130,a4efaffc506a395c9cea7402b078c1e5,Late,Late,Late 15+ days,73,1,1,True,CE
+42,5a86eb2cc89faaed64c716ca5fed0b99,5ce15ec3d65174e3ebfd1d12ee096fb6,"On time, several items",On time,On time,-13,2,1,False,SP
+43,7b9038e4600476ca898b1814cf9f9d37,f20cc6ac66becd9a2a6ed1cdff31c383,"On time, single item",On time,On time,-19,1,1,False,MG
+44,9d4411bdd3c04d8b4670693160608ca4,d37d275bf870e1d9a50b888717929495,Not delivered,Not delivered,Not delivered,,1,1,,RJ
+45,0a6843048d2229baf1201b4783d38df3,e4332fcdfe53c13a7ac6feff6e31b6b2,Not delivered,Not delivered,Not delivered,,1,1,,BA
+46,af537f56e6c0e24e60d00e05b85297e8,c61e3efc183db6b89f5556efb5aa8797,Late,Late,Late 15+ days,15,1,1,True,AL
+47,ba5af31750f48e4275c108037d09f902,ba06fd3e802dae04b1a5a02f10d47726,"On time, single item",On time,On time,-6,1,1,False,RJ
+48,259a68a347afffb39e61dd3665220dd5,ae86dbc1549b4c0cb00dc0ea909fc6d2,Not delivered,Not delivered,Not delivered,,1,1,,SP
+49,854ce3274684322d2ad677b5246530c0,cb794d74f80c0dff5257f123400a063c,Late,Late,Late 15+ days,31,1,1,True,RJ
+50,df270a5151e2a36ec2898bd54513bd3e,63b0abee9c82e79c3b6e860d070f2c62,"On time, single item",On time,On time,-10,1,1,False,MG
+51,c614b7811fd180dc4ba3c3e3cb804c45,c79c732612d7d2041da78796e91baeac,"On time, single item",On time,On time,-24,1,1,False,PR
+52,a2a57bf2fc42d185910f9881502faa18,898357f8ca3d5cebd8ed0edcc9333503,"On time, single item",On time,On time,-10,1,1,True,BA
+53,859dbc352e22543b0367027577dae598,b854e1f985cbc368ffcc401efadc5311,"On time, single item",On time,On time,-12,1,1,False,SP
+54,8af510702b70e7f87055b09d33e9b197,fbd87e9a66a24294c9f8deb5efca45a1,Not delivered,Not delivered,Not delivered,,,,,SP
+55,4f77df2dcafcab527209eaba883acda6,b208c52c9ab77c2efee93366dee571bf,"On time, single item",On time,On time,-2,1,1,False,BA
+56,c7a8f93e1c9d31800961433ceb659337,466fa6875c92ccd8425b0a91a8d1a771,"On time, several items",On time,On time,-14,2,1,False,SP
+57,e51f7033d396aeea9374fd60ca39a2d0,ca7d7c95b0f170aae8a2ee59e2f24f66,Not delivered,Not delivered,Not delivered,,1,1,,RJ
+58,e39806f8cf60e78471d43c5a2a944c5b,08bf2c1104a4d1382d651ad4e921b4a6,"On time, single item",On time,On time,-11,1,1,False,SP
+59,47a4f48be34dd4a1c24b24a173ed1f6d,dc17c01a54fba254ad3989a9ff6d67d7,"On time, single item",On time,On time,0,1,1,False,PR
+60,5922d73c4cc61e2d5357a8a0332986c5,2a77e75a84066bc18c31a02f6b98dfca,"On time, single item",On time,On time,-16,1,1,False,SP
+61,8c411799802145765084ae272c6977e4,df13cbaf3230c62a4b582317936e8a39,"On time, several items",On time,On time,-14,7,2,False,SP
+62,e712c1926494c9c15bc92dc00d942e7a,0e5e60b0cddf73f60eb73fac19f590cf,Not delivered,Not delivered,Not delivered,,1,1,,GO
+63,4468ac1449f217cfb02de99d68752ae8,0c6f709251c3df262aeb79458ad96a1d,"On time, single item",On time,On time,-4,1,1,False,SP
+64,c1b4a0188f42cb250bf5549c9501eb20,f0427cccb303a6d9c1d33af23a9f0c65,"On time, single item",On time,On time,-13,1,1,False,RS
+65,0e0d3d334fdeb3c472bd0ac5898121d8,4a735f6373f45ecb870a1d4dbf3217ab,"On time, single item",On time,On time,-18,1,1,False,SP
+66,c99922b1457d540799643a492e44b89c,9b643bf8a8614206d936530d416aef57,Late,Late,Late 8-14 days,8,1,1,True,PR
+67,1a7154b5812fe074449cb5ffb03d862d,57b49374c8a506e6a26dfef7b426f342,"On time, single item",On time,On time,-21,1,1,False,SP
+68,85f5e7fd31952fe2733c02f90ff88d38,7b9c79725cdb375638eae34455acbef0,"On time, single item",On time,On time,-15,1,1,False,SP
+69,51df8a28fbbd51be23f247130f4ed1a5,d3a49dd2f9c21558b7a82c8f076f6c1d,"On time, single item",On time,On time,-5,1,1,False,SP
+70,6084f1c166ab05e79c72e5bc7e1baa6a,f1487beee9bcc5d6921a3e5ddcb63623,"On time, several items",On time,On time,-20,2,1,False,SP
+71,992119ef0f9cf599af33796269feb344,2b9028857f54fa9bbb2a049cd5948d15,"On time, single item",On time,On time,-9,1,1,False,RS
+72,3de3ea1f194e5c1fcf9a6451d3d1a956,8d7bd36f24580dd73c1adff3062b7f5b,Not delivered,Not delivered,Not delivered,,1,1,,SP
+73,8a850152ac220811336e45ee139e51f3,4a21e3eb07861993fbaae74314b0d224,"On time, single item",On time,On time,-16,1,1,False,RS
+74,f32b9ee59995b2c9037d12c35b0420ee,4c1820d7f03f21dc27c9fc40eba8e860,Late,Late,Late 15+ days,25,1,1,True,RJ
+75,ac539a0c2872d72debbd2cd0cfc909db,728ea734fefecc42ab07da89fa894f31,Not delivered,Not delivered,Not delivered,,1,1,,SP
+76,e6efc6e5b9e1e334a1eb4b2ed30b7d50,7ea643d8802c6875dc51108bd2386c8d,"On time, single item",On time,On time,-21,1,1,False,RJ
+77,fd1799ec3102ccc8a85761733fd1bfb3,6bb9879bb3cae417e534baf8c84cf26e,"On time, single item",On time,On time,-3,1,1,False,MG
+78,ea26fabc9c138718949ed5138c76d625,5d7e30ce84d0d3813b10a6d0ffb7884f,"On time, several items",On time,On time,-8,2,1,False,SP
+79,8a39390b2fad16ab8f9412ae21e657d7,e4313fe2f9d83782c9426892dc497ea4,Late,Late,Late 1-3 days,1,1,1,False,SP
+80,04c17aaad5d50a6ea5e86ac461df0278,759daf685e390bf00ca48c53b132205b,"On time, single item",On time,On time,-11,1,1,False,PR
+81,a0c54db12ad83286199e33beea35dcaf,59ee425a0f0cd825c79aafe5990b7bac,"On time, single item",On time,On time,-15,1,1,False,CE
+82,5016f2fae10182cbff189ed4da31d9ac,e2a97d88537ca889f9faa4c14d5106c2,Late,Late,Late 4-7 days,5,1,1,True,BA
+83,756535cde17cec0de605f613331bb90a,d6fc0defa454343c0a0224f4397b84cf,"On time, single item",On time,On time,-21,1,1,False,RJ
+84,5148ad2bdca65375e9504355d79c6ad4,56703a55199f4784c80fe5e5de71c532,"On time, several items",On time,On time,-12,2,2,False,SP
+85,6d33a7b70521b7fb2194138533ebd2f9,27791b643439f653faa711f08d8b801f,"On time, single item",On time,On time,-14,1,1,False,SP
+86,ef2d8e648278d34146630b211e48c18c,e75bd2f9adb46257d65d9e916355326a,"On time, single item",On time,On time,-7,1,1,False,GO
+87,3f4c980191b310bd55bfaa63c02ad996,84040a45ab0e33cc43b8c196aad15732,"On time, single item",On time,On time,-12,1,1,False,PR
+88,534935b9395a0751ecfece59dafe804a,43e99f3020b420b8aff15449ff4f7561,Late,Late,Late 4-7 days,7,1,1,True,RJ
+89,eb0d162696d811ceb00a6aab83b0d75a,b534c927d5cb15838b514c99f1c8d94d,Not delivered,Not delivered,Not delivered,,1,1,,PR
+90,99143104b35eebdc731fbef8e6e4e384,db5a41f8a08f620920c7c413e91a4438,"On time, several items",On time,On time,-15,2,1,False,BA
+91,3aa32255056ca0199b65d745d3b33f6c,b727ce8aa4bb6701e5aaa359ede7c6f6,"On time, single item",On time,On time,-9,1,1,False,SP
+92,d52fef187cce8d55918722e4f605bb85,52cafd5349b83c44cef90c267012a0d2,"On time, several items",On time,On time,-6,2,1,False,SP
+93,60300aefbcc5d28a27e22de8cbec36da,31842de63b28390ef7b35e9b7c4a94a3,"On time, single item",On time,On time,-17,1,1,False,SP
+94,b96ee93f2579b70a82790d162ceb0ff9,817856093e04996ba35912467fcb6706,"On time, single item",On time,On time,-21,1,1,False,GO
+95,a3c9752b221c4ae7d350d2ec3a4ce1ea,446783bed4af912fc010915b3ead3b91,"On time, single item",On time,On time,-15,1,1,False,PE
+96,eeec16a7667595b6bdd2e6b4c6d47216,e7c290bfc31d7eed478c3d3d2d4d2953,"On time, several items",On time,On time,-13,2,1,False,SP
+97,2fb3b29dfeb69d80249fcefb5af0b278,e531f04ac27aac6bf0cba03986415776,"On time, single item",On time,On time,-2,1,1,False,RJ
+98,0084ee902f9a4e006a281b644b78cf29,e2329b38dc9971f2fb0f8247bbb641c2,Late,Late,Late 4-7 days,6,1,1,True,RJ
+99,3efecc463794bb49916b070295f9821c,f45bdf2f89997a72c2f4c9cb37c284cd,"On time, several items",On time,On time,-10,2,1,False,PR
+100,882d91056bff9d73ba77d2a6d3f3da4d,4e6d7850a35e8bcc047c20022709484f,Late,Late,Late 15+ days,15,1,1,True,SP
+101,7a3bf448e5d7a369ff150252ccecc0bc,3fbb598da3d544e640039c789df239b7,Late,Late,Late 8-14 days,9,2,1,True,CE
+102,df3619b5ba66c4bfbc8ab2f5b516ca02,41ce37ddfe9f8781e7ac936e4e7c6100,"On time, several items",On time,On time,-27,2,1,False,SP
+103,0da086dc29d549e5f1d0f6e9f6ef2465,9f2940e7c87aa56f8dab37ac0be23138,"On time, single item",On time,On time,-9,1,1,False,SP
+104,7e7ed0511eb8f4e34a2fc9b147a814bd,8a3dcb26a8eb146af97048a590585b24,"On time, single item",On time,On time,-17,1,1,False,SP
+105,5b17866fb05fded9fb274ab5ad526aca,e8a8ff2fda1e5eeeed6e56a9a882f648,"On time, single item",On time,On time,-28,1,1,False,AL
+106,113143ccd8f5c41007d7955a5179fad0,4f4830984a832508339321d903174164,Late,Late,Late 15+ days,19,1,1,True,RJ
+107,c74c1d06e1b71653d982c7dc1008ccba,788981eeae5e313081bd50e623f540f8,"On time, single item",On time,On time,-8,1,1,False,SP
+108,37abb7320ea362be913e49050e2c624a,2b7a74de7a07d7c71956b675cd98116b,"On time, single item",On time,On time,-17,1,1,False,MG
+109,48524042d3c07435c8af70c7f4cb483f,652ae40b48d62a6682c9f4a674f83621,"On time, single item",On time,On time,-14,1,1,False,SP
+110,da642960eb2217a2589a0dd555401da4,c62449227473f63a96e42cec192ec143,"On time, single item",On time,On time,-12,1,1,False,SP
+111,0159077dd9d4cb22186f4a0c65ac61da,162b2345ef3cc0551c0a32058840a2ec,Not delivered,Not delivered,Not delivered,,1,1,,PR
+112,29c74474643d8ac2169a770377c41230,ce7c736a1e04308e78a6032b5b3a695e,Late,Late,Late 4-7 days,5,1,1,True,GO
+113,2206e7f00eb9baa83ad9b46131fe1f3d,211635839640ec89714ed4410c5d9eea,"On time, single item",On time,On time,-15,1,1,False,SP
+114,c063bb8a1ca2a095836252b013f48617,f04955e9d40fccf99360d76c463cf97e,"On time, several items",On time,On time,-17,2,1,False,MT
+115,cfd5aeb84f416ffcade596a3eeef4c1d,c2abe874b6f1922459cfee827c8f02f8,Late,Late,Late 15+ days,15,1,1,True,CE
+116,d5e9b17535d5826b29ed4473ac875e35,17774450f243f686546b04633a04dbdb,Late,Late,Late 4-7 days,5,1,1,True,SP
+117,3018f2e285d7aaea4a6fd2140cad830a,b357c263e1f33cd68e28110443a2d2ea,"On time, single item",On time,On time,-25,1,1,False,SP
+118,a9eded9a5edbc7c84b3ab48629372ee6,a6b9f6bcd95a0ddbaa7194536b3cd00e,"On time, single item",On time,On time,-9,1,1,False,SP
+119,4221f3f3b5ffcf57d8eb3497d3332479,5869074071e0f56e9085dc3742c97b2a,Not delivered,Not delivered,Not delivered,,1,1,,SP
+120,e3e17e95ddfc3efd351ce78e328877d4,6eb2780615aa0cfbaaef6c8d0aec411a,Late,Late,Late 1-3 days,3,1,1,True,SP
+121,97e60b155b921d80a70650674b8ad2e5,5d6e9993ecc20a59e637ce711858d081,Late,Late,Late 15+ days,24,1,1,True,PR
+122,98aca11bf4ba0be467e67999fe8de72a,4c520618a0cc5957cd116b12a553770d,"On time, single item",On time,On time,-1,1,1,False,SP
+123,949eca021ed60d00a2d2bda3cc686d4d,d5d78aa1e1666a81b03bd8791c865fd3,"On time, single item",On time,On time,-14,1,1,False,SP
+124,a2a00053290f7a7d56961b255670edee,bbcca9e5415969279dfcf9cfef7d608a,"On time, single item",On time,On time,-16,1,1,False,SC
+125,bb4ec1526be7317dc8b03b4e229f285b,0a4bcba63e99001ad0349d8832963afe,Not delivered,Not delivered,Not delivered,,1,1,,SP
+126,86c917ec7c07573968fb6a568647b8e2,d905ea9eb4e5000a35cbee306bce1935,"On time, single item",On time,On time,-9,1,1,False,SP
+127,05d3874965dd1ba4330bab86c5fff9aa,cd5343ffb012a7157ddbcf5720100c01,"On time, several items",On time,On time,-12,2,1,False,SP
+128,60d93f43741dceb0e645a3838d1907d4,9e389bac73e66c3aee51848446646402,Late,Late,Late 4-7 days,6,1,1,True,SP
+129,2719467a4206f0cf7507a62c9e7d6b2d,a69ddc335f989aa05576bc19f8b9a549,Late,Late,Late 15+ days,20,1,1,True,PE
+130,3f60d31939a235db7ae9bbdb4252f9ad,f1bc4367547388bec3e4ecf266defc71,Late,Late,Late 15+ days,16,1,1,True,RJ
+131,0ced564c8f5508cad95c0056e4fead6e,5cc9158bdd66e341bc4085933657d306,"On time, single item",On time,On time,-15,1,1,False,MG
+132,c6bc0d825db651577ecea65781dd179e,2fa0de151b7f1f86d97df7c2a0e11626,"On time, single item",On time,On time,-16,1,1,False,SP
+133,65e5e0396daf89b147152d2e1b23b958,7a125641d07db9def010cf07e54913fe,"On time, single item",On time,On time,-20,1,1,False,MG
+134,23b26df6a6e269e698c680406434f5a2,04dc24624a669b293bee03e97b344440,Late,Late,Late 15+ days,17,1,1,True,PB
+135,a42830cfaa99e52ca583f21d91b81dcf,2dd5bcfb8c66b22a80ffe45078eb2a99,Not delivered,Not delivered,Not delivered,,,,,MS
+136,c89e318fa70de6cfca1f4c76e463c10d,83d8eb18982d706a86805eb80e12e88f,Late,Late,Late 8-14 days,10,1,1,True,PB
+137,5273d6c3f203e0ae165c8da5d75b066b,1f0ece120cc036379fc3b3bf6f930947,"On time, several items",On time,On time,-15,2,1,False,RS
+138,98dd484f4f1642a5357ade4b2a427eff,699d4a05ee53f6603330b248226c6fdc,"On time, single item",On time,On time,-21,1,1,False,SP
+139,4426f6762730a873057bacbfd116c778,ca2bfe1c1e0ec49a98d9e9f94a39c06d,"On time, single item",On time,On time,-17,1,1,False,PR
+140,0403a3294dd0019d80644def7cdfd603,9fe72f719dc088c3eaed6fda02b077c9,Late,Late,Late 1-3 days,2,1,1,False,SP
+141,a8058eabf445fdfff341f1e68a301949,df6d8b7768a047c2981bae0a24afbb01,Late,Late,Late 15+ days,132,1,1,True,CE
+142,34f9ede6051c344eb9bddcc732d4a6b2,5fd251a8f350fdd3985d81dcd0c2674b,"On time, single item",On time,On time,-13,1,1,False,SP
+143,50a97079bab9b08502ac7ad2d962ae78,8ae7da80a0ae007c1d30c6ff5dc3bf26,"On time, single item",On time,On time,-14,1,1,False,RJ
+144,298fc152f32d70a600b22cf6c88140f8,ec07c952b2e699cd885db38a3c9362f9,Not delivered,Not delivered,Not delivered,,1,1,,PI
+145,833bec51393d3b3ddedb33378ef5828b,c88226c0be178bf303537e6ffddc8dc3,"On time, several items",On time,On time,-14,2,1,False,PR
+146,4509268e73002d14328d37b8f43ab3c4,0fa425ec819100fb29a4838e37e5d27e,"On time, several items",On time,On time,-11,2,2,False,SP
+147,459b25423619e268d0c62ff397fa5e14,4198d0f2bb36652e0d18c1f7bbf3b6af,Not delivered,Not delivered,Not delivered,,1,1,,SP
+148,b5972ea8668b8f578a351add9b8fea39,4552d969c2ffe2ac446b7a970e6953fc,"On time, several items",On time,On time,-1,2,2,False,SP
+149,7721320dd3ae9377f6c7ec091d5df78b,9583044d94d7eef1547cdcefb0c8f611,"On time, single item",On time,On time,-27,1,1,False,MG
+150,93fd9c6fa65efb09369e376a50671957,e36361f00e1c093432050d4a52860c8f,"On time, single item",On time,On time,-11,1,1,False,MG
+151,48a1b2742fd417ea6873014e8050d2c6,c14ecd7b2fd9b06640b5ef67f195ee36,Late,Late,Late 4-7 days,5,1,1,True,PE
+152,a7ff73bc13eef2736b95d913a11b6f48,a29c25c2c9c3100daf48a25880312c23,"On time, several items",On time,On time,-19,5,1,False,RJ
+153,ec853cb1fae287e4d1d2c1bfc02a0b2c,a323ac4955fc32f68997f8d0122ff2c1,Late,Late,Late 4-7 days,6,1,1,True,SC
+154,fa51c9ea7e0e2be422b179b185bd206a,f55dcacbda42aa97458735683d9fbb76,"On time, single item",On time,On time,-4,1,1,False,MG
+155,f1d72c86d8801bdf634f944b525ee5e3,08edeac38b68f66bf2e8c3701badde1c,"On time, single item",On time,On time,-17,1,1,False,MG
+156,32ab61ca5b879b324deb8327c2797629,faa911f9ff46e53aedc9408c5d6a24ad,"On time, several items",On time,On time,-17,2,1,False,DF
+157,7502094ae84c21031642c25e78d72599,6919ebfc042d621a6e860d2b4e26210e,Late,Late,Late 4-7 days,4,1,1,False,SP
+158,5beb9901b34aedf9d008f16f3e10ecd5,5a45e21be984a22a54a63a7e950c2f0e,"On time, several items",On time,On time,-8,2,2,False,GO
+159,c7dce52ea0e2b966e8911feef6c3c8d2,6ea09ab8953f7fda1f69d387c9d252eb,"On time, several items",On time,On time,-7,2,2,False,SP
+160,70be3f25177bd0d08ab572e9c6a2281a,a3266d5717615919b50f2d1f62d8c0a8,"On time, single item",On time,On time,-17,1,1,False,MG
+161,e68e4fbcd347a99a569021e37f5c26f4,14dc76b28665ce468e6f5ce4fd661127,"On time, single item",On time,On time,-20,1,1,False,MG
+162,04cdd68ff0e8b61bbb3a2e4d189c470a,205600cda4d43b1596093a3297908ea5,Late,Late,Late 4-7 days,4,1,1,True,DF
+163,25b502beeef8b3aff87449ccdc001f53,9faeb9b2746b9d7526aef5acb08e2aa0,"On time, several items",On time,On time,-16,2,1,False,RS
+164,36807cdb2c3d4cffd2828d26b97497da,767ea088b6cc91e6b7631c6d30cb980c,"On time, several items",On time,On time,-21,2,1,False,SP
+165,1e521b900babad98764b25b81781ee7d,f65abc0b3f3401b14505a57fb6113cf1,"On time, single item",On time,On time,-12,1,1,False,SP
+166,f774cb6dcf0a189de2c8935a9999e86f,b4cc5642e907efdd3c80a2343604b6d5,Late,Late,Late 15+ days,22,2,1,True,RJ
+167,b54d93335f6d35fd40f41494ca9bf0fa,b03c3813b79abede0217026999c4fd66,"On time, single item",On time,On time,-2,1,1,False,SP
+168,621b85de5e636f8c135f1a4e45973858,24f686e03e134195c83dc3e2b6bf4cd0,Not delivered,Not delivered,Not delivered,,,,,MG
+169,6b31864d3682f17272275220b58938f0,38aae594eaee5a2935d397fd93ca43c9,"On time, several items",On time,On time,-4,2,1,False,RJ
+170,a9e43c08d57ccef13fd3274a8a81f190,b9b426ab253dc328825da35f1bad83f9,"On time, single item",On time,On time,-14,1,1,False,RS
+171,801fb7f38a93205e682ef363234bd7dd,d75ec4cf8c3c2afb8cd60498e725dfe3,Late,Late,Late 1-3 days,2,1,1,False,SP
+172,199a383dc661c235635c3ed7b26f0f0f,7ff63764a6de6e9a5fde1c76cf5650a7,Late,Late,Late 4-7 days,6,1,1,True,RS
+173,0a391c3bd57ee83164eedf7118cfa646,d5a0ba4a296ed948a8c9536f557cedb7,"On time, several items",On time,On time,-6,3,1,False,MS
+174,2c7cfb153d948dddac20e4d0548298bc,9b7fd5b0ef330dcbbb6397e5971faeec,"On time, single item",On time,On time,-10,1,1,False,SP
+175,940a1be180baadf96c837f778145d4fe,ddb33b0aa1ca6227208f0ca0564f0696,"On time, several items",On time,On time,-17,4,3,False,SP
+176,941944c073a413274b2d2d07be01378c,f6fb9f9b74dfe24666363e2b3dcd2dd2,Not delivered,Not delivered,Not delivered,,1,1,,SC
+177,3d782ff801c3fee36d7127cac4e8729f,5cd4d921a222793519021a823618a17c,"On time, several items",On time,On time,-18,2,2,False,MG
+178,df7a6abd75766f9250b6ab55c8c9b24d,d21a08b18679aca2a35ed7fe46c513d1,"On time, single item",On time,On time,-7,1,1,False,SP
+179,f29e6d77fec6ddf0f64438efe2ceda49,d493b5c44e863b686314d9f5b6086c82,Not delivered,Not delivered,Not delivered,,1,1,,SP
+180,9784540fc8cb2ca0cb17bccc8f2faf6f,ed8319a94e3499f610df892d44e45767,Late,Late,Late 4-7 days,7,1,1,True,PB
+181,46667e6f5c3949f1854dc00d1edbc969,8c695ffcf56400764176fd1789ec7fa2,Late,Late,Late 4-7 days,4,1,1,True,DF
+182,e295fc88e9fe55d571d5de94efc2331e,8a98b899923f5a4f37a74af5c8b1d774,"On time, several items",On time,On time,-22,2,2,False,SC
+183,8b592f04ffb1115da4b08205a4f0f3b1,fa584838f0f64e25b892b5e883b2c606,Late,Late,Late 15+ days,24,1,1,True,RJ
+184,e8d1bc0188ba7974e847024cab472cdb,7678a9ec36abfc35527725816936da8e,Late,Late,Late 4-7 days,5,1,1,True,PA
+185,221dd8583f1485b0bfa58753e9dbae47,d04757c9594f6b1953682f34c0b1086c,"On time, several items",On time,On time,-18,2,1,False,SC
+186,74dc937a1b3b36a94e2a0702dee61844,ef0e9ebf18b0033d57b60ee42b12d65f,"On time, single item",On time,On time,-12,1,1,False,RJ
+187,3acd029958d6acc525a6d0b3888e9ec7,c8223ab24b18df53e6a37eae1fd69d48,"On time, single item",On time,On time,-6,1,1,False,SP
+188,e2a590e79c4ccb0023a5ee90f58d977f,f256f9e290a782032234f9bb030d2fb3,"On time, single item",On time,On time,-26,1,1,False,MG
+189,85f9a04db605bd716375229d4c928e6c,47649a3165ce361837432d13074e8855,"On time, single item",On time,On time,-6,1,1,False,SP
+190,d4168d3ccf913f60aa193315885e6b54,9706023383737a509d67fdd3eaf88e54,"On time, single item",On time,On time,-17,1,1,False,RJ
+191,40b7bda5e4f7d0f416484f62935c5960,dd1240d12bb27a5516e0bfe172c26d0b,"On time, single item",On time,On time,-19,1,1,False,MG
+192,127fbfd58116551687cec80bcabbbbab,4c5db134eb6b1acaccc406e82f34b09f,"On time, single item",On time,On time,-25,1,1,False,MG
+193,2bf2913f793ffd3739c41cccfc43c8c5,cd3558a10d854487b4f907e9b326a4fc,"On time, single item",On time,On time,-14,1,1,False,SP
+194,8970134d361e25daa1eddb853406d865,01ccc64a2b38fdb87c25cb1944934670,"On time, several items",On time,On time,-27,2,1,False,BA
+195,c0dca06bf9b6996ad67f30c74b1e58b1,31ead8e6ffdcc849b1a720ff40d5b724,Late,Late,Late 15+ days,16,1,1,True,BA
+196,f323e495e4373d58d0a920e8e29451d1,9f8d175d959554b7edef8908797f42bc,"On time, several items",On time,On time,-13,2,1,False,MG
+197,d8f88b11c8281fe5e1ef6fcf8cd2b17f,ab18ff09f55ca3ccc4dbf5bed2c9036d,Late,Late,Late 1-3 days,3,1,1,True,MG
+198,7852b164f1c19b9a4ed1e070a3b70789,21fb84496c034392ca2aafe7f7919a3f,"On time, single item",On time,On time,-4,1,1,False,PE
+199,77993d6e04c0cae199a6b183ec708625,5f42573c60286a6f9d6a3809352c86e0,"On time, several items",On time,On time,-47,3,1,False,RJ
+200,60ee9f17042b0d52dbfa562765257b24,05259e30e40e08eddb05428cb38ff248,"On time, single item",On time,On time,-14,1,1,False,SP
+201,3e1d4e7f3a4e13e93f0c0ab416a25ab5,d200a7526c6d29e8c2742a0bff8cff14,Not delivered,Not delivered,Not delivered,,,,,RJ
+202,4a77d135f5c9a49417c4934132a0f0a2,2e9247e7cf0c983200999ffee09f6e70,"On time, single item",On time,On time,-15,1,1,False,RJ
+203,717066632a093d79b59f4650fdb19242,b13b1011e873341b427bb3acb82f83ac,"On time, single item",On time,On time,-33,1,1,False,ES
+204,27b1458e1bf0a9478d9e04f899769844,c160599d4ea4eefa0e420db0a0cc9926,Not delivered,Not delivered,Not delivered,,1,1,,SP
+205,dc68944736ee18129b154291134e4a75,59abaffabcf78a9b635f9c5f16a8cee3,"On time, single item",On time,On time,-12,1,1,False,BA
+206,ffad2d6fdb394ea1330c3aeb36528d59,1436cb05507a787c1dc757c1fa2f275f,Late,Late,Late 8-14 days,8,1,1,True,SP
+207,6497e16f1195e76f14d9e9f6a4c031a6,6f2241a169e16e47cdbe68ce9d8c5865,Not delivered,Not delivered,Not delivered,,1,1,,RJ
+208,537feb6003aacd1558f6902b37e6bf92,e6cdacd5274dbf478d422d7144e0e9b5,Late,Late,Late 8-14 days,9,1,1,True,RJ
+209,4502349115c52d0cbe66fe8badd126fc,d35fa2f0829d8cb22065f23bb19a6768,Late,Late,Late 4-7 days,7,1,1,True,PE
+210,eb3d47ba2fd5229bb111f45979646ca6,80c3447167bed567a8646b0802408d48,Late,Late,Late 4-7 days,4,1,1,True,SP
+211,8f5bb9a937d01f4caca03a4569f4d052,a7a256d455df2402da6d060321656b20,"On time, single item",On time,On time,-9,1,1,False,SP
+212,07d712d104a35ced0befc3114d8c0e7c,7659a1c749ab19031d8e957692aa114d,"On time, single item",On time,On time,-12,1,1,False,SP
+213,fd0e733913f6d55abc8baeea30a5c4de,0eb0a41e6b1a9ededcb4102af28625fe,"On time, single item",On time,On time,-3,1,1,False,BA
+214,f6bc2b7fb670edc173862b9d84fd12c5,d34d57040fbd8cc561fddf442352f8eb,"On time, single item",On time,On time,-22,1,1,False,MG
+215,3a9895057cba104e3fa196a04177a2a2,d90174017bf4d85298251ec0cf5a0bb7,"On time, single item",On time,On time,-1,1,1,False,RJ
+216,e9490806713d432d9a9294eac2bf8f50,8f91b7a70604c68b017c9f0f74149c1c,Late,Late,Late 4-7 days,7,1,1,True,RJ
+217,ab227566e562bbad783be39fff2ecf1b,cd4e72be4075838e5c15204603edb7ce,"On time, single item",On time,On time,-17,1,1,False,SC
+218,7c7b4242a6578c4ee68fae9219d2f0f8,9ffbf165bfd976933256254ac8d7bb36,"On time, several items",On time,On time,-7,2,1,False,SP
+219,4b95f7b1edc232d18c325eb91c643f11,a6fa6ddceedb5ea6477c3660ccc379d8,Late,Late,Late 8-14 days,8,1,1,True,ES
+220,ef0e80d66fdc79ebf04c086fe293b320,05a4879e7e161809c8bf4d8171b0c670,Late,Late,Late 1-3 days,2,1,1,True,RS
+221,f013172ceafae8286ca0394708dbc6e3,4382b7af38e2034ff26273519819f2d2,Late,Late,Late 15+ days,36,1,1,True,PR
+222,d41662fda6431d8f545cf554c286ffb4,ccf15697e8a9c460dd3bab4f04270c9b,"On time, single item",On time,On time,-10,1,1,False,PR
+223,99e44e41e2a7ba7ffe9bf13f64e2bbac,4d4aac37e91472a2cbb36ee91d35866f,"On time, single item",On time,On time,-21,1,1,False,PR
+224,96f13e1be252ee2805e023fb10483657,4ad21bf3605a58ee53dacbad7ddae5b0,Late,Late,Late 15+ days,29,1,1,True,CE
+225,a30bfc3a9fb4ea43dc2ad7c62e3336f4,af71e9e2ee3f91d619aacab51fe2e75b,Late,Late,Late 4-7 days,7,1,1,True,RJ
+226,1d7f9b59af0aeb2c8d63b9a75422257d,71081f5935795063b2da072531dcd1ae,Late,Late,Late 4-7 days,7,1,1,True,MA
+227,e96fc274949171b17a9e498d8d03c4e6,a631c77f946e5131c16618c1d0453970,"On time, several items",On time,On time,-10,2,1,False,RJ
+228,a05423fd04e749bb00dd7b6ab14176ec,f0ea1a5c37278e95cbd4d8684c999341,Late,Late,Late 1-3 days,2,1,1,False,SP
+229,a68df871b3ca65507355d602e0b5ddd9,d9264b7ce5f860c5b8d439f2e77bbc40,"On time, single item",On time,On time,-16,1,1,False,RJ
+230,f87e60d60e2e4f3e9e761a395a73fc56,82fae4d3818a5f80851df0cc8c94aa7e,"On time, single item",On time,On time,-14,1,1,False,MG
+231,ccf9089f5a12c8eb41dc9390caa7f28a,990c396e6013e8b43c6f18b3d609cbee,Late,Late,Late 1-3 days,3,1,1,True,SP
+232,e46afc82a37b94c6f8a7cede77401f6a,e2f55ffa361f22212fa093de97e60fec,Late,Late,Late 4-7 days,5,3,1,True,SP
+233,0eace66bc1af8dd8b6edd0e6438ca8f7,1e9cdb2ee26ee17ecb5f050a180cf8ff,Not delivered,Not delivered,Not delivered,,,,,SP
+234,15deb462a740bedc2a8e9faf6f359f65,efb9ad1c5eb60ac2a3565723d18230fd,Not delivered,Not delivered,Not delivered,,1,1,,RJ
+235,446e0af1cbd73d5e619953e84d679238,8a1971d2df1c5e6101ab0285700c7ebd,"On time, single item",On time,On time,-9,1,1,False,MG
+236,1e6dcf3e365bc12afe596b9666a5b711,82a914d5f7af95901a18ef83b388bd4f,"On time, single item",On time,On time,-11,1,1,False,SP
+237,8406fa0ead1cf1d19718c4eab131e2c9,4969de35fd774f0dc8cdb13b069135df,"On time, several items",On time,On time,-9,3,1,False,RJ
+238,99614ec8951ae98da22a3d88274b42a0,e29802498c81638fb4377d7c7137031e,"On time, several items",On time,On time,-13,2,1,False,RJ
+239,cdd317e80e238b4baf864a45c172ced7,bdb7c7b648d72056fa0a7a19805dce0f,"On time, single item",On time,On time,-10,1,1,False,SC
+240,58fd2ea2addff1f30c107260ab321749,6ef0679f937afb1cb20c8cab157f6f9a,"On time, several items",On time,On time,-26,2,1,False,SP
+241,f31f7df1eee767691a02c580df9fe069,9fcf3a22a927c64dc1d0c8744634bf09,Not delivered,Not delivered,Not delivered,,1,1,,PA
+242,f4ab9877c0e6af41f011fbc0a8bae4a4,1ea65cecbb597686d8cd052ac3027b0f,Late,Late,Late 4-7 days,6,1,1,True,RJ
+243,0b6a4ccb6d49fb1f00aacb64bf3f338e,7d000307a29338a053287f79e225e09a,"On time, single item",On time,On time,-2,1,1,False,SP
+244,d6776f71d9212e99df00d8e7f3da86ce,ac899f448f474ceb27b400ce38f25bc2,"On time, several items",On time,On time,-7,3,1,False,SP
+245,ac7b9f11bf1ab639bcb98fe0d03295f0,342b32ffd8aaa93d30dcf0497eeefbcc,"On time, single item",On time,On time,-9,1,1,False,SP
+246,815018ecb191fd9d1cadd856c1447762,078f6a01964ee122ef20881df839af31,Not delivered,Not delivered,Not delivered,,1,1,,PR
+247,80e9808a0d63ca08c3ff6809e338a11e,771b1c1071afb60efdf55afffd0ad25b,"On time, single item",On time,On time,-13,1,1,False,DF
+248,9f7a70ef3c21dcd0ff89a213dc39227f,2490addf3d8f672cae84b56309e075ce,"On time, single item",On time,On time,-10,1,1,False,SP
+249,7d3225a861626266061ccf271a55c403,1b0bc119ea5ac37e73e2275afc7904ee,"On time, several items",On time,On time,0,3,2,False,SP
+250,fb438ee1afd42dc7a34710a4d343917b,0030d783f979fbc5981e75613b057344,Late,Late,Late 15+ days,22,1,1,True,RJ
+251,6e6145b73a1e01b3affa3f058018a267,4338e6bc70fcf731f6d799f56c66b6cb,"On time, several items",On time,On time,-12,2,1,False,RJ
+252,8e0c1523095cba7fb0ecf560bc9637a3,4f1482e926881ff58f7384a6e6bd0771,Late,Late,Late 4-7 days,6,1,1,True,SP
+253,b4c6af5bce6dc2f4010f934bad9102fd,1336e40005c591d3d84862f0e9035882,"On time, single item",On time,On time,-16,1,1,False,SP
+254,2104f309cc01b4e6b1b2858cf3fc3586,bd982aee32cd290fc0ecf05ec77c326b,Late,Late,Late 8-14 days,8,1,1,True,SP
+255,0d93b9ba4b60496470ae0f79c1bd4c0b,1ae8a88bf94d02224f932e18297baa64,"On time, several items",On time,On time,-28,5,1,False,AM
+256,26f03d4ca24ccd433a137abbde2a20f5,37ba9866dd63f644c50fc7a9351ccf8e,"On time, single item",On time,On time,-18,1,1,False,SP
+257,1bbe11a3e0d55332a77847b8d717b62b,090342fe317c0444e8220e4d902579cf,"On time, single item",On time,On time,-7,1,1,False,SP
+258,1ae0d358efd3907c0d22db7f7d145af0,2c085be01cf9f459a741b95e7d81860f,"On time, single item",On time,On time,-15,1,1,False,SP
+259,d209b09f0dd43724c3ef350a83c85ef5,b2673ed6360dc341a4728dbd632f935b,Not delivered,Not delivered,Not delivered,,,,,PR
+260,3ba4306480ae86226634b10b023a1250,0a6b6d3fb4616f5b647bc8b0b8f69e0d,"On time, single item",On time,On time,-3,1,1,False,SP
+261,1f3ea7696ab23b0f7decfc29ffab4f7d,931eb9b18a6471d1f635ff15fcbde0ca,"On time, single item",On time,On time,-13,1,1,False,SP
+262,81f96f2486e7f0cc44ccb5b5d95bb139,2bb02fdf5637a68cd5d13c78c37c3376,Not delivered,Not delivered,Not delivered,,,,,MG
+263,235caada97e835c59d07e71bfa7fac30,3f0c7e7bedf15ae58cd1c2148d5786e3,"On time, single item",On time,On time,-12,1,1,False,RS
+264,a9286a6fab1e8612ed33a1cb5c54dc74,6fbe92e0f9d5a728e3fd2be036b5ab05,"On time, single item",On time,On time,-3,1,1,False,SP
+265,be8fdfb6db68c5719625577046961de4,67e54a5ddb5e864b3ca5442f999b55ed,"On time, single item",On time,On time,-13,1,1,False,BA
+266,7d9d1002f0a121217c8ba9a34062fb44,6f8c85df8511665fc02773d5eba0907b,"On time, several items",On time,On time,-7,2,2,False,SP
+267,aed28228cab25f2cbc325e1d755155a3,3602a80b09d914236f74c733631f3b8b,Late,Late,Late 15+ days,60,1,1,True,PA
+268,9e87bf60a30a58286a0260e271f4d789,d8871dabf991b93f323970274f492e85,Late,Late,Late 8-14 days,13,1,1,True,SP
+269,47f095d5f91cb5fd71499316b7e98da4,15cc05afae8fa894c83b39ac8d46c9d5,"On time, single item",On time,On time,0,1,1,False,SP
+270,7d81592881b86d6ba09e4e5ae954a59d,f3d418a0887dbfd5bd41c788c87ac28b,"On time, several items",On time,On time,-10,2,2,False,MA
+271,1e3d2a60a2b5c77e60112200a1df4b4d,acaa91b87fbd9e2ff9171781226f73e9,"On time, single item",On time,On time,-11,1,1,False,SP
+272,c598947b5a794839306c37a2b67e40b6,2e203d616e144d45fd13e47098343406,Late,Late,Late 4-7 days,6,1,1,True,SP
+273,673c0f70f65a2758382210d0c374de31,32205d676b64acc1c69f404bf0537166,"On time, several items",On time,On time,-15,2,1,False,MG
+274,f588cda1416895d04f9960ba794df07b,b5172d4a722c0ebb34c29bbbb7a3cb42,Not delivered,Not delivered,Not delivered,,1,1,,SP
+275,d74123c6417f6beae37d131554532633,7bdb2d28573c6576a3204c21c98aa93c,"On time, single item",On time,On time,-10,1,1,False,SP
+276,f7c0d3bdf02dc38b059df935e7659c12,3324e0b9570581be76b4559b10df4aba,Not delivered,Not delivered,Not delivered,,1,1,,SP
+277,eed6ca142f3dbc79829eb3f84e932ce8,442474d2063d0b9b957785f2e4773865,Not delivered,Not delivered,Not delivered,,1,1,,SP
+278,08bf1042f44f3a8fd86391ccdaf2c3ae,3d7843619ba9dab89ba9aa58cfa11e31,Late,Late,Late 4-7 days,6,1,1,True,PB
+279,8ab1cbaa45ab4ca97d24f5e5884c0c39,db145d39d51668d2934a47dbae8e5e66,"On time, single item",On time,On time,-1,1,1,False,BA
+280,34b03eefcf3bef5dfe75b1b70fad79f2,1f0c014f0e64850a2020368551656dba,Late,Late,Late 1-3 days,3,1,1,True,RJ
+281,ac7ad6b003286e950ab7463a6c93469b,7c65caaf993acf13ce6a8c0aba410801,Late,Late,Late 4-7 days,5,1,1,False,PR
+282,054489c42e7a42ac12e216c7e5d63877,93c6619a4bcc406da04323380c97d896,Not delivered,Not delivered,Not delivered,,1,1,,RN
+283,593ba0be9678356cbedc7662c3887815,0942763b4318676d85b3185d80f57cd3,Late,Late,Late 4-7 days,5,1,1,True,BA
+284,3450ec3bbabeb09a08b00fc72da87a30,c46f950813dd2dd9bab4188dceb83175,"On time, single item",On time,On time,-33,1,1,False,DF
+285,017f0e1ea6386de662cbeba299c59ad1,02355020fd0a40a0d56df9f6ff060413,Late,Late,Late 15+ days,15,1,1,True,BA
+286,6cc5c8294f7e480b62d534e52f74b22f,793c05f561c41e8fb6599c92be8d0afd,Not delivered,Not delivered,Not delivered,,,,,PA
+287,985c22a982d129b4b337a59f2d8f73a3,b78ff92837a4593dbc8ed0e5f7ce3e16,"On time, single item",On time,On time,-5,1,1,False,RJ
+288,fb70582c60c5fb50a15acb514bc2876c,34dc2f9bce0427122de8cd6afdb03c2c,Late,Late,Late 8-14 days,11,1,1,True,MG
+289,da39db70ec77b385de38b976356c7a70,bde129eebd03ffe125ca818b00f85b92,"On time, several items",On time,On time,-10,2,2,False,DF
+290,e9096d0d59b5855d14ff336482e5d25b,e6f9e405ce45b165458e7f5e14398ee5,"On time, single item",On time,On time,-3,1,1,False,RJ
+291,c3084e1f8472a19337c2b8e32998df6c,170668dbc6b505ada8c06356aa45177b,Not delivered,Not delivered,Not delivered,,1,1,,SP
+292,fc3e35dad52cfd73d253b71b87bf17c6,3417aa576662236ea66ef37b0558d6fd,Late,Late,Late 8-14 days,8,1,1,True,BA
+293,77f1a44e41c48bf4bd68309abc654526,73a366d399bf1947b6d62c2a4e648f27,Not delivered,Not delivered,Not delivered,,1,1,,MG
+294,833d741a69224faa77ce2414bdcef78c,c302cf694cfc7a418d97e46fbf49bebf,"On time, single item",On time,On time,-23,1,1,False,RJ
+295,1575e2b3d67c21efdc0124eab12fd3d7,a8da750ead7290b859a6b05d62c9522f,Not delivered,Not delivered,Not delivered,,1,1,,RJ
+296,9d1a163d060812d013765627ef96c50b,5182f75b9ed284e0a569ea4f61e9bfc5,Late,Late,Late 1-3 days,2,1,1,True,SP
+297,5687027a7cd09ca1c2c4444e054d86b6,d4eff8d7652db5a92efaf867550013ca,"On time, single item",On time,On time,-20,1,1,False,RJ
+298,fd75914eb23604a51c598d82571e832d,5aa30c6fb7069f850d190ad8cbf80c20,"On time, single item",On time,On time,-12,1,1,False,SP
+299,9c25bc809497cf83de501d3237297153,e3f7c2f711bb7121c21b3ea7d6816d4a,"On time, single item",On time,On time,-6,1,1,False,SP
+300,9045ede04a5d9c5aa16afdf074e59411,938c8cbe289e7aa04f8eb3221cf19574,Late,Late,Late 8-14 days,13,1,1,True,SP
