@@ -1,0 +1,25 @@
+# Raw data is NOT committed (licence CC BY-NC-SA 4.0, ~120 MB).
+# Download instructions are in README.md.
+data/raw/*
+!data/raw/.gitkeep
+
+# Local DuckDB database: rebuilt from the CSV files by run_sql.py
+*.duckdb
+*.duckdb.wal
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Power BI temporary files
+*.pbix.tmp
+~$*
