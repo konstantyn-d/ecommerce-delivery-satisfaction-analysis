@@ -1,0 +1,194 @@
+table fact_order_items
+	lineageTag: 047784c8-f439-5501-b709-d502f653c84b
+
+	/// Value of the items sold, in BRL.
+	measure 'Item GMV' = SUM ( fact_order_items[price] )
+		formatString: #,0
+		displayFolder: 5 Sellers and categories
+		lineageTag: 2ff9ef4d-c9b7-52c0-b20a-d3cc1d1cc185
+
+	/// Orders that contain at least one item of the seller or category.
+	measure 'Item Orders' = DISTINCTCOUNT ( fact_order_items[order_id] )
+		formatString: #,0
+		displayFolder: 5 Sellers and categories
+		lineageTag: e008210a-9c3d-586f-a840-3d8a16fb681f
+
+	/// Delivered orders that contain the seller or category.
+	measure 'Item Delivered Orders' = CALCULATE ( [Item Orders], fact_order_items[is_delivered] = TRUE () )
+		formatString: #,0
+		displayFolder: 5 Sellers and categories
+		lineageTag: b3edb234-90ea-564e-b036-48e17bf24840
+
+	/// Late orders that contain the seller or category.
+	measure 'Item Late Orders' = CALCULATE ( [Item Orders], fact_order_items[delivery_outcome] = "Late" )
+		formatString: #,0
+		displayFolder: 5 Sellers and categories
+		lineageTag: fb47c124-b09a-582e-b62f-a8179fe3abf0
+
+	/// Late rate of a seller or category.
+	measure 'Item Late Rate' = DIVIDE ( [Item Late Orders], [Item Delivered Orders] )
+		formatString: 0.0%
+		displayFolder: 5 Sellers and categories
+		lineageTag: 457d8f9e-a786-50cf-a7c6-4abaa1a7eb1a
+
+	/// Reviewed orders that contain the seller or category.
+	measure 'Item Reviewed Orders' = CALCULATE ( [Item Orders], fact_order_items[has_review] = TRUE () )
+		formatString: #,0
+		displayFolder: 5 Sellers and categories
+		lineageTag: 612821f0-cc0f-58a6-9ddd-f1b3bee8f235
+
+	/// Orders with a 1-2 star review that contain the seller or category.
+	measure 'Item Low Score Orders' = CALCULATE ( [Item Orders], fact_order_items[is_low_score] = TRUE () )
+		formatString: #,0
+		displayFolder: 5 Sellers and categories
+		lineageTag: eb8d31d2-e30f-5bcb-83ed-6e6540069fdb
+
+	/// Share of 1-2 star reviews of a seller or category.
+	measure 'Item Low Score Share' = DIVIDE ( [Item Low Score Orders], [Item Reviewed Orders] )
+		formatString: 0.0%
+		displayFolder: 5 Sellers and categories
+		lineageTag: 12491545-3323-51af-a11a-fb748cb1b11c
+
+	/// Average score of a seller or category: one score per order, then the average of the orders.
+	measure 'Item Avg Review Score' =
+			AVERAGEX (
+			    VALUES ( fact_order_items[order_id] ),
+			    CALCULATE ( MAX ( fact_order_items[review_score] ) )
+			)
+		formatString: 0.00
+		displayFolder: 5 Sellers and categories
+		lineageTag: 1abfb57c-4818-5c67-a98b-400bae6bb649
+
+	/// The overall share of 1-2 star reviews on item level, ignoring the category.
+	measure 'Low Score Share (All Categories)' = CALCULATE ( [Item Low Score Share], REMOVEFILTERS ( dim_product ) )
+		formatString: 0.0%
+		displayFolder: 5 Sellers and categories
+		lineageTag: 89da8c72-94bf-5697-aadb-1047117dbe13
+
+	column order_id
+		dataType: string
+		isHidden
+		lineageTag: b78d893a-2c12-5bc3-849e-5b45a45cd158
+		summarizeBy: none
+		sourceColumn: order_id
+
+	column order_item_id
+		dataType: int64
+		isHidden
+		lineageTag: 26c4fd4d-168b-5f2a-8870-e8ad2220db07
+		summarizeBy: none
+		sourceColumn: order_item_id
+
+	column product_id
+		dataType: string
+		isHidden
+		lineageTag: 679a11c2-cf81-52bf-8b28-b5f4fdfe8ac3
+		summarizeBy: none
+		sourceColumn: product_id
+
+	column seller_id
+		dataType: string
+		isHidden
+		lineageTag: faa43ef8-d723-54c1-923b-dcb88ce6e092
+		summarizeBy: none
+		sourceColumn: seller_id
+
+	column purchase_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		isHidden
+		lineageTag: d96e0d1a-0175-53df-a7fb-35184edde405
+		summarizeBy: none
+		sourceColumn: purchase_date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column customer_state
+		dataType: string
+		isHidden
+		lineageTag: 057cbe7a-f17b-54ee-9a00-f5b6d95a9a0b
+		summarizeBy: none
+		sourceColumn: customer_state
+
+	column price
+		dataType: double
+		lineageTag: 411cc399-6f63-55ce-adc8-104c6e9ea250
+		summarizeBy: none
+		sourceColumn: price
+
+	column freight_value
+		dataType: double
+		lineageTag: cb796ee6-fbc1-5ea9-bb2b-2a028ff492c2
+		summarizeBy: none
+		sourceColumn: freight_value
+
+	column is_same_state
+		dataType: boolean
+		lineageTag: 67438aa9-08f1-5187-8009-80880217be39
+		summarizeBy: none
+		sourceColumn: is_same_state
+
+	column is_seller_handover_late
+		dataType: boolean
+		lineageTag: 5075a4e1-a0dd-541f-b842-cc9d2c62c8a1
+		summarizeBy: none
+		sourceColumn: is_seller_handover_late
+
+	column is_multi_seller_order
+		dataType: boolean
+		lineageTag: b2a55029-e1a9-5777-a69c-96b6f67a63af
+		summarizeBy: none
+		sourceColumn: is_multi_seller_order
+
+	column delivery_outcome
+		dataType: string
+		lineageTag: a1919cfb-7279-5777-b6c0-70fb6ff93055
+		summarizeBy: none
+		sourceColumn: delivery_outcome
+
+	column is_delivered
+		dataType: boolean
+		lineageTag: c376e9c8-78b0-51bd-bee2-76142328abe8
+		summarizeBy: none
+		sourceColumn: is_delivered
+
+	column is_on_time
+		dataType: boolean
+		lineageTag: 022d21ba-c9c0-5e90-9676-0e4c1b5f2841
+		summarizeBy: none
+		sourceColumn: is_on_time
+
+	column delay_days
+		dataType: int64
+		lineageTag: 0c413e66-e54d-5725-8208-922333688670
+		summarizeBy: none
+		sourceColumn: delay_days
+
+	column has_review
+		dataType: boolean
+		lineageTag: 2e544531-b49b-5b0c-b17a-e719088fe95d
+		summarizeBy: none
+		sourceColumn: has_review
+
+	column review_score
+		dataType: int64
+		lineageTag: d38788cc-b27b-5272-bbb5-992a3be30be9
+		summarizeBy: none
+		sourceColumn: review_score
+
+	column is_low_score
+		dataType: boolean
+		lineageTag: dda5bfad-d12d-5300-9ccd-2731ba273542
+		summarizeBy: none
+		sourceColumn: is_low_score
+
+	partition fact_order_items = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DataFolder & "data\processed\fact_order_items.parquet")),
+				    Typed = Table.TransformColumnTypes(Source, {{"order_id", type text}, {"order_item_id", Int64.Type}, {"product_id", type text}, {"seller_id", type text}, {"purchase_date", type date}, {"customer_state", type text}, {"price", type number}, {"freight_value", type number}, {"is_same_state", type logical}, {"is_seller_handover_late", type logical}, {"is_multi_seller_order", type logical}, {"delivery_outcome", type text}, {"is_delivered", type logical}, {"is_on_time", type logical}, {"delay_days", Int64.Type}, {"has_review", type logical}, {"review_score", Int64.Type}, {"is_low_score", type logical}})
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table

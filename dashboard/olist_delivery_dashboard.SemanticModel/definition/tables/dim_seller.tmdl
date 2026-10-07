@@ -1,0 +1,44 @@
+table dim_seller
+	lineageTag: d04a0ddd-f41c-5dd2-aa38-d55ad2762b10
+
+	column seller_id
+		dataType: string
+		isHidden
+		lineageTag: 9b198bfd-ab15-5ba2-b76f-820137cc123e
+		summarizeBy: none
+		sourceColumn: seller_id
+
+	column seller_short
+		dataType: string
+		lineageTag: c8639ed4-f81b-5822-9a0c-e979f038b260
+		summarizeBy: none
+		sourceColumn: seller_short
+
+	column seller_city
+		dataType: string
+		lineageTag: 83851fd5-50de-5958-a805-9b938ffee43c
+		summarizeBy: none
+		sourceColumn: seller_city
+
+	column seller_state
+		dataType: string
+		lineageTag: 0cafb0d0-faa2-52bd-ace6-14b5046d8958
+		summarizeBy: none
+		sourceColumn: seller_state
+
+	column seller_region
+		dataType: string
+		lineageTag: 391b139b-7f55-52f0-98bc-8fc14753760c
+		summarizeBy: none
+		sourceColumn: seller_region
+
+	partition dim_seller = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DataFolder & "data\processed\dim_seller.parquet")),
+				    Typed = Table.TransformColumnTypes(Source, {{"seller_id", type text}, {"seller_short", type text}, {"seller_city", type text}, {"seller_state", type text}, {"seller_region", type text}})
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table

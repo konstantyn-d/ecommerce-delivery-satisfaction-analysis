@@ -1,0 +1,405 @@
+table fact_orders
+	lineageTag: 29147e99-045f-5d9c-9480-8354628982d6
+
+	/// Number of orders, all statuses.
+	measure Orders = COUNTROWS ( fact_orders )
+		formatString: #,0
+		displayFolder: 1 Volume and value
+		lineageTag: 5d10f093-fcb0-5cd4-a5cf-94a9d2b39866
+
+	/// Value of the products ordered, in BRL, without freight.
+	measure GMV = SUM ( fact_orders[items_value] )
+		formatString: #,0
+		displayFolder: 1 Volume and value
+		lineageTag: 3f231330-c9b3-5197-bf0e-3a9b5f8f1480
+
+	/// Orders that have item rows; the orders without items have no value.
+	measure 'Orders with Items' = CALCULATE ( [Orders], fact_orders[has_items] = TRUE () )
+		formatString: #,0
+		displayFolder: 1 Volume and value
+		lineageTag: 5c440035-239b-507c-be0a-316ebcf0de2d
+
+	/// GMV per order that has items.
+	measure 'Average Order Value' = DIVIDE ( [GMV], [Orders with Items] )
+		formatString: #,0.00
+		displayFolder: 1 Volume and value
+		lineageTag: 04d07bfb-d896-51fe-b534-391ce0b2e768
+
+	/// Freight as a share of what the customer pays (products plus freight). A ratio of totals.
+	measure 'Freight Share' = DIVIDE ( SUM ( fact_orders[freight_value] ), SUM ( fact_orders[order_total] ) )
+		formatString: 0.0%
+		displayFolder: 1 Volume and value
+		lineageTag: 686f303b-6799-59c9-a5b9-ee9a35b4565c
+
+	/// Orders that reached the customer and have a delivery date.
+	measure 'Delivered Orders' = CALCULATE ( [Orders], fact_orders[is_delivered] = TRUE () )
+		formatString: #,0
+		displayFolder: 2 Delivery
+		lineageTag: 54e1a078-00e3-5e21-b255-2e5d9ea65067
+
+	/// Orders delivered on or before the promised date.
+	measure 'On-time Orders' = CALCULATE ( [Orders], fact_orders[delivery_outcome] = "On time" )
+		formatString: #,0
+		displayFolder: 2 Delivery
+		lineageTag: 20902440-e7fd-5f40-af31-d18dc151a06c
+
+	/// Orders delivered after the promised date.
+	measure 'Late Orders' = CALCULATE ( [Orders], fact_orders[delivery_outcome] = "Late" )
+		formatString: #,0
+		displayFolder: 2 Delivery
+		lineageTag: 03a567ce-eca1-5080-882e-133af3978c9d
+
+	/// Orders that did not end as a delivery.
+	measure 'Not Delivered Orders' = CALCULATE ( [Orders], fact_orders[delivery_outcome] = "Not delivered" )
+		formatString: #,0
+		displayFolder: 2 Delivery
+		lineageTag: 325dd132-7947-5ccf-a933-5dfe2a0f61f5
+
+	/// Share of delivered orders that kept the promised date.
+	measure 'On-time Rate' = DIVIDE ( [On-time Orders], [Delivered Orders] )
+		formatString: 0.0%
+		displayFolder: 2 Delivery
+		lineageTag: 53322cf7-37ef-501f-8c73-19198b24830e
+
+	/// Share of delivered orders that arrived after the promised date.
+	measure 'Late Rate' = DIVIDE ( [Late Orders], [Delivered Orders] )
+		formatString: 0.0%
+		displayFolder: 2 Delivery
+		lineageTag: f582a773-fe4e-5559-a071-f7b9a0b5403e
+
+	/// Share of all orders that were never delivered.
+	measure 'Not-delivered Rate' = DIVIDE ( [Not Delivered Orders], [Orders] )
+		formatString: 0.0%
+		displayFolder: 2 Delivery
+		lineageTag: b5f2d7a3-4701-594c-a416-781a7149f19b
+
+	/// Average number of days late, late orders only.
+	measure 'Avg Delay (Late)' = CALCULATE ( AVERAGE ( fact_orders[delay_days] ), fact_orders[delivery_outcome] = "Late" )
+		formatString: 0.0
+		displayFolder: 2 Delivery
+		lineageTag: 870bfec2-9f3b-5052-8314-4bb80998913f
+
+	/// Median number of days late, late orders only.
+	measure 'Median Delay (Late)' = CALCULATE ( MEDIAN ( fact_orders[delay_days] ), fact_orders[delivery_outcome] = "Late" )
+		formatString: 0
+		displayFolder: 2 Delivery
+		lineageTag: 14031523-0283-5baf-9424-d49aa35d272f
+
+	/// Median number of calendar days from purchase to delivery.
+	measure 'Median Delivery Days' = MEDIAN ( fact_orders[delivery_days] )
+		formatString: 0
+		displayFolder: 2 Delivery
+		lineageTag: 27b8dad0-ebf4-51bf-8263-1f26a305ea35
+
+	/// Of the late orders, the share that the seller handed to the carrier after the shipping deadline.
+	measure 'Late Orders Handed Over Late by Seller' =
+			DIVIDE (
+			    CALCULATE ( [Late Orders], fact_orders[is_seller_handover_late] = TRUE () ),
+			    [Late Orders]
+			)
+		formatString: 0.0%
+		displayFolder: 2 Delivery
+		lineageTag: 9bcfb18b-4e5e-5440-a090-0ed2a6abf5be
+
+	/// The national late rate, ignoring any state or region filter.
+	measure 'Late Rate (All States)' = CALCULATE ( [Late Rate], REMOVEFILTERS ( dim_geography ) )
+		formatString: 0.0%
+		displayFolder: 2 Delivery
+		lineageTag: b675c20b-aa81-551a-8e28-ae5270e4e8b8
+
+	/// Bar colour: accent when the state is above the national late rate, grey otherwise.
+	measure 'Colour Late Rate' = IF ( [Late Rate] > [Late Rate (All States)], "#eb6834", "#a8a7a0" )
+		displayFolder: 9 Formatting
+		lineageTag: 17961ad2-57d9-5e36-bc87-987c235e7e14
+
+	/// Orders that have a review.
+	measure 'Reviewed Orders' = CALCULATE ( [Orders], fact_orders[has_review] = TRUE () )
+		formatString: #,0
+		displayFolder: 3 Satisfaction
+		lineageTag: 909d236a-682b-5330-9c0a-4adeafa4ecf5
+
+	/// Average review score from 1 to 5; orders without a review are ignored.
+	measure 'Avg Review Score' = AVERAGE ( fact_orders[review_score] )
+		formatString: 0.00
+		displayFolder: 3 Satisfaction
+		lineageTag: cd3ca3e4-cbc4-501d-95ac-7b8c749e9479
+
+	/// Orders with a 1-2 star review.
+	measure 'Low Score Orders' = CALCULATE ( [Orders], fact_orders[is_low_score] = TRUE () )
+		formatString: #,0
+		displayFolder: 3 Satisfaction
+		lineageTag: e86eb9bf-1fe1-5cef-ba9b-704d28a7ef01
+
+	/// Share of reviewed orders with a 1-2 star review: the main outcome metric.
+	measure 'Low Score Share' = DIVIDE ( [Low Score Orders], [Reviewed Orders] )
+		formatString: 0.0%
+		displayFolder: 3 Satisfaction
+		lineageTag: cf6d1492-30ef-5706-8970-d758caa6bb45
+
+	/// Share of reviews that include a written comment.
+	measure 'Comment Share' = DIVIDE ( CALCULATE ( [Orders], fact_orders[has_comment] = TRUE () ), [Reviewed Orders] )
+		formatString: 0.0%
+		displayFolder: 3 Satisfaction
+		lineageTag: 15f75468-ef80-52c4-abd8-efefabae098e
+
+	/// Each delivery outcome's share of all orders.
+	measure 'Share of Orders' =
+			DIVIDE (
+			    [Orders],
+			    CALCULATE ( [Orders], REMOVEFILTERS ( fact_orders[delivery_outcome], fact_orders[delivery_outcome_sort] ) )
+			)
+		formatString: 0.0%
+		displayFolder: 3 Satisfaction
+		lineageTag: 62d80675-0fcb-527e-a1cb-7e62b6a007b7
+
+	/// Each delivery outcome's share of all 1-2 star reviews.
+	measure 'Share of Low Score Reviews' =
+			DIVIDE (
+			    [Low Score Orders],
+			    CALCULATE ( [Low Score Orders], REMOVEFILTERS ( fact_orders[delivery_outcome], fact_orders[delivery_outcome_sort] ) )
+			)
+		formatString: 0.0%
+		displayFolder: 3 Satisfaction
+		lineageTag: ba23f507-a4b0-5a8f-a0c9-ae18af685eb3
+
+	/// Share of 1-2 star reviews of orders with one item.
+	measure 'Low Score Share Single Item' = CALCULATE ( [Low Score Share], fact_orders[order_size] = "Single item" )
+		formatString: 0.0%
+		displayFolder: 3 Satisfaction
+		lineageTag: aa87045b-d312-5708-a53c-efddd0d12969
+
+	/// Share of 1-2 star reviews of orders with two or more items.
+	measure 'Low Score Share Several Items' = CALCULATE ( [Low Score Share], fact_orders[order_size] = "Several items" )
+		formatString: 0.0%
+		displayFolder: 3 Satisfaction
+		lineageTag: 6c25e8fa-570c-5b7e-86f8-060bdf6cf05a
+
+	/// Bar colour: reference colour for on-time orders, accent colour otherwise.
+	measure 'Colour Delivery' = IF ( SELECTEDVALUE ( fact_orders[delivery_outcome] ) = "On time", "#2a78d6", "#eb6834" )
+		displayFolder: 9 Formatting
+		lineageTag: 422afe94-e05b-5073-9472-c5ce4b80cb9e
+
+	/// Page 1 headline that updates with the filters.
+	measure 'Title Overview' =
+			VAR ProblemOrders =
+			    DIVIDE ( [Late Orders] + [Not Delivered Orders], [Orders] )
+			VAR ProblemReviews =
+			    DIVIDE (
+			        CALCULATE ( [Low Score Orders], fact_orders[delivery_outcome] IN { "Late", "Not delivered" } ),
+			        [Low Score Orders]
+			    )
+			RETURN
+			    "Late and undelivered orders are " & FORMAT ( ProblemOrders, "0.0%" )
+			        & " of orders but account for " & FORMAT ( ProblemReviews, "0%" )
+			        & " of all 1-2 star reviews"
+		displayFolder: 9 Formatting
+		lineageTag: 59a374a4-dc07-5d9d-a297-16e38d9c04ad
+
+	column order_id
+		dataType: string
+		isHidden
+		lineageTag: 61ee2f5b-0de7-5ca1-b6cc-8bd123137475
+		summarizeBy: none
+		sourceColumn: order_id
+
+	column customer_unique_id
+		dataType: string
+		isHidden
+		lineageTag: de6cb962-6095-567d-8b36-24a6f2e6a6b2
+		summarizeBy: none
+		sourceColumn: customer_unique_id
+
+	column purchase_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		isHidden
+		lineageTag: 160d01d8-6544-5b76-b010-c3df4134f0a9
+		summarizeBy: none
+		sourceColumn: purchase_date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column customer_state
+		dataType: string
+		isHidden
+		lineageTag: d8e469dc-61d1-5995-baae-8f053d4a0940
+		summarizeBy: none
+		sourceColumn: customer_state
+
+	column order_status
+		dataType: string
+		lineageTag: 82cd19f8-bdf1-5fdc-a686-bcb576fafb6d
+		summarizeBy: none
+		sourceColumn: order_status
+
+	column delivery_outcome
+		dataType: string
+		lineageTag: 175191bd-20d3-5608-85ea-4958d6b7b8be
+		summarizeBy: none
+		sourceColumn: delivery_outcome
+		sortByColumn: delivery_outcome_sort
+
+	column delivery_outcome_sort
+		dataType: int64
+		isHidden
+		lineageTag: cb3720bf-7b55-5c92-b76c-20de9ad82767
+		summarizeBy: none
+		sourceColumn: delivery_outcome_sort
+
+	column delay_band
+		dataType: string
+		lineageTag: 9ba69431-1888-5fe9-be12-ddc3cc02071e
+		summarizeBy: none
+		sourceColumn: delay_band
+		sortByColumn: delay_band_sort
+
+	column delay_band_sort
+		dataType: int64
+		isHidden
+		lineageTag: f61cef73-2a0d-57c9-a5fb-9ec161659bf8
+		summarizeBy: none
+		sourceColumn: delay_band_sort
+
+	column is_delivered
+		dataType: boolean
+		lineageTag: eca56f84-86cf-5ba8-aa0c-e1046ca195a7
+		summarizeBy: none
+		sourceColumn: is_delivered
+
+	column is_on_time
+		dataType: boolean
+		lineageTag: 55a6f690-afc3-5dea-956d-752eea0d3c22
+		summarizeBy: none
+		sourceColumn: is_on_time
+
+	column promised_days
+		dataType: int64
+		lineageTag: 4a79b765-fbc0-5e38-bbe1-7a06dd555a9f
+		summarizeBy: none
+		sourceColumn: promised_days
+
+	column delivery_days
+		dataType: int64
+		lineageTag: c3102203-16c3-5c2e-9d91-0748a1bd5a2d
+		summarizeBy: none
+		sourceColumn: delivery_days
+
+	column delay_days
+		dataType: int64
+		lineageTag: 93a95b8f-aeaf-5b9b-8a96-889921288022
+		summarizeBy: none
+		sourceColumn: delay_days
+
+	column handling_days
+		dataType: int64
+		lineageTag: 8c4ccacd-e03f-502f-b0be-10dffd0a5ffa
+		summarizeBy: none
+		sourceColumn: handling_days
+
+	column transit_days
+		dataType: int64
+		lineageTag: 62d6b06b-c4c0-537f-95d9-08ffe48d8f3e
+		summarizeBy: none
+		sourceColumn: transit_days
+
+	column is_seller_handover_late
+		dataType: boolean
+		lineageTag: 2e7004b9-b8bd-5ead-b2aa-6033008ae398
+		summarizeBy: none
+		sourceColumn: is_seller_handover_late
+
+	column has_items
+		dataType: boolean
+		lineageTag: 5966ddca-84b2-5b53-9ec1-90095b8a2cbb
+		summarizeBy: none
+		sourceColumn: has_items
+
+	column item_count
+		dataType: int64
+		lineageTag: 428c192c-1a55-569d-920e-39cf4a891ceb
+		summarizeBy: none
+		sourceColumn: item_count
+
+	column order_size
+		dataType: string
+		lineageTag: 8e6d09eb-b038-5dc4-aeaa-6bf94aab999c
+		summarizeBy: none
+		sourceColumn: order_size
+
+	column seller_count
+		dataType: int64
+		lineageTag: b915a40a-ebc6-5cbb-b6ef-936f8d4c6b43
+		summarizeBy: none
+		sourceColumn: seller_count
+
+	column items_value
+		dataType: double
+		lineageTag: d48d4ea9-f156-5a08-b72d-053ebef300ef
+		summarizeBy: none
+		sourceColumn: items_value
+
+	column freight_value
+		dataType: double
+		lineageTag: 2b9eec87-3423-5833-99ea-86c5e4d20b8e
+		summarizeBy: none
+		sourceColumn: freight_value
+
+	column order_total
+		dataType: double
+		lineageTag: ce6e6481-b3ba-5785-8df1-e7216415c5ef
+		summarizeBy: none
+		sourceColumn: order_total
+
+	column is_same_state
+		dataType: boolean
+		lineageTag: e7b525b4-30b5-5a07-a619-f2fdb02d1989
+		summarizeBy: none
+		sourceColumn: is_same_state
+
+	column has_review
+		dataType: boolean
+		lineageTag: 05f28d34-d857-5c6a-ba7f-198d4de04e9b
+		summarizeBy: none
+		sourceColumn: has_review
+
+	column review_score
+		dataType: int64
+		lineageTag: dcb447ea-a6ae-5ba3-8737-6db0dac67ee9
+		summarizeBy: none
+		sourceColumn: review_score
+
+	column is_low_score
+		dataType: boolean
+		lineageTag: 6fc964e5-993e-5261-ba28-fb280476e76d
+		summarizeBy: none
+		sourceColumn: is_low_score
+
+	column has_comment
+		dataType: boolean
+		lineageTag: c9ab65d5-2b9d-5577-8e08-50559ff1b7fd
+		summarizeBy: none
+		sourceColumn: has_comment
+
+	column review_before_delivery
+		dataType: boolean
+		lineageTag: db21d0ac-38f2-5307-a0b3-2fb07215044e
+		summarizeBy: none
+		sourceColumn: review_before_delivery
+
+	column customer_order_number
+		dataType: int64
+		isHidden
+		lineageTag: 0d8c34cc-727b-5190-98f7-3265ee22462c
+		summarizeBy: none
+		sourceColumn: customer_order_number
+
+	partition fact_orders = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DataFolder & "data\processed\fact_orders.parquet")),
+				    Typed = Table.TransformColumnTypes(Source, {{"order_id", type text}, {"customer_unique_id", type text}, {"purchase_date", type date}, {"customer_state", type text}, {"order_status", type text}, {"delivery_outcome", type text}, {"delivery_outcome_sort", Int64.Type}, {"delay_band", type text}, {"delay_band_sort", Int64.Type}, {"is_delivered", type logical}, {"is_on_time", type logical}, {"promised_days", Int64.Type}, {"delivery_days", Int64.Type}, {"delay_days", Int64.Type}, {"handling_days", Int64.Type}, {"transit_days", Int64.Type}, {"is_seller_handover_late", type logical}, {"has_items", type logical}, {"item_count", Int64.Type}, {"order_size", type text}, {"seller_count", Int64.Type}, {"items_value", type number}, {"freight_value", type number}, {"order_total", type number}, {"is_same_state", type logical}, {"has_review", type logical}, {"review_score", Int64.Type}, {"is_low_score", type logical}, {"has_comment", type logical}, {"review_before_delivery", type logical}, {"customer_order_number", Int64.Type}})
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table

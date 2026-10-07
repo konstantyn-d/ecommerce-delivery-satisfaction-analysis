@@ -1,0 +1,19 @@
+{
+  "name": "Olist delivery analysis",
+  "dataColors": ["#2a78d6", "#eb6834", "#a8a7a0", "#1c5cab", "#f0a585", "#52514e"],
+  "background": "#FFFFFF",
+  "foreground": "#0b0b0b",
+  "tableAccent": "#2a78d6",
+  "good": "#2a78d6",
+  "neutral": "#a8a7a0",
+  "bad": "#eb6834",
+  "maximum": "#eb6834",
+  "center": "#f6d5c7",
+  "minimum": "#FFFFFF",
+  "textClasses": {
+    "callout": { "fontFace": "Segoe UI Semibold", "fontSize": 26, "color": "#0b0b0b" },
+    "title": { "fontFace": "Segoe UI Semibold", "fontSize": 12, "color": "#0b0b0b" },
+    "header": { "fontFace": "Segoe UI Semibold", "fontSize": 10, "color": "#0b0b0b" },
+    "label": { "fontFace": "Segoe UI", "fontSize": 10, "color": "#52514e" }
+  }
+}

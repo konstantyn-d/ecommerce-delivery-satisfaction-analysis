@@ -1,0 +1,71 @@
+table dim_customer
+	lineageTag: 5f5f16cf-d970-558a-a5ee-b94a3dda5709
+
+	/// Number of people (customer_unique_id) with an order in the period.
+	measure Customers = COUNTROWS ( dim_customer )
+		formatString: #,0
+		displayFolder: 4 Customers
+		lineageTag: d4d4d6de-b1f0-5258-a5a1-3f5f93c55eca
+
+	/// People who ordered on more than one day.
+	measure 'Repeat Customers' = CALCULATE ( [Customers], dim_customer[is_repeat_customer] = TRUE () )
+		formatString: #,0
+		displayFolder: 4 Customers
+		lineageTag: 0a393a3b-4d91-5220-966e-28fbd51ce2cd
+
+	/// Share of customers who came back on a later day. Whole period only.
+	measure 'Repeat Purchase Rate' = DIVIDE ( [Repeat Customers], [Customers] )
+		formatString: 0.00%
+		displayFolder: 4 Customers
+		lineageTag: b70d7ebe-adb5-55a0-aeec-43c08906c6da
+
+	column customer_unique_id
+		dataType: string
+		isHidden
+		lineageTag: e6cb77c0-9606-5a03-972b-54df72ef8838
+		summarizeBy: none
+		sourceColumn: customer_unique_id
+
+	column first_purchase_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 9726f3ce-24f4-5a04-8d77-e4143f82e624
+		summarizeBy: none
+		sourceColumn: first_purchase_date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column first_order_state
+		dataType: string
+		lineageTag: 40a0f108-202d-5667-a91e-83da136db865
+		summarizeBy: none
+		sourceColumn: first_order_state
+
+	column order_count
+		dataType: int64
+		lineageTag: 365607a4-98a4-5119-8990-dc59899bd271
+		summarizeBy: none
+		sourceColumn: order_count
+
+	column purchase_day_count
+		dataType: int64
+		lineageTag: b8d48828-1513-5a00-9500-345f511b2ff5
+		summarizeBy: none
+		sourceColumn: purchase_day_count
+
+	column is_repeat_customer
+		dataType: boolean
+		lineageTag: 4cb7422b-7d83-558a-a635-49601f8e815c
+		summarizeBy: none
+		sourceColumn: is_repeat_customer
+
+	partition dim_customer = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DataFolder & "data\processed\dim_customer.parquet")),
+				    Typed = Table.TransformColumnTypes(Source, {{"customer_unique_id", type text}, {"first_purchase_date", type date}, {"first_order_state", type text}, {"order_count", Int64.Type}, {"purchase_day_count", Int64.Type}, {"is_repeat_customer", type logical}})
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table

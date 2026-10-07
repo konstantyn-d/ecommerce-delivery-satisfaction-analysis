@@ -1,0 +1,20 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "satisfaction",
+  "displayName": "Customer satisfaction",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "visualInteractions": [
+    {
+      "source": "slicer_year",
+      "target": "complaints",
+      "type": "NoFilter"
+    },
+    {
+      "source": "slicer_region",
+      "target": "complaints",
+      "type": "NoFilter"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+expression DataFolder = "C:\Users\ACER\Desktop\ecommerce-delivery-satisfaction-analysis\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: d0e0b984-f7bf-5018-a928-43de65b30b08
+
+	annotation PBI_ResultType = Text

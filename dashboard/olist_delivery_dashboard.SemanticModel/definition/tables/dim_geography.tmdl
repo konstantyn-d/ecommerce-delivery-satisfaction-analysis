@@ -1,0 +1,31 @@
+table dim_geography
+	lineageTag: 8a238f74-54a7-54fd-a751-4216ae75ce9b
+
+	column state_code
+		dataType: string
+		lineageTag: b2069546-5e56-521d-be9e-d065b227a6e7
+		summarizeBy: none
+		sourceColumn: state_code
+
+	column state_name
+		dataType: string
+		lineageTag: f8dd75c8-c112-5d98-98d3-a15d46a73cb6
+		summarizeBy: none
+		sourceColumn: state_name
+
+	column region
+		dataType: string
+		lineageTag: cd4b50b8-ceb3-52ef-8bfa-be400655a015
+		summarizeBy: none
+		sourceColumn: region
+
+	partition dim_geography = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DataFolder & "data\processed\dim_geography.parquet")),
+				    Typed = Table.TransformColumnTypes(Source, {{"state_code", type text}, {"state_name", type text}, {"region", type text}})
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table

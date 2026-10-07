@@ -1,0 +1,72 @@
+table coded_reviews
+	lineageTag: e3eb1e07-3186-5047-a1de-651f44b72c02
+
+	/// Number of coded 1-2 star reviews in the sample.
+	measure 'Coded Reviews' = COUNTROWS ( coded_reviews )
+		formatString: #,0
+		displayFolder: 6 Review coding
+		lineageTag: eb3c0c90-bfae-5b6b-858f-191c87e6c189
+
+	/// Share of a complaint category inside the delivery group shown.
+	measure 'Complaint Share' =
+			DIVIDE (
+			    [Coded Reviews],
+			    CALCULATE ( [Coded Reviews], REMOVEFILTERS ( coded_reviews[primary_category] ) )
+			)
+		formatString: 0%
+		displayFolder: 6 Review coding
+		lineageTag: 3d24afa7-c44a-5b3e-842e-6724294daa21
+
+	column sample_id
+		dataType: int64
+		isHidden
+		lineageTag: 6f7b59ee-cf76-5cb6-8b73-38713b0589cb
+		summarizeBy: none
+		sourceColumn: sample_id
+
+	column primary_category
+		dataType: string
+		lineageTag: c86c19f2-922d-5f18-b92c-54c73da713f4
+		summarizeBy: none
+		sourceColumn: primary_category
+
+	column secondary_category
+		dataType: string
+		lineageTag: ae8b436a-b879-5b39-b80d-3b07d12d2989
+		summarizeBy: none
+		sourceColumn: secondary_category
+
+	column delivery_outcome
+		dataType: string
+		lineageTag: 6b10d95e-e475-532e-b16b-15792a220a0b
+		summarizeBy: none
+		sourceColumn: delivery_outcome
+
+	column delivery_group
+		dataType: string
+		lineageTag: 8a070e28-edf7-5dd6-8202-9a8da0aa4d03
+		summarizeBy: none
+		sourceColumn: delivery_group
+		sortByColumn: delivery_group_sort
+
+	column delivery_group_sort
+		dataType: int64
+		isHidden
+		lineageTag: 9f045694-4d46-5101-bdb3-ea79a59f5b2a
+		summarizeBy: none
+		sourceColumn: delivery_group_sort
+
+	partition coded_reviews = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "review_coding\coded_reviews.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    // the file starts with a byte order mark: name the first column explicitly
+				    FirstColumn = Table.RenameColumns(Headers, {{Table.ColumnNames(Headers){0}, "sample_id"}}),
+				    Selected = Table.SelectColumns(FirstColumn, {"sample_id", "primary_category", "secondary_category", "delivery_outcome", "delivery_group", "delivery_group_sort"}),
+				    Typed = Table.TransformColumnTypes(Selected, {{"sample_id", Int64.Type}, {"primary_category", type text}, {"secondary_category", type text}, {"delivery_outcome", type text}, {"delivery_group", type text}, {"delivery_group_sort", Int64.Type}})
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table

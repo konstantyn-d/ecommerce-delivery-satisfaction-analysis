@@ -1,0 +1,85 @@
+table dim_date
+	dataCategory: Time
+	lineageTag: 5e189048-e43e-5cb5-8cdc-67c8ee5e157d
+
+	column date_day
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		isKey
+		lineageTag: 5aaf21d8-c76d-5e94-8c3e-d93d6d211030
+		summarizeBy: none
+		sourceColumn: date_day
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column year
+		dataType: int64
+		lineageTag: b319f3af-e0b0-5544-bb5d-c7d16ac3feb5
+		summarizeBy: none
+		sourceColumn: year
+
+	column quarter
+		dataType: int64
+		lineageTag: edfb0111-6f26-5201-915c-b87f9e9eff72
+		summarizeBy: none
+		sourceColumn: quarter
+
+	column month_number
+		dataType: int64
+		isHidden
+		lineageTag: 7a419add-5b9d-523f-9319-c9face98fb2e
+		summarizeBy: none
+		sourceColumn: month_number
+
+	column month_name
+		dataType: string
+		lineageTag: b0e1f8e7-2355-50d8-848a-b5b1325ea50b
+		summarizeBy: none
+		sourceColumn: month_name
+		sortByColumn: month_number
+
+	column year_month
+		dataType: string
+		lineageTag: b63f46f7-38df-5736-80f2-f3b384f6bbbe
+		summarizeBy: none
+		sourceColumn: year_month
+
+	column month_start
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 0c1e2021-b12e-53c0-9079-138e53d2f391
+		summarizeBy: none
+		sourceColumn: month_start
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column weekday_number
+		dataType: int64
+		isHidden
+		lineageTag: 7c9d98ad-c067-540c-8fa5-07c10a7fccdd
+		summarizeBy: none
+		sourceColumn: weekday_number
+
+	column weekday_name
+		dataType: string
+		lineageTag: 6d11b3c2-e73a-5789-b4df-f1c0ec4cff0f
+		summarizeBy: none
+		sourceColumn: weekday_name
+		sortByColumn: weekday_number
+
+	column is_weekend
+		dataType: boolean
+		lineageTag: bb69f495-8ed0-58af-aefc-564b51803f0b
+		summarizeBy: none
+		sourceColumn: is_weekend
+
+	partition dim_date = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DataFolder & "data\processed\dim_date.parquet")),
+				    Typed = Table.TransformColumnTypes(Source, {{"date_day", type date}, {"year", Int64.Type}, {"quarter", Int64.Type}, {"month_number", Int64.Type}, {"month_name", type text}, {"year_month", type text}, {"month_start", type date}, {"weekday_number", Int64.Type}, {"weekday_name", type text}, {"is_weekend", type logical}})
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,233 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "seller_ranking",
+  "position": {
+    "x": 646,
+    "y": 392,
+    "z": 22,
+    "height": 312,
+    "width": 610,
+    "tabOrder": 22
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_seller"
+                    }
+                  },
+                  "Property": "seller_short"
+                }
+              },
+              "queryRef": "dim_seller.seller_short",
+              "nativeQueryRef": "seller_short",
+              "displayName": "Seller"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_seller"
+                    }
+                  },
+                  "Property": "seller_state"
+                }
+              },
+              "queryRef": "dim_seller.seller_state",
+              "nativeQueryRef": "seller_state",
+              "displayName": "State"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_order_items"
+                    }
+                  },
+                  "Property": "Item Orders"
+                }
+              },
+              "queryRef": "fact_order_items.Item Orders",
+              "nativeQueryRef": "Item Orders",
+              "displayName": "Orders"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_order_items"
+                    }
+                  },
+                  "Property": "Item Late Orders"
+                }
+              },
+              "queryRef": "fact_order_items.Item Late Orders",
+              "nativeQueryRef": "Item Late Orders",
+              "displayName": "Late orders"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_order_items"
+                    }
+                  },
+                  "Property": "Item Late Rate"
+                }
+              },
+              "queryRef": "fact_order_items.Item Late Rate",
+              "nativeQueryRef": "Item Late Rate",
+              "displayName": "Late rate"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_order_items"
+                    }
+                  },
+                  "Property": "Item Low Score Share"
+                }
+              },
+              "queryRef": "fact_order_items.Item Low Score Share",
+              "nativeQueryRef": "Item Low Score Share",
+              "displayName": "1-2 star share"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_order_items"
+                  }
+                },
+                "Property": "Item Late Orders"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": false
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'The sellers with the most late orders are large São Paulo sellers, not small outliers'"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Sellers with 30+ orders, ranked by number of late orders'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "seller_ranking_min",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_order_items"
+              }
+            },
+            "Property": "Item Orders"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "t",
+              "Entity": "fact_order_items",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 2,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "t"
+                        }
+                      },
+                      "Property": "Item Orders"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "30L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

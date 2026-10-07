@@ -1,248 +1,114 @@
-# Power BI dashboard: specification and build guide
+# Power BI dashboard
 
 Three pages for Olist's Head of Operations: where delivery fails, how it shows up in reviews, and what
 customers complain about.
 
+The dashboard is a **Power BI Project (PBIP)** generated from code by [`build_pbip.py`](build_pbip.py): the data
+model (tables, relationships, measures) is written in TMDL and the report (pages, visuals, titles, filters) in
+PBIR, both plain-text formats that Power BI Desktop opens directly. Every element can be reviewed in Git and the
+whole dashboard is rebuilt with one command.
+
 | File | What it is |
 |---|---|
-| `README.md` | This page: design rules, page specifications, step-by-step build guide |
-| [`measures.dax`](measures.dax) | Every DAX measure, with an explanation and the number format to set |
-| [`theme.json`](theme.json) | Colours and fonts; import it once and every visual follows the design rules |
+| `olist_delivery_dashboard.pbip` | Open this file in Power BI Desktop |
+| `olist_delivery_dashboard.SemanticModel/` | Data model: 8 tables, 7 relationships, 44 measures (TMDL) |
+| `olist_delivery_dashboard.Report/` | Report: 3 pages, 34 visuals (PBIR) |
+| [`build_pbip.py`](build_pbip.py) | Generates the two folders above and `measures.dax` |
+| [`measures.dax`](measures.dax) | All measures in one readable file, with description and format (generated) |
+| [`theme.json`](theme.json) | Colours and fonts used by the report |
 | [`reference_values.md`](reference_values.md) | The numbers each visual must show with no filter applied (generated) |
-| `olist_delivery_dashboard.pbix` | The Power BI file [TBD: to be built] |
-| `screenshots/` | One PNG per page [TBD: to be added] |
+| `screenshots/` | One PNG per page [TBD] |
 
-## 1. Design rules
+## 1. Open the dashboard
 
-| Rule | How |
+1. Build the data: `python run_sql.py` and `python notebooks/06_review_coding_results.py` (from the repository root).
+2. Build the project: `python dashboard/build_pbip.py`.
+3. Open `dashboard/olist_delivery_dashboard.pbip` in Power BI Desktop (version of 2025 or later).
+4. The first time, the yellow bar says *"Some of the tables have incomplete or no data"*: click **Refresh now**.
+   The model loads about 344,000 rows from the Parquet and CSV files in a few seconds.
+
+The data location is the Power Query parameter **DataFolder** (Transform data > Manage parameters). It is set to
+the folder of the repository on the machine where the project was built; change it if you cloned the
+repository elsewhere.
+
+## 2. Design rules
+
+| Rule | How it is applied |
 |---|---|
-| One colour for "good / reference", one accent for "problem" | Blue `#2a78d6` = on time, reference. Orange `#eb6834` = late, not delivered, above average. Grey `#a8a7a0` = context. Nothing else |
-| Titles state findings | Every page and every visual has a sentence as title ("Bad reviews jump once an order is 4 days late"), not a topic ("Reviews by delay") |
-| Consistent number formats | Percentages with 1 decimal (`14.6%`); counts with thousands separator (`6,531`); money as `R$` with no decimals in cards; scores with 2 decimals (`4.09`) |
-| No decoration | No 3D, no shadows, no pie chart with more than 3 slices, no dual-axis chart |
-| Filters in one place | Slicers in one row at the top of each page, the same on every page |
-| Readable at a glance | At most 6 cards and 4 charts per page; every bar labelled with its value or a clear axis |
+| One colour for "good / reference", one accent for "problem" | Blue `#2a78d6` = on time, single item, share of orders. Orange `#eb6834` = late, not delivered, above the national rate. Grey `#a8a7a0` = context |
+| Titles state findings | Every page and every chart has a sentence as title, and a subtitle that says what is plotted |
+| Consistent number formats | Set once on each measure: percentages with 1 decimal, counts with thousands separator, scores with 2 decimals |
+| No decoration | No 3D, no pie charts, no dual-axis charts |
+| Filters in one place | Year and customer region slicers in the top-right of every page, synchronised across pages |
+| Readable at a glance | At most 6 cards and 4 charts per page |
 
-Canvas: 16:9 (1280 × 720), white background.
+## 3. Pages
 
-## 2. Page specifications
-
-The page titles describe the data without any filter. They are what the screenshots show.
+The page titles describe the data without any filter; they are what the screenshots show.
 
 ### Page 1. Executive overview
 
-**Page title:** *Late and undelivered orders are 9.5% of orders but account for 43% of all bad reviews*
+*Late and undelivered orders are 9.5% of orders but account for 43% of all bad reviews*
 
-```
-+------------------------------------------------------------------------------------------+
-| PAGE TITLE                                                  [Year v] [Region v]           |
-+--------------+--------------+--------------+--------------+--------------+---------------+
-|   Orders     |     GMV      | On-time Rate | Not-delivered|  Avg Review  | Low Score     |
-|   99,092     |  R$ 13.5M    |    93.2%     |  Rate 2.9%   |  Score 4.09  | Share 14.6%   |
-+--------------+--------------+--------------+--------------+--------------+---------------+
-| [A] Orders by month (columns)               | [B] Late rate and 1-2 star share by month   |
-|                                             |     (two lines, one % axis)                 |
-+---------------------------------------------+---------------------------------------------+
-| [C] Share of orders vs share of 1-2 star reviews, by delivery outcome (clustered bars)    |
-+------------------------------------------------------------------------------------------+
-```
-
-| Visual | Type | Fields | Settings | Title |
-|---|---|---|---|---|
-| Cards | Card (6×) | `Orders`, `GMV`, `On-time Rate`, `Not-delivered Rate`, `Avg Review Score`, `Low Score Share` | Category label on; GMV display units: millions | (label only) |
-| A | Clustered column chart | X: `dim_date[year_month]`; Y: `Orders` | Colour grey; data labels off; X axis type: categorical | *Monthly orders grew from 800 in January 2017 to more than 6,000 in every month of 2018* |
-| B | Line chart | X: `dim_date[year_month]`; Y: `Late Rate`, `Low Score Share` | Late Rate orange, Low Score Share blue; Y axis 0–30%; markers off; legend top | *Bad reviews peak in the same three months as late deliveries* |
-| C | Clustered bar chart | Y: `fact_orders[delivery_outcome]`; X: `Share of Orders`, `Share of Low Score Reviews` | Filter: delivery_outcome is not `Unknown`; Share of Orders blue, Share of Low Score Reviews orange; data labels on | *Late and undelivered orders: 9.5% of orders, 43% of bad reviews* |
+| Visual | Type | Content | Title |
+|---|---|---|---|
+| 6 cards | Card | Orders, GMV (millions), On-time Rate, Not-delivered Rate, Avg Review Score, Low Score Share | — |
+| Orders by month | Column chart | `Orders` by `dim_date[year_month]` | *Monthly orders grew from 800 in January 2017 to more than 6,000 in every month of 2018* |
+| Late rate and bad reviews by month | Line chart | `Late Rate` (orange) and `Low Score Share` (blue) by month, one % axis | *Bad reviews peak in the same three months as late deliveries* |
+| Share by delivery outcome | Clustered bar chart | `Share of Orders` (blue) and `Share of Low Score Reviews` (orange) by `delivery_outcome` | *Late and undelivered orders: 9.5% of orders, 43% of bad reviews* |
 
 ### Page 2. Delivery performance
 
-**Page title:** *Rio de Janeiro has 13% of orders but 23% of late deliveries; most delays arise after the seller has shipped*
+*Rio de Janeiro has 13% of orders but 23% of late deliveries; most delays arise after the seller has shipped*
 
-```
-+------------------------------------------------------------------------------------------+
-| PAGE TITLE                                                  [Year v] [Region v]           |
-+-----------------+-----------------+-----------------+-----------------+------------------+
-|   Late Rate     |   Late Orders   | Median Delivery |  Avg Delay      | Late orders      |
-|     6.8%        |     6,531       |   Days 10       |  (Late) 10.6    | handed over late |
-|                 |                 |                 |                 | by seller 27.7%  |
-+-----------------+-----------------+-----------------+-----------------+------------------+
-| [A] Late rate by customer state             | [B] Late orders by delay band               |
-|     (bars, national line)                   |     (columns)                               |
-|                                             +---------------------------------------------+
-|                                             | [C] Seller ranking (table, 30+ orders)      |
-+---------------------------------------------+---------------------------------------------+
-```
-
-| Visual | Type | Fields | Settings | Title |
-|---|---|---|---|---|
-| Cards | Card (5×) | `Late Rate`, `Late Orders`, `Median Delivery Days`, `Avg Delay (Late)`, `Late Orders Handed Over Late by Seller` | — | (label only) |
-| A | Clustered bar chart | Y: `dim_geography[state_name]`; X: `Late Rate` | Visual filter: `Orders` is greater than or equal to 300 (21 states). Sort by Late Rate, descending. Bar colour: fx > Field value > `Colour Late Rate`. Analytics pane: constant line with value fx `Late Rate (All States)`, label "National". Data labels on | *Late rates are highest in the Northeast; Rio de Janeiro combines a high rate with high volume* |
-| B | Clustered column chart | X: `fact_orders[delay_band]`; Y: `Orders` | Visual filter: delay_band is `Late 1-3 days`, `Late 4-7 days`, `Late 8-14 days`, `Late 15+ days`. Colour orange. Data labels on | *Late orders are spread fairly evenly from 1 to more than 15 days late* |
-| C | Table | `dim_seller[seller_short]`, `dim_seller[seller_state]`, `Item Orders`, `Item Late Orders`, `Item Late Rate`, `Item Low Score Share` | Visual filter: `Item Orders` ≥ 30. Sort by Item Late Orders, descending. Conditional formatting: data bars on Item Late Orders (orange); background colour scale on Item Late Rate (white → orange) | *The sellers with the most late orders are large São Paulo sellers, not small outliers* |
-
-Before writing the title of visual B and C, check them against the numbers your dashboard shows; they are
-based on the tables in `reference_values.md` (sections 4 and 5).
+| Visual | Type | Content | Title |
+|---|---|---|---|
+| 5 cards | Card | Late Rate, Late Orders, Median Delivery Days, Avg Delay (Late), Late Orders Handed Over Late by Seller | — |
+| Late rate by state | Bar chart | `Late Rate` by `state_name`, states with 300+ orders, sorted descending; bar colour from the measure `Colour Late Rate` (orange above the national rate) | *Late rates are highest in the Northeast; Rio de Janeiro combines a high rate with high volume* |
+| Late orders by delay band | Column chart | `Orders` by `delay_band`, late bands only | *Late orders are spread fairly evenly from 1 to more than 15 days late* |
+| Seller ranking | Table | Seller, state, orders, late orders, late rate, 1-2 star share; sellers with 30+ orders, sorted by late orders | *The sellers with the most late orders are large São Paulo sellers, not small outliers* |
 
 ### Page 3. Customer satisfaction
 
-**Page title:** *On-time orders with several items get 1-2 stars more than three times as often as single-item orders; most of those customers report missing items*
+*On-time orders with several items get 1-2 stars more than three times as often as single-item orders*
 
-```
-+------------------------------------------------------------------------------------------+
-| PAGE TITLE                                                  [Year v] [Region v]           |
-+----------------------+----------------------+----------------------+---------------------+
-|  Avg Review Score    |  Low Score Share     |  Comment Share       |  Coded Reviews      |
-|       4.09           |      14.6%           |     41.2%            |       300           |
-+----------------------+----------------------+----------------------+---------------------+
-| [A] 1-2 star share by delay band            | [B] 1-2 star share by delivery outcome      |
-|     (columns)                               |     and order size (clustered bars)         |
-+---------------------------------------------+---------------------------------------------+
-| [C] Complaint categories by delivery group  | [D] Category matrix: GMV vs 1-2 star share  |
-|     (matrix with colour scale)              |     (scatter)                               |
-+---------------------------------------------+---------------------------------------------+
-```
+| Visual | Type | Content | Title |
+|---|---|---|---|
+| 4 cards | Card | Avg Review Score, Low Score Share, Comment Share, Coded Reviews | — |
+| Bad reviews by delay band | Column chart | `Low Score Share` by `delay_band`; colour from `Colour Delivery` (blue on time, orange otherwise) | *Bad reviews jump from 9% for on-time orders to 68% once an order is 4-7 days late* |
+| Bad reviews by order size | Clustered bar chart | `Low Score Share Single Item` (blue) and `Low Score Share Several Items` (orange) by `delivery_outcome` | *Even when delivered on time, orders with several items get 25% bad reviews, against 7.5% for single items* |
+| Complaint matrix | Matrix | `Complaint Share` by complaint category (rows) and delivery group (columns), white-to-orange background | *81% of complaints about on-time orders with several items are about a missing part* |
+| Category matrix | Scatter chart | `Item GMV` (x) vs `Item Low Score Share` (y) per category, categories with 500+ orders | *Office furniture has the highest share of bad reviews; large categories sit close to the average* |
 
-| Visual | Type | Fields | Settings | Title |
-|---|---|---|---|---|
-| Cards | Card (4×) | `Avg Review Score`, `Low Score Share`, `Comment Share`, `Coded Reviews` | — | (label only) |
-| A | Clustered column chart | X: `fact_orders[delay_band]`; Y: `Low Score Share` | Visual filter: delay_band is not `Unknown`. Columns: fx > Field value > `Colour Delivery`. Y axis 0–100%. Data labels on | *Bad reviews jump from 9% for on-time orders to 68% once an order is 4–7 days late* |
-| B | Clustered bar chart | Y: `fact_orders[delivery_outcome]`; X: `Low Score Share`; Legend: `fact_orders[order_size]` | Visual filter: delivery_outcome is not `Unknown`; order_size is not `No items`. Single item blue, Several items orange. Data labels on | *Even when delivered on time, orders with several items get 25% bad reviews, against 7.5% for single items* |
-| C | Matrix | Rows: `coded_reviews[primary_category]`; Columns: `coded_reviews[delivery_group]`; Values: `Complaint Share` | Conditional formatting > Background colour > Gradient, white (0%) → orange (max). Row subtotals off; column total on (shows "all reviews"). Add a text box below: "Sample of 300 coded 1–2 star reviews; not affected by the slicers" | *81% of complaints about on-time several-item orders are about a missing part of the order* |
-| D | Scatter chart | Values: `dim_product[category_en]`; X: `Item GMV`; Y: `Item Low Score Share` | Visual filter: `Item Orders` ≥ 500 and category_en is not `unknown`. Analytics: Y-axis constant line, fx `Low Score Share (All Categories)`. Markers grey; category labels on | *Office furniture is the category with the highest share of bad reviews; large categories sit close to the average* |
+The complaint matrix uses the table `coded_reviews` (300 coded reviews). It is deliberately not related to the
+rest of the model, and the slicers are set not to filter it: slicing 300 reviews by month or state would give
+numbers too small to read.
 
-The table `coded_reviews` has no relationship to the rest of the model, so the Year and Region slicers do not
-change visual C. To make that explicit, select the slicer, go to Format > Edit interactions and set visual C to
-"None".
+## 4. The model
 
-## 3. Build guide, step by step
+| Table | Rows | Role |
+|---|---|---|
+| `fact_orders` | 99,092 | one row per order; order, delivery and satisfaction measures |
+| `fact_order_items` | 112,279 | one row per unit sold; seller and category measures |
+| `dim_customer`, `dim_seller`, `dim_product`, `dim_date`, `dim_geography` | 95,774 / 3,095 / 32,951 / 608 / 27 | dimensions |
+| `coded_reviews` | 300 | review coding sample, not related |
 
-### Step 0. Prepare the data
+Relationships are one-to-many and single-direction from each dimension to the facts (see
+[`docs/data_model.md`](../docs/data_model.md)). There is no relationship between the two fact tables. The model
+discourages implicit measures, so every number in a visual comes from a named measure in
+[`measures.dax`](measures.dax), and each measure implements a definition from
+[`docs/metric_definitions.md`](../docs/metric_definitions.md).
 
-From the repository folder, build the model and the Parquet files:
+## 5. Checks
 
-```
-.venv\Scripts\python.exe run_sql.py
-.venv\Scripts\python.exe notebooks\06_review_coding_results.py
-```
-
-You now have 7 Parquet files in `data\processed\` and `review_coding\coded_reviews.csv`.
-
-### Step 1. Switch off automatic relationships
-
-Power BI guesses relationships from column names and would connect the two fact tables through `order_id`,
-which is wrong for this model.
-
-File > Options and settings > Options > **Current file** > Data load > untick **"Autodetect new relationships
-after data is loaded"**. Do this in a new, empty report before loading anything.
-
-### Step 2. Load the tables
-
-Home > Get data > More… > **Parquet** > Connect. In the URL / path box, paste the full path of the file, for
+With no filter applied the visuals must show the values in [`reference_values.md`](reference_values.md), for
 example:
 
-```
-C:\Users\ACER\Desktop\ecommerce-delivery-satisfaction-analysis\data\processed\fact_orders.parquet
-```
+- Cards: Orders 99,092; On-time Rate 93.2%; Not-delivered Rate 2.9%; Avg Review Score 4.09; Low Score Share 14.6%.
+- Page 1, share by outcome: Late = 6.6% of orders and 27.7% of bad reviews.
+- Page 2, late rate by state: Alagoas 21.5% at the top; 21 states shown.
+- Page 3, bad reviews by delay band: On time 9.2%, Late 4-7 days 67.7%.
+- Page 3, complaint matrix: Incomplete order × On time, several items = 81%.
 
-Click OK, then **Transform data** (not Load) so you can check the types. If the Parquet connector does not
-accept a local path, use Get data > Blank query > Advanced editor and paste
-`let Source = Parquet.Document(File.Contents("C:\...\fact_orders.parquet")) in Source` with the full path. Repeat for all seven files:
-`fact_orders`, `fact_order_items`, `dim_customer`, `dim_seller`, `dim_product`, `dim_date`, `dim_geography`.
-Rename each query to the file name without `.parquet`.
-
-Then Home > New source > Text/CSV > `review_coding\coded_reviews.csv`. File origin: **65001: Unicode (UTF-8)**,
-delimiter: comma. Rename the query to `coded_reviews`.
-
-**Check the column types in Power Query** (icon left of each column name):
-
-| Column type in the files | Must be in Power BI | Examples |
-|---|---|---|
-| Dates | Date | `purchase_date`, `date_day`, `first_purchase_date` |
-| true / false | True/False | `is_delivered`, `is_low_score`, `has_review`, `is_repeat_customer` |
-| Money | Decimal number or Fixed decimal number | `items_value`, `price`, `freight_value` |
-| Counts and days | Whole number | `delay_days`, `item_count`, `review_score` |
-| Ids and labels | Text | `order_id`, `customer_state`, `seller_short` |
-
-Home > Close & Apply.
-
-### Step 3. Create the relationships
-
-Model view (third icon on the left). Drag each dimension column onto the fact column:
-
-| From (one side) | To (many side) |
-|---|---|
-| `dim_date[date_day]` | `fact_orders[purchase_date]` |
-| `dim_geography[state_code]` | `fact_orders[customer_state]` |
-| `dim_customer[customer_unique_id]` | `fact_orders[customer_unique_id]` |
-| `dim_date[date_day]` | `fact_order_items[purchase_date]` |
-| `dim_geography[state_code]` | `fact_order_items[customer_state]` |
-| `dim_product[product_id]` | `fact_order_items[product_id]` |
-| `dim_seller[seller_id]` | `fact_order_items[seller_id]` |
-
-Double-click each line and check: cardinality **Many to one (\*:1)**, cross-filter direction **Single**.
-There must be **no** line between `fact_orders` and `fact_order_items`, and **no** line to `coded_reviews`.
-
-### Step 4. Model settings
-
-1. **Date table:** select `dim_date` > Table tools > Mark as date table > column `date_day`.
-2. **Sort orders** (select the column in Data view > Column tools > Sort by column):
-
-   | Column | Sort by |
-   |---|---|
-   | `fact_orders[delivery_outcome]` | `fact_orders[delivery_outcome_sort]` |
-   | `fact_orders[delay_band]` | `fact_orders[delay_band_sort]` |
-   | `dim_date[month_name]` | `dim_date[month_number]` |
-   | `coded_reviews[delivery_group]` | `coded_reviews[delivery_group_sort]` |
-
-3. **Hide technical columns** (right-click > Hide in report view): all `_sort` columns and all id columns in
-   the fact tables. Fewer fields in the list means fewer mistakes.
-4. **Stop accidental sums:** for `review_score`, `delay_days`, `delivery_days`, `item_count` set
-   Column tools > Summarization > **Don't summarize**. Every number on the dashboard comes from a measure.
-
-### Step 5. Add the measures
-
-1. Home > Enter data > name the table `_Measures` > Load. (Delete its empty column after the first measure exists.)
-2. Select `_Measures`, then Modeling > New measure. Paste one measure from [`measures.dax`](measures.dax),
-   press Enter. Repeat for every measure.
-3. Set the format of each measure (Measure tools > Format) as written in the comment above it.
-
-### Step 6. Apply the theme
-
-View > Themes > Browse for themes > `dashboard\theme.json`. The default colours of every new visual now follow
-the design rules.
-
-### Step 7. Build the three pages
-
-Follow section 2. For every visual:
-
-- Turn the title on and type the finding from the specification table.
-- Remove what does not carry information: gridlines you do not need, axis titles that repeat the title,
-  legends with a single series.
-- Put the slicers (Year from `dim_date[year]`, Region from `dim_geography[region]`) in the top-right of every
-  page. Use View > Sync slicers so that a selection on one page applies to all three.
-
-### Step 8. Check the numbers
-
-Clear all slicers and compare with [`reference_values.md`](reference_values.md):
-
-- [ ] Every card equals section 1 of the reference file.
-- [ ] Page 1 chart B: March 2018 shows Late Rate 19.0% and Low Score Share 22.8%.
-- [ ] Page 1 chart C: Late = 6.6% of orders and 27.7% of bad reviews.
-- [ ] Page 2 chart A: Alagoas 21.5% at the top; 21 states shown.
-- [ ] Page 2 table: first row `4a3ca931`, SP, 1,806 orders, 172 late orders.
-- [ ] Page 3 chart A: On time 9.2%, Late 4-7 days 67.7%.
-- [ ] Page 3 chart B: On time, Several items 24.6%.
-- [ ] Page 3 matrix: Incomplete order × On time, several items = 81%.
-- [ ] Page 3 scatter: reference line at 14.2%.
-
-If a number differs, the cause is almost always one of three things: a relationship in the wrong direction or
-missing, a column with the wrong type (a true/false column loaded as text), or a measure that uses `COUNTROWS`
-on `fact_order_items` instead of `DISTINCTCOUNT` of `order_id`.
-
-### Step 9. Save and export
-
-1. Save as `dashboard\olist_delivery_dashboard.pbix`.
-2. For each page, with all slicers cleared, take a screenshot of the full page with Win + Shift + S and save
-   it as `dashboard\screenshots\01_executive_overview.png`, `02_delivery_performance.png` and
-   `03_customer_satisfaction.png`.
-3. Check the size of the `.pbix` file. Files above 50 MB are slow on GitHub; above 100 MB they are refused.
+All JSON files of the report were validated against Microsoft's published PBIR schemas before the first
+opening in Power BI Desktop.
