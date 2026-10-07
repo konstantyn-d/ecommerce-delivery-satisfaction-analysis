@@ -1,0 +1,225 @@
+// =====================================================================================================
+// DAX measures for the Olist delivery and satisfaction dashboard
+// =====================================================================================================
+// How to use: create an empty table called _Measures (Home > Enter data > Load), then add each measure
+// with Modeling > New measure. Copy one block at a time, including the name before the "=" sign.
+// The format to set for each measure is given in the comment above it.
+//
+// Every measure implements a definition from docs/metric_definitions.md. With no filter applied it must
+// show the value listed in dashboard/reference_values.md.
+//
+// Three rules behind these formulas:
+//   1. Rates are DIVIDE(numerator, denominator) of totals, never an average of row-level ratios.
+//   2. DIVIDE is used instead of "/" because it returns blank instead of an error when the denominator is 0.
+//   3. On fact_order_items one order has several rows, so orders are counted with DISTINCTCOUNT.
+// =====================================================================================================
+
+
+// -----------------------------------------------------------------------------------------------------
+// 1. VOLUME AND VALUE (table fact_orders: one row per order)
+// -----------------------------------------------------------------------------------------------------
+
+// Number of orders, all statuses.                                            Format: whole number, thousands separator
+Orders = COUNTROWS ( fact_orders )
+
+// Value of the products ordered, without freight.                           Format: currency R$, 0 decimals
+GMV = SUM ( fact_orders[items_value] )
+
+// Orders that have item rows (the 739 orders without items have no value).  Format: whole number
+Orders with Items = CALCULATE ( [Orders], fact_orders[has_items] = TRUE () )
+
+// GMV per order that has items.                                             Format: currency R$, 2 decimals
+Average Order Value = DIVIDE ( [GMV], [Orders with Items] )
+
+// Freight as a share of what the customer pays (products + freight).        Format: percentage, 1 decimal
+Freight Share = DIVIDE ( SUM ( fact_orders[freight_value] ), SUM ( fact_orders[order_total] ) )
+
+
+// -----------------------------------------------------------------------------------------------------
+// 2. DELIVERY (table fact_orders)
+// -----------------------------------------------------------------------------------------------------
+
+// Orders that reached the customer and have a delivery date.                 Format: whole number
+Delivered Orders = CALCULATE ( [Orders], fact_orders[is_delivered] = TRUE () )
+
+// Delivered on or before the promised date.                                 Format: whole number
+On-time Orders = CALCULATE ( [Orders], fact_orders[delivery_outcome] = "On time" )
+
+// Delivered after the promised date.                                        Format: whole number
+Late Orders = CALCULATE ( [Orders], fact_orders[delivery_outcome] = "Late" )
+
+// Orders that did not end as a delivery.                                    Format: whole number
+Not Delivered Orders = CALCULATE ( [Orders], fact_orders[delivery_outcome] = "Not delivered" )
+
+// Share of delivered orders that kept the promise.                          Format: percentage, 1 decimal
+On-time Rate = DIVIDE ( [On-time Orders], [Delivered Orders] )
+
+// Share of delivered orders that arrived after the promised date.           Format: percentage, 1 decimal
+Late Rate = DIVIDE ( [Late Orders], [Delivered Orders] )
+
+// Share of ALL orders that were never delivered.                            Format: percentage, 1 decimal
+Not-delivered Rate = DIVIDE ( [Not Delivered Orders], [Orders] )
+
+// Average number of days late, late orders only.                            Format: decimal number, 1 decimal
+Avg Delay (Late) = CALCULATE ( AVERAGE ( fact_orders[delay_days] ), fact_orders[delivery_outcome] = "Late" )
+
+// Median number of days late, late orders only.                             Format: whole number
+Median Delay (Late) = CALCULATE ( MEDIAN ( fact_orders[delay_days] ), fact_orders[delivery_outcome] = "Late" )
+
+// Median days from purchase to delivery (blank rows are ignored).           Format: whole number
+Median Delivery Days = MEDIAN ( fact_orders[delivery_days] )
+
+// Of the late orders, the share the seller handed to the carrier after the shipping deadline.
+//                                                                           Format: percentage, 1 decimal
+Late Orders Handed Over Late by Seller =
+DIVIDE (
+    CALCULATE ( [Late Orders], fact_orders[is_seller_handover_late] = TRUE () ),
+    [Late Orders]
+)
+
+// The national late rate, ignoring any state or region on the axis or in a slicer.
+// Used as the reference line in the chart by state.                         Format: percentage, 1 decimal
+Late Rate (All States) = CALCULATE ( [Late Rate], REMOVEFILTERS ( dim_geography ) )
+
+// Bar colour for the chart by state: accent colour when the state is above the national late rate.
+// Use in Format > Bars > Colour > fx > Field value.                         Format: text
+Colour Late Rate = IF ( [Late Rate] > [Late Rate (All States)], "#eb6834", "#a8a7a0" )
+
+
+// -----------------------------------------------------------------------------------------------------
+// 3. CUSTOMER SATISFACTION (table fact_orders)
+// -----------------------------------------------------------------------------------------------------
+
+// Orders that have a review.                                                Format: whole number
+Reviewed Orders = CALCULATE ( [Orders], fact_orders[has_review] = TRUE () )
+
+// Average score 1-5 (orders without a review are blank and ignored).        Format: decimal number, 2 decimals
+Avg Review Score = AVERAGE ( fact_orders[review_score] )
+
+// Orders with a 1-2 star review.                                            Format: whole number
+Low Score Orders = CALCULATE ( [Orders], fact_orders[is_low_score] = TRUE () )
+
+// Share of reviewed orders with a 1-2 star review: the main outcome metric. Format: percentage, 1 decimal
+Low Score Share = DIVIDE ( [Low Score Orders], [Reviewed Orders] )
+
+// Share of reviews that include a written comment.                          Format: percentage, 1 decimal
+Comment Share =
+DIVIDE ( CALCULATE ( [Orders], fact_orders[has_comment] = TRUE () ), [Reviewed Orders] )
+
+// Each delivery outcome's share of all orders.
+// REMOVEFILTERS removes the outcome from the denominator, so the denominator is "all outcomes".
+//                                                                           Format: percentage, 1 decimal
+Share of Orders =
+DIVIDE (
+    [Orders],
+    CALCULATE ( [Orders], REMOVEFILTERS ( fact_orders[delivery_outcome], fact_orders[delivery_outcome_sort] ) )
+)
+
+// Each delivery outcome's share of all 1-2 star reviews.                    Format: percentage, 1 decimal
+Share of Low Score Reviews =
+DIVIDE (
+    [Low Score Orders],
+    CALCULATE ( [Low Score Orders], REMOVEFILTERS ( fact_orders[delivery_outcome], fact_orders[delivery_outcome_sort] ) )
+)
+
+// Bar colour for charts by delay band or delivery outcome: reference colour for "On time", accent otherwise.
+//                                                                           Format: text
+Colour Delivery =
+IF ( SELECTEDVALUE ( fact_orders[delivery_outcome] ) = "On time", "#2a78d6", "#eb6834" )
+
+
+// -----------------------------------------------------------------------------------------------------
+// 4. CUSTOMERS (table dim_customer: one row per person)
+// -----------------------------------------------------------------------------------------------------
+// These three measures describe the whole period. They do not react to the date slicer, because a
+// customer needs time to come back and a monthly repeat rate would be misleading.
+
+// Number of people.                                                         Format: whole number
+Customers = COUNTROWS ( dim_customer )
+
+// People who ordered on more than one day.                                  Format: whole number
+Repeat Customers = CALCULATE ( [Customers], dim_customer[is_repeat_customer] = TRUE () )
+
+// Share of customers who came back.                                         Format: percentage, 2 decimals
+Repeat Purchase Rate = DIVIDE ( [Repeat Customers], [Customers] )
+
+
+// -----------------------------------------------------------------------------------------------------
+// 5. SELLERS AND CATEGORIES (table fact_order_items: one row per unit sold)
+// -----------------------------------------------------------------------------------------------------
+// The delivery outcome and review of the order are copied onto each of its items. An order with three
+// items has three rows here, so every order count uses DISTINCTCOUNT.
+
+// Value of the items sold (equals GMV when no filter is applied).           Format: currency R$, 0 decimals
+Item GMV = SUM ( fact_order_items[price] )
+
+// Orders that contain at least one item of the seller / category.           Format: whole number
+Item Orders = DISTINCTCOUNT ( fact_order_items[order_id] )
+
+Item Delivered Orders =
+CALCULATE ( [Item Orders], fact_order_items[is_delivered] = TRUE () )
+
+Item Late Orders =
+CALCULATE ( [Item Orders], fact_order_items[delivery_outcome] = "Late" )
+
+// Late rate of a seller or category.                                        Format: percentage, 1 decimal
+Item Late Rate = DIVIDE ( [Item Late Orders], [Item Delivered Orders] )
+
+Item Reviewed Orders =
+CALCULATE ( [Item Orders], fact_order_items[has_review] = TRUE () )
+
+Item Low Score Orders =
+CALCULATE ( [Item Orders], fact_order_items[is_low_score] = TRUE () )
+
+// Share of 1-2 star reviews of a seller or category.                        Format: percentage, 1 decimal
+Item Low Score Share = DIVIDE ( [Item Low Score Orders], [Item Reviewed Orders] )
+
+// Average score of a seller or category: first one score per order, then the average of the orders.
+// A plain AVERAGE would count an order with three items three times.        Format: decimal number, 2 decimals
+Item Avg Review Score =
+AVERAGEX (
+    VALUES ( fact_order_items[order_id] ),
+    CALCULATE ( MAX ( fact_order_items[review_score] ) )
+)
+
+// The overall share of 1-2 star reviews, ignoring the category on the chart.
+// Used as the reference line in the category matrix.                        Format: percentage, 1 decimal
+Low Score Share (All Categories) =
+CALCULATE ( [Item Low Score Share], REMOVEFILTERS ( dim_product ) )
+
+
+// -----------------------------------------------------------------------------------------------------
+// 6. REVIEW CODING (table coded_reviews: 300 coded reviews, not related to the other tables)
+// -----------------------------------------------------------------------------------------------------
+// This table is a sample. It is deliberately NOT connected to the model: slicing 300 reviews by month or
+// state would produce numbers too small to read.
+
+// Number of coded reviews.                                                  Format: whole number
+Coded Reviews = COUNTROWS ( coded_reviews )
+
+// Share of a complaint category inside the delivery group on the chart.
+// REMOVEFILTERS removes the category from the denominator, so the denominator is "all categories of the group".
+//                                                                           Format: percentage, 0 decimals
+Complaint Share =
+DIVIDE (
+    [Coded Reviews],
+    CALCULATE ( [Coded Reviews], REMOVEFILTERS ( coded_reviews[primary_category] ) )
+)
+
+
+// -----------------------------------------------------------------------------------------------------
+// 7. OPTIONAL: a title that updates with the filters (page 1)
+// -----------------------------------------------------------------------------------------------------
+// Use in a card visual, or in the title of a visual via Title > fx > Field value.
+Title Overview =
+VAR ProblemOrders =
+    DIVIDE ( [Late Orders] + [Not Delivered Orders], [Orders] )
+VAR ProblemReviews =
+    DIVIDE (
+        CALCULATE ( [Low Score Orders], fact_orders[delivery_outcome] IN { "Late", "Not delivered" } ),
+        [Low Score Orders]
+    )
+RETURN
+    "Late and undelivered orders are " & FORMAT ( ProblemOrders, "0.0%" )
+        & " of orders but account for " & FORMAT ( ProblemReviews, "0%" )
+        & " of all 1-2 star reviews"

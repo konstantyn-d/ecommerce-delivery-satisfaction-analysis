@@ -3,7 +3,7 @@
 Business analysis of customer dissatisfaction on the Olist Brazilian e-commerce marketplace.
 
 > **Status: work in progress.** Data model, metric definitions and the hypothesis-driven analysis are complete.
-> Analysis, review coding and the what-if scenario are done. Still to come: dashboard and deck. The final summary of findings is [TBD]
+> Analysis, review coding and the what-if scenario are done. The dashboard is specified and being built; the deck is still to come. The final summary of findings is [TBD]
 > until those are done; the current findings are in [docs/analysis_findings.md](docs/analysis_findings.md).
 
 ## Business question
@@ -46,6 +46,7 @@ erDiagram
 
 ## Documentation
 
+- [Dashboard](dashboard/README.md): page specifications, DAX measures, theme and reference values for Power BI
 - [Scenario](docs/scenario.md): what fixing late deliveries and incomplete orders could achieve, with assumptions and low / base / high ranges
 - [Review coding findings](review_coding/findings.md): what customers complain about in 300 coded reviews, with quotes
 - [Review coding files](review_coding/README.md): codebook, sampling method, coding and consistency check
@@ -54,7 +55,7 @@ erDiagram
 - [Metric definitions](docs/metric_definitions.md): business definition, formula, grain, filters and caveats of every KPI
 - [KPI baseline](docs/kpi_baseline.md): generated reference values, total and by month
 - [Data model](docs/data_model.md): star schema, derived field definitions, Power BI relationships
-- [Model validation report](docs/model_validation_report.md): 36 tests reconciling the model with the raw data
+- [Model validation report](docs/model_validation_report.md): 37 tests reconciling the model with the raw data
 - [Data dictionary](docs/data_dictionary.md): tables, grain, relationships, columns and known issues
 - [Profiling report](docs/profiling_report.md): generated row counts, nulls, keys and relationship checks
 - [Decision log](docs/decision_log.md): every data quality issue, rows affected, decision and reason
@@ -88,6 +89,7 @@ erDiagram
    ```
    python notebooks/06_review_coding_results.py
    python notebooks/07_scenario.py
+   python notebooks/08_dashboard_reference.py
    ```
 
 ## Data source and licence

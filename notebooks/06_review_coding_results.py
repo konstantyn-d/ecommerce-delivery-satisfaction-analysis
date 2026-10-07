@@ -45,6 +45,7 @@ def read_csv(path: Path) -> list:
 
 
 CATEGORIES = [row["category"] for row in read_csv(FOLDER / "categories.csv")]
+GROUP_ORDER = ["On time, single item", "On time, several items", "Late", "Not delivered"]
 coded = read_csv(FOLDER / "coding.csv")
 texts = {int(row["sample_id"]): row for row in read_csv(FOLDER / "sample.csv")}
 key = {int(row["sample_id"]): row for row in read_csv(FOLDER / "sample_key.csv")}
@@ -77,10 +78,11 @@ for row in coded:
     row["review_comment_message"] = texts[sid]["review_comment_message"]
     row["delivery_group"] = key[sid]["delivery_group"]
     row["delivery_outcome"] = key[sid]["delivery_outcome"]
+    row["delivery_group_sort"] = GROUP_ORDER.index(row["delivery_group"]) + 1   # display order for charts
 
 with open(FOLDER / "coded_reviews.csv", "w", newline="", encoding="utf-8-sig") as handle:
     columns = ["sample_id", "review_id", "review_score", "primary_category", "secondary_category",
-               "notes", "delivery_outcome", "delivery_group", "review_comment_message"]
+               "notes", "delivery_outcome", "delivery_group", "delivery_group_sort", "review_comment_message"]
     writer = csv.DictWriter(handle, fieldnames=columns, extrasaction="ignore")
     writer.writeheader()
     writer.writerows(coded)
@@ -190,7 +192,7 @@ report += [
 ]
 report += md_table(["category"] + outcomes, share_columns(by_outcome, outcomes))
 
-groups = ["On time, single item", "On time, several items", "Late", "Not delivered"]
+groups = GROUP_ORDER
 by_group = {g: [r for r in coded if r["delivery_group"] == g] for g in groups}
 report += ["## 3. On-time orders split by order size", ""]
 report += md_table(["category"] + groups, share_columns(by_group, groups))

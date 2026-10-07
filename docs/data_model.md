@@ -2,7 +2,7 @@
 
 A star schema built in DuckDB from the nine raw Olist tables. Two fact tables share the date and geography
 dimensions. Row counts come from [`model_validation_report.md`](model_validation_report.md), which also holds
-the 36 tests that reconcile the model with the raw data.
+the 37 tests that reconcile the model with the raw data.
 
 ## 1. Diagram
 
@@ -113,6 +113,7 @@ These definitions are the single source of truth. The numbers after # refer to
 | `items_value` | sum of `price` of the order's items, in BRL. Freight not included (#20) | order has no item rows (#22) |
 | `freight_value` | sum of `freight_value` of the order's items, in BRL | order has no item rows |
 | `order_total` | `items_value + freight_value` | order has no item rows |
+| `order_size` | `Single item` (`item_count = 1`), `Several items` (`item_count >= 2`), `No items` (order without item rows) | never |
 | `is_same_state` | in `fact_orders`: every seller of the order is in the customer's state. In `fact_order_items`: the item's seller is in the customer's state. Proxy for distance (#28) | order has no item rows |
 | `review_score` | score (1–5) of the most recently answered review of the order (#4) | order has no review (#13) |
 | `is_low_score` | `review_score <= 2` | order has no review |
@@ -137,10 +138,10 @@ These definitions are the single source of truth. The numbers after # refer to
 | `purchase_date` | date | → `dim_date` |
 | `customer_state` | text | → `dim_geography` |
 | `order_status` | text | original Olist status |
-| `delivery_outcome`, `delay_band`, `delay_band_sort` | text, text, integer | delivery result |
+| `delivery_outcome`, `delivery_outcome_sort`, `delay_band`, `delay_band_sort` | text, integer, text, integer | delivery result, each with a column that gives the display order |
 | `is_delivered`, `is_on_time`, `is_seller_handover_late` | true/false | delivery flags |
 | `promised_days`, `delivery_days`, `delay_days`, `handling_days`, `transit_days` | integer | durations in calendar days |
-| `has_items`, `item_count`, `seller_count` | true/false, integer, integer | order content |
+| `has_items`, `item_count`, `order_size`, `seller_count` | true/false, integer, text, integer | order content |
 | `items_value`, `freight_value`, `order_total` | decimal (BRL) | order value |
 | `is_same_state` | true/false | distance proxy |
 | `has_review`, `review_score`, `is_low_score`, `has_comment`, `review_before_delivery` | true/false and integer | satisfaction |
@@ -164,7 +165,7 @@ These definitions are the single source of truth. The numbers after # refer to
 | Table | Columns |
 |---|---|
 | `dim_customer` | `customer_unique_id`, `first_purchase_date`, `first_order_state`, `order_count`, `purchase_day_count`, `is_repeat_customer` |
-| `dim_seller` | `seller_id`, `seller_city`, `seller_state`, `seller_region` |
+| `dim_seller` | `seller_id`, `seller_short` (first 8 characters of the id, a readable label), `seller_city`, `seller_state`, `seller_region` |
 | `dim_product` | `product_id`, `category_pt`, `category_en` |
 | `dim_date` | `date_day`, `year`, `quarter`, `month_number`, `month_name`, `year_month`, `month_start`, `weekday_number`, `weekday_name`, `is_weekend` |
 | `dim_geography` | `state_code`, `state_name`, `region` |

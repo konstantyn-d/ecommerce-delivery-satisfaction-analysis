@@ -98,6 +98,8 @@ TESTS = [
      "SELECT count(*) - count(DISTINCT customer_unique_id) FROM model.dim_customer"),
     ("Unique keys", "dim_seller: duplicate seller_id", 0,
      "SELECT count(*) - count(DISTINCT seller_id) FROM model.dim_seller"),
+    ("Unique keys", "dim_seller: duplicate seller_short (8-character label)", 0,
+     "SELECT count(*) - count(DISTINCT seller_short) FROM model.dim_seller"),
     ("Unique keys", "dim_product: duplicate product_id", 0,
      "SELECT count(*) - count(DISTINCT product_id) FROM model.dim_product"),
     ("Unique keys", "dim_date: duplicate date_day", 0,

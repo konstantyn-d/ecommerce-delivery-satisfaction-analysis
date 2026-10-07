@@ -38,6 +38,12 @@ SELECT
         ELSE 'Not delivered'
     END AS delivery_outcome,
     CASE
+        WHEN o.is_delivered AND o.delay_days <= 0 THEN 1
+        WHEN o.is_delivered AND o.delay_days > 0  THEN 2
+        WHEN o.order_status = 'delivered'         THEN 4
+        ELSE 3
+    END AS delivery_outcome_sort,                                -- display order: On time, Late, Not delivered, Unknown
+    CASE
         WHEN o.is_delivered AND o.delay_days <= 0             THEN 'On time'
         WHEN o.is_delivered AND o.delay_days BETWEEN 1 AND 3  THEN 'Late 1-3 days'
         WHEN o.is_delivered AND o.delay_days BETWEEN 4 AND 7  THEN 'Late 4-7 days'
@@ -69,6 +75,9 @@ SELECT
     -- value (NULL for the orders without item rows, decision #22)
     a.order_id IS NOT NULL                       AS has_items,
     a.item_count,
+    CASE WHEN a.item_count >= 2 THEN 'Several items'
+         WHEN a.item_count = 1  THEN 'Single item'
+         ELSE 'No items' END                     AS order_size,
     a.seller_count,
     a.items_value,
     a.freight_value,

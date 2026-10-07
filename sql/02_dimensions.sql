@@ -83,6 +83,7 @@ LEFT JOIN raw.category_translation t USING (product_category_name);
 CREATE OR REPLACE TABLE model.dim_seller AS
 SELECT
     s.seller_id,
+    left(s.seller_id, 8) AS seller_short,                      -- readable label for tables and charts
     s.seller_city,
     s.seller_state,
     g.region AS seller_region
