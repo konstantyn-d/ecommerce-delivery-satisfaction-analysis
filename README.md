@@ -3,8 +3,12 @@
 Business analysis of customer dissatisfaction on the Olist Brazilian e-commerce marketplace.
 
 > **Status: work in progress.** Data model, metric definitions and the hypothesis-driven analysis are complete.
-> Analysis, review coding, the what-if scenario and the Power BI dashboard are done. The deck is still to come. The final summary of findings is [TBD]
+> Analysis, review coding, scenario, Power BI dashboard and consulting deck are done. Final packaging is in progress. The final summary of findings is [TBD]
 > until those are done; the current findings are in [docs/analysis_findings.md](docs/analysis_findings.md).
+
+## Deck
+
+Ten slides for the Head of Operations: [deck/late_deliveries_lost_customers.pdf](deck/late_deliveries_lost_customers.pdf) ([how it is built](deck/README.md)).
 
 ## Dashboard
 
@@ -31,7 +35,7 @@ sql/              load, model and KPI queries, numbered in run order
 notebooks/        exploration scripts, numbered
 review_coding/    codebook, sample and coded results of the qualitative review analysis
 dashboard/        Power BI project (model, report, measures), build script and screenshots
-deck/             slide deck (PDF)
+deck/             consulting deck (PDF and PowerPoint), build script and its data
 docs/             data dictionary, decision log, data model, metric definitions, findings, charts
 ```
 
@@ -56,6 +60,7 @@ erDiagram
 
 ## Documentation
 
+- [Deck](deck/README.md): storyline, PDF and PowerPoint file, build script
 - [Dashboard](dashboard/README.md): the Power BI project, its pages, measures and checks
 - [Scenario](docs/scenario.md): what fixing late deliveries and incomplete orders could achieve, with assumptions and low / base / high ranges
 - [Review coding findings](review_coding/findings.md): what customers complain about in 300 coded reviews, with quotes
@@ -104,6 +109,13 @@ erDiagram
 6. Build the Power BI project and open `dashboard/olist_delivery_dashboard.pbip` (click *Refresh now* once):
    ```
    python dashboard/build_pbip.py
+   ```
+7. Build the deck (needs Node.js):
+   ```
+   python notebooks/09_deck_data.py
+   cd deck
+   npm install
+   node build_deck.js
    ```
 
 ## Data source and licence

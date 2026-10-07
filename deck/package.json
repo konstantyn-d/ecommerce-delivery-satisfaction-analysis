@@ -1,0 +1,11 @@
+{
+  "name": "olist-deck",
+  "private": true,
+  "description": "Builds the consulting deck (PowerPoint) from deck_data.json",
+  "scripts": {
+    "build": "node build_deck.js"
+  },
+  "dependencies": {
+    "pptxgenjs": "^4.0.1"
+  }
+}

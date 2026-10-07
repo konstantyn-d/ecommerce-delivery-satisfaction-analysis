@@ -10,6 +10,9 @@ data/processed/*
 *.duckdb
 *.duckdb.wal
 
+# Node modules of the deck builder (restored with `npm install` in deck/)
+node_modules/
+
 # Python
 .venv/
 __pycache__/

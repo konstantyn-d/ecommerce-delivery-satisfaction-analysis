@@ -1,0 +1,587 @@
+{
+  "baseline": {
+    "orders": 99092,
+    "gmv": 13541712.78,
+    "on_time_rate": 0.932112304190098,
+    "late_rate": 0.06788769580990198,
+    "not_delivered_rate": 0.02907399184596133,
+    "avg_review_score": 4.088630123055019,
+    "low_score_rate": 0.14626258517237872,
+    "low_score_orders": 14382,
+    "reviewed_orders": 98330,
+    "delivered_orders": 96203,
+    "late_orders": 6531,
+    "not_delivered_orders": 2881,
+    "median_delivery_days": 10.0
+  },
+  "delay_bands": [
+    {
+      "delay_band": "On time",
+      "orders": 89672,
+      "low_share": 0.0924738175865085
+    },
+    {
+      "delay_band": "Late 1-3 days",
+      "orders": 1869,
+      "low_share": 0.32144786601836844
+    },
+    {
+      "delay_band": "Late 4-7 days",
+      "orders": 1802,
+      "low_share": 0.6767734553775744
+    },
+    {
+      "delay_band": "Late 8-14 days",
+      "orders": 1478,
+      "low_share": 0.8015214384508991
+    },
+    {
+      "delay_band": "Late 15+ days",
+      "orders": 1382,
+      "low_share": 0.7831957989497375
+    },
+    {
+      "delay_band": "Not delivered",
+      "orders": 2881,
+      "low_share": 0.779507603186097
+    }
+  ],
+  "outcomes": [
+    {
+      "delivery_outcome": "On time",
+      "orders": 89672,
+      "share_of_orders": 0.9050098905978765,
+      "low_orders": 8247,
+      "share_of_low": 0.573464988526528,
+      "low_share": 0.0924738175865085
+    },
+    {
+      "delivery_outcome": "Late",
+      "orders": 6531,
+      "share_of_orders": 0.0659137701344314,
+      "low_orders": 3981,
+      "share_of_low": 0.2768235866768653,
+      "low_share": 0.6241768579492004
+    },
+    {
+      "delivery_outcome": "Not delivered",
+      "orders": 2881,
+      "share_of_orders": 0.02907633926769206,
+      "low_orders": 2153,
+      "share_of_low": 0.14971142479660662,
+      "low_share": 0.779507603186097
+    }
+  ],
+  "problem_share_of_orders": 0.09499010940212345,
+  "problem_share_of_low": 0.42653501147347195,
+  "gap_by_region_min": 0.5085466329035325,
+  "gap_by_region_max": 0.556381104351584,
+  "monthly_correlation": 0.8592519920453171,
+  "worst_months": [
+    {
+      "period": "2018-03",
+      "late_rate": 0.18963301442239042,
+      "low_score_rate": 0.2278959149412423
+    },
+    {
+      "period": "2018-02",
+      "late_rate": 0.14126620900076278,
+      "low_score_rate": 0.20893285371702638
+    },
+    {
+      "period": "2017-11",
+      "late_rate": 0.12403951701427003,
+      "low_score_rate": 0.1877005347593583
+    }
+  ],
+  "states": [
+    {
+      "state_name": "Alagoas",
+      "state": "AL",
+      "orders": 411,
+      "share_of_orders": 0.004147660759698058,
+      "late_orders": 85,
+      "late_rate": 0.21464646464646464,
+      "share_of_late": 0.013014852243148063,
+      "excess_late": 58.11647245927882
+    },
+    {
+      "state_name": "Maranhao",
+      "state": "MA",
+      "orders": 743,
+      "share_of_orders": 0.007498082589916441,
+      "late_orders": 125,
+      "late_rate": 0.1753155680224404,
+      "share_of_late": 0.0191394885928648,
+      "excess_late": 76.59607288753989
+    },
+    {
+      "state_name": "Sergipe",
+      "state": "SE",
+      "orders": 347,
+      "share_of_orders": 0.003501796310499334,
+      "late_orders": 51,
+      "late_rate": 0.1536144578313253,
+      "share_of_late": 0.0078089113458888375,
+      "excess_late": 28.461284991112542
+    },
+    {
+      "state_name": "Piaui",
+      "state": "PI",
+      "orders": 493,
+      "share_of_orders": 0.004975174585233924,
+      "late_orders": 66,
+      "late_rate": 0.13894736842105262,
+      "share_of_late": 0.010105649977032614,
+      "excess_late": 33.75334449029656
+    },
+    {
+      "state_name": "Ceara",
+      "state": "CE",
+      "orders": 1328,
+      "share_of_orders": 0.013401687320873532,
+      "late_orders": 176,
+      "late_rate": 0.13825608798114689,
+      "share_of_late": 0.026948399938753635,
+      "excess_late": 89.57896323399478
+    },
+    {
+      "state_name": "Bahia",
+      "state": "BA",
+      "orders": 3376,
+      "share_of_orders": 0.03406934969523271,
+      "late_orders": 396,
+      "late_rate": 0.12173378419920074,
+      "share_of_late": 0.06063389986219568,
+      "excess_late": 175.16132553038886
+    },
+    {
+      "state_name": "Rio de Janeiro",
+      "state": "RJ",
+      "orders": 12792,
+      "share_of_orders": 0.12909215678359504,
+      "late_orders": 1495,
+      "late_rate": 0.12144597887896019,
+      "share_of_late": 0.22890828357066298,
+      "excess_late": 659.3024645801066
+    },
+    {
+      "state_name": "Para",
+      "state": "PA",
+      "orders": 971,
+      "share_of_orders": 0.009798974690186897,
+      "late_orders": 106,
+      "late_rate": 0.11252653927813164,
+      "share_of_late": 0.01623028632674935,
+      "excess_late": 42.049790547072334
+    },
+    {
+      "state_name": "Espirito Santo",
+      "state": "ES",
+      "orders": 2029,
+      "share_of_orders": 0.02047592136600331,
+      "late_orders": 214,
+      "late_rate": 0.10742971887550201,
+      "share_of_late": 0.03276680447098453,
+      "excess_late": 78.76770994667525
+    },
+    {
+      "state_name": "Paraiba",
+      "state": "PB",
+      "orders": 535,
+      "share_of_orders": 0.0053990231300205865,
+      "late_orders": 54,
+      "late_rate": 0.10465116279069768,
+      "share_of_late": 0.008268259072117593,
+      "excess_late": 18.969948962090577
+    },
+    {
+      "state_name": "Mato Grosso do Sul",
+      "state": "MS",
+      "orders": 715,
+      "share_of_orders": 0.007215516893391999,
+      "late_orders": 68,
+      "late_rate": 0.09700427960057062,
+      "share_of_late": 0.01041188179451845,
+      "excess_late": 20.410725237258713
+    },
+    {
+      "state_name": "Pernambuco",
+      "state": "PE",
+      "orders": 1645,
+      "share_of_orders": 0.016600734670810965,
+      "late_orders": 153,
+      "late_rate": 0.09640831758034027,
+      "share_of_late": 0.023426734037666513,
+      "excess_late": 45.26222674968556
+    },
+    {
+      "state_name": "Rio Grande do Norte",
+      "state": "RN",
+      "orders": 481,
+      "share_of_orders": 0.0048540750010091635,
+      "late_orders": 44,
+      "late_rate": 0.09361702127659574,
+      "share_of_late": 0.006737099984688409,
+      "excess_late": 12.09278296934607
+    },
+    {
+      "state_name": "Santa Catarina",
+      "state": "SC",
+      "orders": 3625,
+      "share_of_orders": 0.0365821660678965,
+      "late_orders": 291,
+      "late_rate": 0.08227311280746395,
+      "share_of_late": 0.04455672944418925,
+      "excess_late": 50.881219920376694
+    },
+    {
+      "state_name": "Goias",
+      "state": "GO",
+      "orders": 2011,
+      "share_of_orders": 0.020294271989666168,
+      "late_orders": 128,
+      "late_rate": 0.06564102564102564,
+      "share_of_late": 0.019598836319093555,
+      "excess_late": -4.381006829308861
+    },
+    {
+      "state_name": "Rio Grande do Sul",
+      "state": "RS",
+      "orders": 5441,
+      "share_of_orders": 0.054908569813910305,
+      "late_orders": 325,
+      "late_rate": 0.06100994931481134,
+      "share_of_late": 0.049762670341448476,
+      "excess_late": -36.637755579347846
+    },
+    {
+      "state_name": "Mato Grosso",
+      "state": "MT",
+      "orders": 904,
+      "share_of_orders": 0.009122835344931982,
+      "late_orders": 53,
+      "late_rate": 0.059887005649717516,
+      "share_of_late": 0.008115143163374675,
+      "excess_late": -7.080610791763252
+    },
+    {
+      "state_name": "Distrito Federal",
+      "state": "DF",
+      "orders": 2134,
+      "share_of_orders": 0.021535542727969967,
+      "late_orders": 118,
+      "late_rate": 0.05689488910318226,
+      "share_of_late": 0.01806767723166437,
+      "excess_late": -22.799081109736708
+    },
+    {
+      "state_name": "Minas Gerais",
+      "state": "MG",
+      "orders": 11591,
+      "share_of_orders": 0.11697210672910023,
+      "late_orders": 519,
+      "late_rate": 0.04585210707659687,
+      "share_of_late": 0.07946715663757464,
+      "excess_late": -249.4208288722805
+    },
+    {
+      "state_name": "Sao Paulo",
+      "state": "SP",
+      "orders": 41621,
+      "share_of_orders": 0.4200238162515642,
+      "late_orders": 1817,
+      "late_rate": 0.044976360801009925,
+      "share_of_late": 0.2782116061858827,
+      "excess_late": -925.59502302423
+    },
+    {
+      "state_name": "Parana",
+      "state": "PR",
+      "orders": 5025,
+      "share_of_orders": 0.050710450894118596,
+      "late_orders": 199,
+      "late_rate": 0.0405873954721599,
+      "share_of_late": 0.03047006583984076,
+      "excess_late": -133.85337255594942
+    }
+  ],
+  "transit": [
+    {
+      "delivery_outcome": "On time",
+      "median_transit_days": 7.0,
+      "median_handling_days": 2.0,
+      "median_promised_days": 24.0,
+      "handed_over_late_share": 0.07549736818627888
+    },
+    {
+      "delivery_outcome": "Late",
+      "median_transit_days": 26.0,
+      "median_handling_days": 4.0,
+      "median_promised_days": 23.0,
+      "handed_over_late_share": 0.2773353751914242
+    }
+  ],
+  "worst_sellers": {
+    "sellers": 64,
+    "share_of_orders": 0.06170135964384551,
+    "share_of_late": 0.14984542644117113
+  },
+  "same_state": [
+    {
+      "is_same_state": true,
+      "median_delivery_days": 6.0,
+      "late_rate": 0.04528980254573922
+    },
+    {
+      "is_same_state": false,
+      "median_delivery_days": 13.0,
+      "late_rate": 0.08051657646563179
+    }
+  ],
+  "coding": {
+    "families": [
+      "Not received or late",
+      "Part of the order missing",
+      "Wrong, damaged or poor product",
+      "Service or unclear"
+    ],
+    "groups": [
+      {
+        "group": "Late",
+        "reviews": 77,
+        "shares": [
+          0.7662337662337663,
+          0.03896103896103896,
+          0.07792207792207792,
+          0.11688311688311688
+        ],
+        "counts": [
+          59,
+          3,
+          6,
+          9
+        ]
+      },
+      {
+        "group": "Not delivered",
+        "reviews": 43,
+        "shares": [
+          0.7674418604651163,
+          0.0,
+          0.023255813953488372,
+          0.20930232558139536
+        ],
+        "counts": [
+          33,
+          0,
+          1,
+          9
+        ]
+      },
+      {
+        "group": "On time, several items",
+        "reviews": 54,
+        "shares": [
+          0.037037037037037035,
+          0.8148148148148148,
+          0.12962962962962962,
+          0.018518518518518517
+        ],
+        "counts": [
+          2,
+          44,
+          7,
+          1
+        ]
+      },
+      {
+        "group": "On time, single item",
+        "reviews": 126,
+        "shares": [
+          0.10317460317460317,
+          0.07936507936507936,
+          0.6587301587301587,
+          0.15873015873015872
+        ],
+        "counts": [
+          13,
+          10,
+          83,
+          20
+        ]
+      }
+    ],
+    "late_not_received": {
+      "hits": 51,
+      "total": 77,
+      "share": 0.6623376623376623,
+      "ci": [
+        0.5512443936389646,
+        0.7580023308197299
+      ]
+    },
+    "not_delivered_not_received": {
+      "hits": 31,
+      "total": 43,
+      "share": 0.7209302325581395,
+      "ci": [
+        0.5730868709987059,
+        0.8325354817817284
+      ]
+    },
+    "several_incomplete": {
+      "hits": 44,
+      "total": 54,
+      "share": 0.8148148148148148,
+      "ci": [
+        0.6916379770862061,
+        0.8961742549405703
+      ]
+    },
+    "single_product": {
+      "hits": 93,
+      "total": 126,
+      "share": 0.7380952380952381,
+      "ci": [
+        0.6550963480758645,
+        0.8070051663848323
+      ]
+    },
+    "sample_size": 300,
+    "frame_size": 10636,
+    "service_mentioned_share": 0.21
+  },
+  "order_size": [
+    {
+      "order_size": "Several items",
+      "orders": 9096,
+      "low_orders": 2213,
+      "low_share": 0.24567051509769094
+    },
+    {
+      "order_size": "Single item",
+      "orders": 80576,
+      "low_orders": 6034,
+      "low_share": 0.0752613066580188
+    }
+  ],
+  "scenario": {
+    "cases": {
+      "low": 0.5,
+      "base": 0.75,
+      "high": 1.0
+    },
+    "target_states": [
+      "RJ",
+      "BA",
+      "CE",
+      "ES",
+      "MA"
+    ],
+    "orders_moved_a": 1079.4065361787054,
+    "reviews_moved_b": 9008,
+    "a": {
+      "low": {
+        "avoided": 304.9713716267735,
+        "share_of_all_bad": 0.021205073816351932,
+        "new_low_share": 0.14316107625722796
+      },
+      "base": {
+        "avoided": 457.4570574401602,
+        "share_of_all_bad": 0.031807610724527896,
+        "new_low_share": 0.1416103217996526
+      },
+      "high": {
+        "avoided": 609.942743253547,
+        "share_of_all_bad": 0.042410147632703864,
+        "new_low_share": 0.14005956734207722
+      }
+    },
+    "b": {
+      "low": {
+        "avoided": 767.5230748122833,
+        "share_of_all_bad": 0.05336692218135748,
+        "new_low_share": 0.13845700117144022
+      },
+      "base": {
+        "avoided": 1151.284612218425,
+        "share_of_all_bad": 0.08005038327203623,
+        "new_low_share": 0.13455420917097097
+      },
+      "high": {
+        "avoided": 1535.0461496245666,
+        "share_of_all_bad": 0.10673384436271496,
+        "new_low_share": 0.13065141717050172
+      }
+    },
+    "ab": {
+      "low": {
+        "avoided": 1072.494446439057,
+        "share_of_all_bad": 0.07457199599770942,
+        "new_low_share": 0.13535549225628946
+      },
+      "base": {
+        "avoided": 1608.7416696585854,
+        "share_of_all_bad": 0.11185799399656413,
+        "new_low_share": 0.12990194579824482
+      },
+      "high": {
+        "avoided": 2144.988892878114,
+        "share_of_all_bad": 0.14914399199541883,
+        "new_low_share": 0.1244483993402002
+      }
+    },
+    "ceiling_avoided": 3391.201991433249,
+    "ceiling_share_of_all_bad": 0.23579488189634606
+  },
+  "not_delivered_by_status": [
+    {
+      "order_status": "shipped",
+      "orders": 1097,
+      "low_orders": 711
+    },
+    {
+      "order_status": "unavailable",
+      "orders": 602,
+      "low_orders": 499
+    },
+    {
+      "order_status": "canceled",
+      "orders": 580,
+      "low_orders": 427
+    },
+    {
+      "order_status": "processing",
+      "orders": 299,
+      "low_orders": 272
+    },
+    {
+      "order_status": "invoiced",
+      "orders": 296,
+      "low_orders": 241
+    },
+    {
+      "order_status": "created",
+      "orders": 5,
+      "low_orders": 2
+    },
+    {
+      "order_status": "approved",
+      "orders": 2,
+      "low_orders": 1
+    }
+  ],
+  "repeat": [
+    {
+      "delivery_outcome": "On time",
+      "customers": 86653,
+      "repeat_customers": 1950
+    },
+    {
+      "delivery_outcome": "Late",
+      "customers": 6341,
+      "repeat_customers": 103
+    }
+  ]
+}
