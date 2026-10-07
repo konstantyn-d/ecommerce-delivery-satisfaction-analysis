@@ -3,9 +3,9 @@
   "name": "card_5",
   "position": {
     "x": 852,
-    "y": 80,
+    "y": 62,
     "z": 5,
-    "height": 88,
+    "height": 84,
     "width": 195,
     "tabOrder": 5
   },
@@ -32,6 +32,21 @@
           ]
         }
       }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "drillFilterOtherVisuals": true
   }

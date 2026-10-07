@@ -17,7 +17,18 @@ whole dashboard is rebuilt with one command.
 | [`measures.dax`](measures.dax) | All measures in one readable file, with description and format (generated) |
 | [`theme.json`](theme.json) | Colours and fonts used by the report |
 | [`reference_values.md`](reference_values.md) | The numbers each visual must show with no filter applied (generated) |
-| `screenshots/` | One PNG per page [TBD] |
+| [`screenshots/`](screenshots/) | One PNG per page, captured from Power BI Desktop |
+
+## Screenshots
+
+![Executive overview](screenshots/01_executive_overview.png)
+
+![Delivery performance](screenshots/02_delivery_performance.png)
+
+![Customer satisfaction](screenshots/03_customer_satisfaction.png)
+
+Decimal and thousands separators in the visuals follow the regional settings of the computer (here: decimal
+comma). The values are the same as in the documentation, which uses a decimal point.
 
 ## 1. Open the dashboard
 
@@ -52,21 +63,21 @@ The page titles describe the data without any filter; they are what the screensh
 
 | Visual | Type | Content | Title |
 |---|---|---|---|
-| 6 cards | Card | Orders, GMV (millions), On-time Rate, Not-delivered Rate, Avg Review Score, Low Score Share | — |
+| 6 cards | Card | Orders, GMV (millions), On-time Rate, Not-delivered Rate, Avg Review Score, 1-2 star share (`Low Score Share`) | — |
 | Orders by month | Column chart | `Orders` by `dim_date[year_month]` | *Monthly orders grew from 800 in January 2017 to more than 6,000 in every month of 2018* |
 | Late rate and bad reviews by month | Line chart | `Late Rate` (orange) and `Low Score Share` (blue) by month, one % axis | *Bad reviews peak in the same three months as late deliveries* |
 | Share by delivery outcome | Clustered bar chart | `Share of Orders` (blue) and `Share of Low Score Reviews` (orange) by `delivery_outcome` | *Late and undelivered orders: 9.5% of orders, 43% of bad reviews* |
 
 ### Page 2. Delivery performance
 
-*Rio de Janeiro has 13% of orders but 23% of late deliveries; most delays arise after the seller has shipped*
+*Rio de Janeiro has 13% of orders but 23% of late deliveries; most delays arise in transit*
 
 | Visual | Type | Content | Title |
 |---|---|---|---|
 | 5 cards | Card | Late Rate, Late Orders, Median Delivery Days, Avg Delay (Late), Late Orders Handed Over Late by Seller | — |
-| Late rate by state | Bar chart | `Late Rate` by `state_name`, states with 300+ orders, sorted descending; bar colour from the measure `Colour Late Rate` (orange above the national rate) | *Late rates are highest in the Northeast; Rio de Janeiro combines a high rate with high volume* |
+| Late rate by state | Bar chart | `Late Rate` by `state_name`, states with 300+ orders, sorted descending; bar colour from the measure `Colour Late Rate` (orange above the national rate) | *Late rates are highest in the Northeast and in Rio de Janeiro* |
 | Late orders by delay band | Column chart | `Orders` by `delay_band`, late bands only | *Late orders are spread fairly evenly from 1 to more than 15 days late* |
-| Seller ranking | Table | Seller, state, orders, late orders, late rate, 1-2 star share; sellers with 30+ orders, sorted by late orders | *The sellers with the most late orders are large São Paulo sellers, not small outliers* |
+| Seller ranking | Table | Seller, state, orders, late orders, late rate, 1-2 star share; sellers with 30+ orders, sorted by late orders | *The ten sellers with the most late orders are all large São Paulo sellers* |
 
 ### Page 3. Customer satisfaction
 
@@ -77,7 +88,7 @@ The page titles describe the data without any filter; they are what the screensh
 | 4 cards | Card | Avg Review Score, Low Score Share, Comment Share, Coded Reviews | — |
 | Bad reviews by delay band | Column chart | `Low Score Share` by `delay_band`; colour from `Colour Delivery` (blue on time, orange otherwise) | *Bad reviews jump from 9% for on-time orders to 68% once an order is 4-7 days late* |
 | Bad reviews by order size | Clustered bar chart | `Low Score Share Single Item` (blue) and `Low Score Share Several Items` (orange) by `delivery_outcome` | *Even when delivered on time, orders with several items get 25% bad reviews, against 7.5% for single items* |
-| Complaint matrix | Matrix | `Complaint Share` by complaint category (rows) and delivery group (columns), white-to-orange background | *81% of complaints about on-time orders with several items are about a missing part* |
+| Complaint matrix | Matrix | `Complaint Share` by complaint category (rows) and delivery group (columns), white-to-orange background | *Several-item orders delivered on time: 81% of complaints are about a missing part* |
 | Category matrix | Scatter chart | `Item GMV` (x) vs `Item Low Score Share` (y) per category, categories with 500+ orders | *Office furniture has the highest share of bad reviews; large categories sit close to the average* |
 
 The complaint matrix uses the table `coded_reviews` (300 coded reviews). It is deliberately not related to the
@@ -110,5 +121,5 @@ example:
 - Page 3, bad reviews by delay band: On time 9.2%, Late 4-7 days 67.7%.
 - Page 3, complaint matrix: Incomplete order × On time, several items = 81%.
 
-All JSON files of the report were validated against Microsoft's published PBIR schemas before the first
-opening in Power BI Desktop.
+All JSON files of the report were validated against Microsoft's published PBIR schemas, and the three pages
+were opened, refreshed and compared with the reference values in Power BI Desktop.

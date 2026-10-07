@@ -5,7 +5,7 @@
     "x": 24,
     "y": 10,
     "z": 0,
-    "height": 60,
+    "height": 46,
     "width": 890,
     "tabOrder": 0
   },
@@ -19,10 +19,10 @@
               {
                 "textRuns": [
                   {
-                    "value": "Rio de Janeiro has 13% of orders but 23% of late deliveries; most delays arise after the seller has shipped",
+                    "value": "Rio de Janeiro has 13% of orders but 23% of late deliveries; most delays arise in transit",
                     "textStyle": {
                       "fontWeight": "bold",
-                      "fontSize": "15pt"
+                      "fontSize": "14pt"
                     }
                   }
                 ]

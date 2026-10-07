@@ -3,9 +3,9 @@
   "name": "complaints",
   "position": {
     "x": 24,
-    "y": 442,
+    "y": 430,
     "z": 22,
-    "height": 262,
+    "height": 274,
     "width": 610,
     "tabOrder": 22
   },
@@ -131,12 +131,56 @@
             ],
             "metadata": "coded_reviews.Complaint Share"
           }
+        },
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
         }
       ],
       "subTotals": [
         {
           "properties": {
             "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "columnSubtotals": {
               "expr": {
                 "Literal": {
                   "Value": "false"
@@ -161,7 +205,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'81% of complaints about on-time orders with several items are about a missing part'"
+                  "Value": "'Several-item orders delivered on time: 81% of complaints are about a missing part'"
                 }
               }
             },
@@ -188,7 +232,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sample of 300 coded 1-2 star reviews: share of each complaint inside the delivery group. Not affected by the slicers'"
+                  "Value": "'Sample of 300 coded 1-2 star reviews; share within each delivery group; slicers do not apply'"
                 }
               }
             }

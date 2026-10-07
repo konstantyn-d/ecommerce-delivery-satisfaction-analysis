@@ -3,8 +3,18 @@
 Business analysis of customer dissatisfaction on the Olist Brazilian e-commerce marketplace.
 
 > **Status: work in progress.** Data model, metric definitions and the hypothesis-driven analysis are complete.
-> Analysis, review coding and the what-if scenario are done. The dashboard is specified and being built; the deck is still to come. The final summary of findings is [TBD]
+> Analysis, review coding, the what-if scenario and the Power BI dashboard are done. The deck is still to come. The final summary of findings is [TBD]
 > until those are done; the current findings are in [docs/analysis_findings.md](docs/analysis_findings.md).
+
+## Dashboard
+
+A three-page Power BI report, built from code as a Power BI Project ([details](dashboard/README.md)).
+
+![Executive overview](dashboard/screenshots/01_executive_overview.png)
+
+![Delivery performance](dashboard/screenshots/02_delivery_performance.png)
+
+![Customer satisfaction](dashboard/screenshots/03_customer_satisfaction.png)
 
 ## Business question
 
@@ -20,7 +30,7 @@ data/processed/   DuckDB database and Parquet exports for Power BI (not committe
 sql/              load, model and KPI queries, numbered in run order
 notebooks/        exploration scripts, numbered
 review_coding/    codebook, sample and coded results of the qualitative review analysis
-dashboard/        Power BI file and screenshots
+dashboard/        Power BI project (model, report, measures), build script and screenshots
 deck/             slide deck (PDF)
 docs/             data dictionary, decision log, data model, metric definitions, findings, charts
 ```
@@ -46,7 +56,7 @@ erDiagram
 
 ## Documentation
 
-- [Dashboard](dashboard/README.md): page specifications, DAX measures, theme and reference values for Power BI
+- [Dashboard](dashboard/README.md): the Power BI project, its pages, measures and checks
 - [Scenario](docs/scenario.md): what fixing late deliveries and incomplete orders could achieve, with assumptions and low / base / high ranges
 - [Review coding findings](review_coding/findings.md): what customers complain about in 300 coded reviews, with quotes
 - [Review coding files](review_coding/README.md): codebook, sampling method, coding and consistency check
@@ -90,6 +100,10 @@ erDiagram
    python notebooks/06_review_coding_results.py
    python notebooks/07_scenario.py
    python notebooks/08_dashboard_reference.py
+   ```
+6. Build the Power BI project and open `dashboard/olist_delivery_dashboard.pbip` (click *Refresh now* once):
+   ```
+   python dashboard/build_pbip.py
    ```
 
 ## Data source and licence

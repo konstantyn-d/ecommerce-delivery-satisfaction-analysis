@@ -3,9 +3,9 @@
   "name": "card_2",
   "position": {
     "x": 272,
-    "y": 80,
+    "y": 62,
     "z": 2,
-    "height": 88,
+    "height": 84,
     "width": 236,
     "tabOrder": 2
   },
@@ -32,6 +32,21 @@
           ]
         }
       }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "drillFilterOtherVisuals": true
   }

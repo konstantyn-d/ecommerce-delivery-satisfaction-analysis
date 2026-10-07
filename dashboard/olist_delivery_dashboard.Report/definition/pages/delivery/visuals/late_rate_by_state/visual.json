@@ -3,9 +3,9 @@
   "name": "late_rate_by_state",
   "position": {
     "x": 24,
-    "y": 180,
+    "y": 156,
     "z": 20,
-    "height": 524,
+    "height": 548,
     "width": 610,
     "tabOrder": 20
   },
@@ -111,6 +111,53 @@
                   "Value": "true"
                 }
               }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "preferredCategoryWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "innerPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
@@ -130,7 +177,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Late rates are highest in the Northeast; Rio de Janeiro combines a high rate with high volume'"
+                  "Value": "'Late rates are highest in the Northeast and in Rio de Janeiro'"
                 }
               }
             },

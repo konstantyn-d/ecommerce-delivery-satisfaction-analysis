@@ -3,9 +3,9 @@
   "name": "seller_ranking",
   "position": {
     "x": 646,
-    "y": 392,
+    "y": 368,
     "z": 22,
-    "height": 312,
+    "height": 336,
     "width": 610,
     "tabOrder": 22
   },
@@ -141,7 +141,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'The sellers with the most late orders are large São Paulo sellers, not small outliers'"
+                  "Value": "'The ten sellers with the most late orders are all large São Paulo sellers'"
                 }
               }
             },

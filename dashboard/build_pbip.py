@@ -556,7 +556,7 @@ def visual(page: str, vname: str, vtype: str, box: tuple, query: dict = None, ob
     write_json(REPORT_DIR / "definition" / "pages" / page / "visuals" / vname / "visual.json", container)
 
 
-def textbox(page: str, vname: str, box: tuple, title: str, size: str = "15pt") -> None:
+def textbox(page: str, vname: str, box: tuple, title: str, size: str = "14pt") -> None:
     x, y, w, h = box
     container = {
         "$schema": VISUAL_SCHEMA,
@@ -572,15 +572,19 @@ def textbox(page: str, vname: str, box: tuple, title: str, size: str = "15pt") -
     write_json(REPORT_DIR / "definition" / "pages" / page / "visuals" / vname / "visual.json", container)
 
 
-def card(page: str, vname: str, box: tuple, measure: str, display_units: str = None, z: int = 1) -> None:
-    objects = {"labels": [{"properties": {"labelDisplayUnits": lit(display_units)}}]} if display_units else None
-    visual(page, vname, "card", box, query={"Values": [proj(measure)]}, objects=objects, z=z)
+def card(page: str, vname: str, box: tuple, measure: str, label: str = None, millions: bool = False,
+         z: int = 1) -> None:
+    """One KPI card. Numbers are shown in full unless millions=True (one decimal, e.g. 13.5M)."""
+    properties = {"labelDisplayUnits": lit("1000000D"), "labelPrecision": lit("1L")} if millions \
+        else {"labelDisplayUnits": lit("1D")}
+    visual(page, vname, "card", box, query={"Values": [proj(measure, label)]},
+           objects={"labels": [{"properties": properties}]}, z=z)
 
 
 def slicers(page: str) -> None:
     for i, (vname, column, label) in enumerate([("slicer_year", "dim_date.year", "Year"),
                                                 ("slicer_region", "dim_geography.region", "Customer region")]):
-        visual(page, vname, "slicer", (930 + i * 170, 12, 160, 56),
+        visual(page, vname, "slicer", (930 + i * 170, 4, 160, 54),
                query={"Values": [proj(column, label)]},
                objects={"data": [{"properties": {"mode": text("Dropdown")}}]},
                z=10 + i, sync=vname)
@@ -636,23 +640,24 @@ def build_report() -> None:
     })
 
     # Layout grid (pixels on a 1280 x 720 page)
-    L, GAP, TOP_CARDS, CARD_H, ROW1, ROW1_H, ROW2, ROW2_H = 24, 12, 80, 88, 180, 250, 442, 262
+    L, GAP, TOP_CARDS, CARD_H, ROW1, ROW1_H, ROW2, ROW2_H = 24, 12, 62, 84, 156, 262, 430, 274
     HALF = (1280 - 2 * L - GAP) // 2
 
     def cards_row(pg: str, measures: list) -> None:
         n = len(measures)
         width = (1280 - 2 * L - (n - 1) * GAP) // n
-        for i, (m, units) in enumerate(measures):
-            card(pg, f"card_{i + 1}", (L + i * (width + GAP), TOP_CARDS, width, CARD_H), m, units, z=1 + i)
+        for i, (m, label, millions) in enumerate(measures):
+            card(pg, f"card_{i + 1}", (L + i * (width + GAP), TOP_CARDS, width, CARD_H), m, label, millions, z=1 + i)
 
     # ------------------------------------------------------------------ page 1: executive overview
     pg = "overview"
     page(pg, "Executive overview")
-    textbox(pg, "page_title", (L, 10, 890, 60),
+    textbox(pg, "page_title", (L, 10, 890, 46),
             "Late and undelivered orders are 9.5% of orders but account for 43% of all bad reviews")
     slicers(pg)
-    cards_row(pg, [("Orders", None), ("GMV", "1000000D"), ("On-time Rate", None),
-                   ("Not-delivered Rate", None), ("Avg Review Score", None), ("Low Score Share", None)])
+    cards_row(pg, [("Orders", None, False), ("GMV", "GMV (BRL)", True), ("On-time Rate", None, False),
+                   ("Not-delivered Rate", None, False), ("Avg Review Score", None, False),
+                   ("Low Score Share", "1-2 star share", False)])
     visual(pg, "orders_by_month", "clusteredColumnChart", (L, ROW1, HALF, ROW1_H),
            query={"Category": [proj("dim_date.year_month", "Purchase month")], "Y": [proj("Orders")]},
            sort_def=sort("dim_date.year_month"),
@@ -682,24 +687,30 @@ def build_report() -> None:
     # ------------------------------------------------------------------ page 2: delivery performance
     pg = "delivery"
     page(pg, "Delivery performance")
-    textbox(pg, "page_title", (L, 10, 890, 60),
-            "Rio de Janeiro has 13% of orders but 23% of late deliveries; most delays arise after the seller has shipped")
+    textbox(pg, "page_title", (L, 10, 890, 46),
+            "Rio de Janeiro has 13% of orders but 23% of late deliveries; most delays arise in transit")
     slicers(pg)
-    cards_row(pg, [("Late Rate", None), ("Late Orders", None), ("Median Delivery Days", None),
-                   ("Avg Delay (Late)", None), ("Late Orders Handed Over Late by Seller", None)])
+    cards_row(pg, [("Late Rate", None, False), ("Late Orders", None, False),
+                   ("Median Delivery Days", "Median delivery days", False),
+                   ("Avg Delay (Late)", "Avg days late", False),
+                   ("Late Orders Handed Over Late by Seller", "Late: seller shipped late", False)])
     visual(pg, "late_rate_by_state", "clusteredBarChart", (L, ROW1, HALF, 720 - ROW1 - 16),
            query={"Category": [proj("dim_geography.state_name", "Customer state")], "Y": [proj("Late Rate")]},
            sort_def=sort("Late Rate", "Descending"),
            objects={"dataPoint": measure_color("Colour Late Rate"),
-                    "labels": [{"properties": {"show": lit("true")}}]},
-           vco=title_objects("Late rates are highest in the Northeast; Rio de Janeiro combines a high rate with high volume",
+                    "labels": [{"properties": {"show": lit("true"), "fontSize": lit("8D")}}],
+                    "categoryAxis": [{"properties": {"preferredCategoryWidth": lit("10D"), "fontSize": lit("8D"),
+                                                     "innerPadding": lit("20D")}}],
+                    # the bars are labelled with their value, so the value axis is not needed
+                    "valueAxis": [{"properties": {"show": lit("false")}}]},
+           vco=title_objects("Late rates are highest in the Northeast and in Rio de Janeiro",
                              "Late rate by customer state, states with 300+ orders. Orange: above the national rate"),
            filters=[filter_min("late_rate_by_state", "Orders", 300)], z=20)
     visual(pg, "late_by_band", "clusteredColumnChart", (L + HALF + GAP, ROW1, HALF, 200),
            query={"Category": [proj("fact_orders.delay_band", "Days late")], "Y": [proj("Orders")]},
            sort_def=sort("fact_orders.delay_band"),
            objects={"dataPoint": [{"properties": {"fill": color(ORANGE)}}],
-                    "labels": [{"properties": {"show": lit("true")}}]},
+                    "labels": [{"properties": {"show": lit("true"), "labelDisplayUnits": lit("1D")}}]},
            vco=title_objects("Late orders are spread fairly evenly from 1 to more than 15 days late",
                              "Late orders by number of days after the promised date"),
            filters=[filter_exclude("late_by_band", "fact_orders.delay_band",
@@ -709,7 +720,7 @@ def build_report() -> None:
                              proj("Item Orders", "Orders"), proj("Item Late Orders", "Late orders"),
                              proj("Item Late Rate", "Late rate"), proj("Item Low Score Share", "1-2 star share")]},
            sort_def=sort("Item Late Orders", "Descending"),
-           vco=title_objects("The sellers with the most late orders are large São Paulo sellers, not small outliers",
+           vco=title_objects("The ten sellers with the most late orders are all large São Paulo sellers",
                              "Sellers with 30+ orders, ranked by number of late orders"),
            filters=[filter_min("seller_ranking", "Item Orders", 30)], z=22)
 
@@ -717,12 +728,11 @@ def build_report() -> None:
     pg = "satisfaction"
     # the coded sample is not related to the model, so the slicers must not try to filter it
     page(pg, "Customer satisfaction", no_filter_targets=["complaints"])
-    textbox(pg, "page_title", (L, 10, 890, 60),
-            "On-time orders with several items get 1-2 stars more than three times as often as single-item orders",
-            "14pt")
+    textbox(pg, "page_title", (L, 10, 890, 46),
+            "On-time orders with several items get 1-2 stars more than three times as often as single-item orders")
     slicers(pg)
-    cards_row(pg, [("Avg Review Score", None), ("Low Score Share", None), ("Comment Share", None),
-                   ("Coded Reviews", None)])
+    cards_row(pg, [("Avg Review Score", None, False), ("Low Score Share", "1-2 star share", False),
+                   ("Comment Share", None, False), ("Coded Reviews", "Coded reviews (sample)", False)])
     visual(pg, "low_by_band", "clusteredColumnChart", (L, ROW1, HALF, ROW1_H),
            query={"Category": [proj("fact_orders.delay_band", "Delivery outcome")],
                   "Y": [proj("Low Score Share", "1-2 star share")]},
@@ -756,10 +766,13 @@ def build_report() -> None:
                        "max": {"color": {"Literal": {"Value": f"'{ORANGE}'"}}},
                        "nullColoringStrategy": {"strategy": {"Literal": {"Value": "'asZero'"}}}}}}}}}}},
                "selector": {"data": [{"dataViewWildcard": {"matchingOption": 1}}],
-                            "metadata": "coded_reviews.Complaint Share"}}],
-               "subTotals": [{"properties": {"rowSubtotals": lit("false")}}]},
-           vco=title_objects("81% of complaints about on-time orders with several items are about a missing part",
-                             "Sample of 300 coded 1-2 star reviews: share of each complaint inside the delivery group. Not affected by the slicers"),
+                            "metadata": "coded_reviews.Complaint Share"}},
+               {"properties": {"fontSize": lit("8D")}}],
+               "columnHeaders": [{"properties": {"fontSize": lit("8D")}}],
+               "rowHeaders": [{"properties": {"fontSize": lit("8D")}}],
+               "subTotals": [{"properties": {"rowSubtotals": lit("false"), "columnSubtotals": lit("false")}}]},
+           vco=title_objects("Several-item orders delivered on time: 81% of complaints are about a missing part",
+                             "Sample of 300 coded 1-2 star reviews; share within each delivery group; slicers do not apply"),
            z=22)
     visual(pg, "category_matrix", "scatterChart", (L + HALF + GAP, ROW2, HALF, ROW2_H),
            query={"Category": [proj("dim_product.category_en", "Category")],

@@ -3,9 +3,9 @@
   "name": "card_4",
   "position": {
     "x": 768,
-    "y": 80,
+    "y": 62,
     "z": 4,
-    "height": 88,
+    "height": 84,
     "width": 236,
     "tabOrder": 4
   },
@@ -27,11 +27,27 @@
                 }
               },
               "queryRef": "fact_orders.Avg Delay (Late)",
-              "nativeQueryRef": "Avg Delay (Late)"
+              "nativeQueryRef": "Avg Delay (Late)",
+              "displayName": "Avg days late"
             }
           ]
         }
       }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "drillFilterOtherVisuals": true
   }

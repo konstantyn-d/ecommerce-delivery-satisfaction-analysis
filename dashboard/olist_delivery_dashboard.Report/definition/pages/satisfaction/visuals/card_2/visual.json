@@ -3,9 +3,9 @@
   "name": "card_2",
   "position": {
     "x": 335,
-    "y": 80,
+    "y": 62,
     "z": 2,
-    "height": 88,
+    "height": 84,
     "width": 299,
     "tabOrder": 2
   },
@@ -27,11 +27,27 @@
                 }
               },
               "queryRef": "fact_orders.Low Score Share",
-              "nativeQueryRef": "Low Score Share"
+              "nativeQueryRef": "Low Score Share",
+              "displayName": "1-2 star share"
             }
           ]
         }
       }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "drillFilterOtherVisuals": true
   }

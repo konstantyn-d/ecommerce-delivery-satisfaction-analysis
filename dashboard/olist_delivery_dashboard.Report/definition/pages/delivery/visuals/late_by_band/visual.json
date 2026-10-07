@@ -3,7 +3,7 @@
   "name": "late_by_band",
   "position": {
     "x": 646,
-    "y": 180,
+    "y": 156,
     "z": 21,
     "height": 200,
     "width": 610,
@@ -95,6 +95,13 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }

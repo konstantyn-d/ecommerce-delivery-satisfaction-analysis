@@ -3,9 +3,9 @@
   "name": "card_4",
   "position": {
     "x": 957,
-    "y": 80,
+    "y": 62,
     "z": 4,
-    "height": 88,
+    "height": 84,
     "width": 299,
     "tabOrder": 4
   },
@@ -27,11 +27,27 @@
                 }
               },
               "queryRef": "coded_reviews.Coded Reviews",
-              "nativeQueryRef": "Coded Reviews"
+              "nativeQueryRef": "Coded Reviews",
+              "displayName": "Coded reviews (sample)"
             }
           ]
         }
       }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "drillFilterOtherVisuals": true
   }

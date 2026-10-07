@@ -3,9 +3,9 @@
   "name": "orders_by_month",
   "position": {
     "x": 24,
-    "y": 180,
+    "y": 156,
     "z": 20,
-    "height": 250,
+    "height": 262,
     "width": 610,
     "tabOrder": 20
   },

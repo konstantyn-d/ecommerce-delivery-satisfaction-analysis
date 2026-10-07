@@ -5,7 +5,7 @@
     "x": 24,
     "y": 10,
     "z": 0,
-    "height": 60,
+    "height": 46,
     "width": 890,
     "tabOrder": 0
   },
@@ -22,7 +22,7 @@
                     "value": "Late and undelivered orders are 9.5% of orders but account for 43% of all bad reviews",
                     "textStyle": {
                       "fontWeight": "bold",
-                      "fontSize": "15pt"
+                      "fontSize": "14pt"
                     }
                   }
                 ]
