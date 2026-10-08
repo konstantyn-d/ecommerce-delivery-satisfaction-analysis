@@ -302,6 +302,7 @@ data["repeat"] = rows(
     FROM model.fact_orders f JOIN model.dim_customer c USING (customer_unique_id)
     WHERE f.customer_order_number = 1 AND f.delivery_outcome IN ('On time', 'Late')
     GROUP BY f.delivery_outcome
+    ORDER BY min(f.delivery_outcome_sort)
     """
 )
 

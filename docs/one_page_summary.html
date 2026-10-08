@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Late Deliveries, Lost Customers: one-page summary</title>
+<meta name="author" content="Kostiantyn Dolyna">
+<style>:root { --ink: #1B1F23; --dark: #16202A; --muted: #6B7280; --soft: #4B5563; --tint: #F3F4F6; --rule: #E1E0D9; }
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { font-family: Calibri, Carlito, "Segoe UI", Arial, sans-serif; font-size: 9.6pt; line-height: 1.32;
+       color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { width: 210mm; height: 297mm; display: flex; flex-direction: column; overflow: hidden; background: #fff; }
+header { background: var(--dark); color: #fff; padding: 10mm 15mm 8mm; display: flex;
+         justify-content: space-between; align-items: flex-end; gap: 8mm; }
+.kicker { font-size: 8pt; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: #D1D5DB; }
+h1 { font-family: Cambria, Georgia, serif; font-size: 23pt; line-height: 1.1; margin: 2.2mm 0 1.6mm;
+     white-space: nowrap; }
+.sub { font-size: 11.5pt; color: #D1D5DB; }
+.hero { text-align: right; flex: none; }
+.hero .n { font-family: Cambria, Georgia, serif; font-size: 34pt; font-weight: 700; line-height: 1; }
+.hero .l { font-size: 8.8pt; line-height: 1.25; color: #D1D5DB; width: 40mm; margin: 1.2mm 0 0 auto; }
+main { padding: 7mm 15mm 5mm; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+.answer { font-family: Cambria, Georgia, serif; font-size: 12.4pt; line-height: 1.3; margin: 0; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 9mm; }
+h2 { font-size: 8pt; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 700;
+     margin: 0 0 3mm; padding-bottom: 1.3mm; border-bottom: .3mm solid var(--rule); }
+.item { display: grid; grid-template-columns: 6mm 1fr; gap: 2.6mm; margin-bottom: 3.2mm; }
+.item:last-child { margin-bottom: 0; }
+.badge { width: 6mm; height: 6mm; border-radius: 50%; background: var(--dark); color: #fff; font-weight: 700;
+         font-size: 9pt; display: flex; align-items: center; justify-content: center; }
+.item .h { font-family: Cambria, Georgia, serif; font-size: 11pt; font-weight: 700; line-height: 1.2;
+           margin-bottom: .7mm; }
+figure { margin: 0; }
+figcaption { font-size: 9.4pt; font-weight: 700; line-height: 1.25; margin-bottom: 1.2mm; }
+.key { font-size: 8.5pt; color: var(--soft); margin-bottom: 1mm; }
+.key i { display: inline-block; width: 2.6mm; height: 2.6mm; border-radius: .6mm; margin: 0 1.2mm 0 0;
+         vertical-align: -0.3mm; }
+.key i + span { margin-right: 4mm; }
+svg { display: block; width: 100%; height: auto; }
+svg text { font-family: Calibri, Carlito, "Segoe UI", Arial, sans-serif; fill: var(--ink); }
+svg .val { font-size: 11px; font-weight: 700; text-anchor: middle; }
+svg .cat { font-size: 9.5px; fill: var(--soft); text-anchor: middle; }
+svg .row { font-size: 10.5px; }
+svg .end { font-size: 10.5px; fill: var(--soft); }
+svg .end .b { font-weight: 700; fill: var(--ink); }
+.note { font-size: 8.5pt; line-height: 1.3; color: var(--soft); }
+.shift { display: grid; grid-template-columns: auto 1fr; gap: 3.5mm; align-items: center; background: var(--tint);
+         border-radius: 2mm; padding: 2.4mm 3.5mm; margin-top: 2.5mm; }
+.shift .v { font-family: Cambria, Georgia, serif; font-size: 15pt; font-weight: 700; white-space: nowrap; }
+.shift .l { font-size: 8.5pt; line-height: 1.25; color: var(--soft); }
+footer { margin: 0 15mm; padding: 2.8mm 0 7mm; border-top: .3mm solid var(--rule); font-size: 8pt;
+         color: var(--muted); display: flex; justify-content: space-between; gap: 8mm; white-space: nowrap; }
+footer b { color: var(--ink); }
+footer a { color: inherit; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div>
+      <div class="kicker">Business analysis case study &middot; Olist, Brazilian e-commerce marketplace</div>
+      <h1>Late Deliveries, Lost Customers</h1>
+      <div class="sub">Why customers give bad reviews, and what to fix first</div>
+    </div>
+    <div class="hero">
+      <div class="n">14.6%</div>
+      <div class="l">of reviewed orders get a 1–2 star review (14,382 of 98,330)</div>
+    </div>
+  </header>
+  <main>
+    <p class="answer">Broken delivery promises and incomplete orders account for the avoidable bad reviews. Orders that arrive late or not at all are 9.5% of orders but 42.7% of all 1–2 star reviews, and orders with several items often arrive incomplete. Complete orders and on-time delivery in the five worst states could remove about 1,600 bad reviews, 11% of the total.</p>
+    <div class="cols">
+      <section>
+        <h2>What the data shows</h2>
+        <div class="item"><div class="badge">1</div><div><div class="h">A broken delivery promise is the strongest driver of bad reviews</div><b>62.4%</b> of late orders and <b>78.0%</b> of orders that never arrive get 1–2 stars, against <b>9.2%</b> of on-time orders.</div></div><div class="item"><div class="badge">2</div><div><div class="h">The delay arises in transit on specific routes, not with a few bad sellers</div>Rio de Janeiro has <b>12.9%</b> of orders but <b>22.9%</b> of late deliveries. 72% of late orders left the seller in time, then spent a median 26 days in transit, against 7 days.</div></div><div class="item"><div class="badge">3</div><div><div class="h">Orders with several items arrive on time, but often incomplete</div><b>24.6%</b> get 1–2 stars, against <b>7.5%</b> of single-item orders. In 300 coded reviews, <b>81%</b> of the complaints in this group (95% CI 69–90%) say part of the order is missing.</div></div>
+      </section>
+      <section>
+        <h2>Bad reviews by delivery outcome</h2>
+        <figure>
+          <figcaption>Share of reviewed orders with a 1–2 star review</figcaption>
+          <div class="key"><i style="background:#2A78D6"></i><span>promise kept</span><i style="background:#EB6834"></i><span>promise broken</span></div>
+          <svg viewBox="0 0 340 204" role="img" aria-label="Share of 1-2 star reviews by delivery outcome"><path d="M16.3,176 V161.8 Q16.3,157.8 20.3,157.8 H36.3 Q40.3,157.8 40.3,161.8 V176 Z" fill="#2A78D6"/><text x="28.3" y="152.8" class="val">9%</text><text x="28.3" y="189" class="cat">On time</text><text x="28.3" y="200" class="cat"></text><path d="M73.0,176 V116.6 Q73.0,112.6 77.0,112.6 H93.0 Q97.0,112.6 97.0,116.6 V176 Z" fill="#EB6834"/><text x="85.0" y="107.6" class="val">32%</text><text x="85.0" y="189" class="cat">Late</text><text x="85.0" y="200" class="cat">1–3 days</text><path d="M129.7,176 V46.6 Q129.7,42.6 133.7,42.6 H149.7 Q153.7,42.6 153.7,46.6 V176 Z" fill="#EB6834"/><text x="141.7" y="37.6" class="val">68%</text><text x="141.7" y="189" class="cat">Late</text><text x="141.7" y="200" class="cat">4–7 days</text><path d="M186.3,176 V22.0 Q186.3,18.0 190.3,18.0 H206.3 Q210.3,18.0 210.3,22.0 V176 Z" fill="#EB6834"/><text x="198.3" y="13.0" class="val">80%</text><text x="198.3" y="189" class="cat">Late</text><text x="198.3" y="200" class="cat">8–14 days</text><path d="M243.0,176 V25.6 Q243.0,21.6 247.0,21.6 H263.0 Q267.0,21.6 267.0,25.6 V176 Z" fill="#EB6834"/><text x="255.0" y="16.6" class="val">78%</text><text x="255.0" y="189" class="cat">Late</text><text x="255.0" y="200" class="cat">15+ days</text><path d="M299.7,176 V26.3 Q299.7,22.3 303.7,22.3 H319.7 Q323.7,22.3 323.7,26.3 V176 Z" fill="#EB6834"/><text x="311.7" y="17.3" class="val">78%</text><text x="311.7" y="189" class="cat">Not</text><text x="311.7" y="200" class="cat">delivered</text><line x1="0" y1="176" x2="340" y2="176" stroke="#C9C8C2" stroke-width="1"/></svg>
+        </figure>
+      </section>
+    </div>
+    <div class="cols">
+      <section>
+        <h2>What to do first</h2>
+        <div class="item"><div class="badge">1</div><div><div class="h">Make every order complete, and measure it</div>About <b>1,151</b> fewer bad reviews (768–1,535). First step: audit 100 several-item orders marked as delivered. Sent later, or never sent?</div></div><div class="item"><div class="badge">2</div><div><div class="h">Fix transit on the worst routes</div>About <b>457</b> fewer bad reviews (305–610). First step: a carrier scorecard for Rio de Janeiro and the Northeast, and a review of the promised dates there.</div></div><div class="item"><div class="badge">3</div><div><div class="h">Warn customers before a missed promise</div>Not quantified: needs a test. Bad reviews go from 32% at 1–3 days late to 68% at 4–7 days: the first days after the promised date are the window to act.</div></div>
+      </section>
+      <section>
+        <h2>What fixing it could achieve</h2>
+        <figure>
+          <figcaption>Estimated 1–2 star reviews avoided over 20 months, of 14,382</figcaption>
+          <svg viewBox="0 0 340 118" role="img" aria-label="Bad reviews avoided per scenario"><text x="0" y="10" class="row">On-time delivery in the five worst states</text><path d="M0,15 H41.9 Q45.9,15 45.9,19 V25 Q45.9,29 41.9,29 H0 Z" fill="#2A78D6"/><path d="M30.6,22.0 H61.1 M30.6,18.0 v8 M61.1,18.0 v8" stroke="#1B1F23" stroke-width="1.2" fill="none"/><text x="68.1" y="25.5" class="end"><tspan class="b">457</tspan> (305–610)</text><text x="0" y="52" class="row">Complete orders with several items</text><path d="M0,57 H111.4 Q115.4,57 115.4,61 V67 Q115.4,71 111.4,71 H0 Z" fill="#2A78D6"/><path d="M76.9,64.0 H153.9 M76.9,60.0 v8 M153.9,60.0 v8" stroke="#1B1F23" stroke-width="1.2" fill="none"/><text x="160.9" y="67.5" class="end"><tspan class="b">1,151</tspan> (768–1,535)</text><text x="0" y="94" class="row">Both together</text><path d="M0,99 H157.2 Q161.2,99 161.2,103 V109 Q161.2,113 157.2,113 H0 Z" fill="#2A78D6"/><path d="M107.5,106.0 H215.0 M107.5,102.0 v8 M215.0,102.0 v8" stroke="#1B1F23" stroke-width="1.2" fill="none"/><text x="222.0" y="109.5" class="end"><tspan class="b">1,609</tspan> (1,072–2,145)</text></svg>
+        </figure>
+        <div class="note" style="margin-top:1.5mm">Bar: base case, 75% of the observed difference between the groups
+        is a real effect. Line: low case (50%) to high case (100%).</div>
+        <div class="shift">
+          <div class="v">14.6% &rarr; 13.0%</div>
+          <div class="l">share of 1–2 star reviews if both are done, base case</div>
+        </div>
+      </section>
+    </div>
+    <div class="cols">
+      <section>
+        <h2>How it was done</h2>
+        <div class="note">99,092 orders, January 2017 to August 2018. SQL star schema in DuckDB from 9 raw tables, with 32 documented data quality decisions, 37 validation tests and 13 KPI definitions. 12 hypotheses from an issue tree, each tested with data. A stratified random sample of 300 bad reviews, coded with a codebook of 8 complaint types. A scenario with low, base and high cases. Power BI dashboard and 10-slide deck built from the same numbers.</div>
+      </section>
+      <section>
+        <h2>What to keep in mind</h2>
+        <div class="note">Observational data: the findings are strong associations, not proven effects, and the scenario is an estimate, not a forecast. The review survey is sent around the promised date, so most late customers answer while still waiting. Impact is counted in reviews, not in money: costs are not in the data. The reviews were coded by one coder; only customers who wrote a comment are represented.</div>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div><b>Kostiantyn Dolyna</b> &middot; <a href="https://github.com/konstantyn-d/ecommerce-delivery-satisfaction-analysis">github.com/konstantyn-d/ecommerce-delivery-satisfaction-analysis</a></div>
+    <div>Data: Olist public dataset (Kaggle), CC BY-NC-SA 4.0</div>
+  </footer>
+</div>
+</body>
+</html>
